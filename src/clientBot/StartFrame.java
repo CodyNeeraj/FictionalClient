@@ -2,16 +2,18 @@ package clientBot;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class chatStartActivity extends javax.swing.JFrame
+public class StartFrame extends javax.swing.JFrame
 {
 
     private static final long serialVersionUID = 1L;
 
-    public chatStartActivity ()
+    public StartFrame ()
     {
         try
         {
@@ -21,7 +23,7 @@ public class chatStartActivity extends javax.swing.JFrame
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex)
         {
-            Logger.getLogger(chatStartActivity.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
 
@@ -164,37 +166,27 @@ public class chatStartActivity extends javax.swing.JFrame
 
     private void serverStartActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_serverStartActionPerformed
     {//GEN-HEADEREND:event_serverStartActionPerformed
-      /* if(ipAddrsField.getText().isEmpty())
+        /* if(ipAddrsField.getText().isEmpty())
        {    
            JOptionPane.showMessageDialog(this, "IP address isn't specified !", "input Error", JOptionPane.ERROR_MESSAGE);
        }*/
         //above code causes both pop ups of port and ip fields simultaneously
+        String IpValidator = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+        Pattern ptrn = Pattern.compile(IpValidator);
+        String ipv4 = ipAddrsField.getText();
+        Matcher mtch = ptrn.matcher(ipv4);
+        boolean validated = true;
+        int port = 0;
         try
         {
-            int port = Integer.parseInt(portField.getText());
-            String ipv4 = ipAddrsField.getText();
-            if (port < 10 | port >= 65536)
-            {
-                System.out.println("Enter port within range chewtiye");
-                JOptionPane.showMessageDialog(this, "Port isn't in the range specified", "Value Error", JOptionPane.WARNING_MESSAGE);
-            }
-            else
-            {
-                if(ipAddrsField.getText().isEmpty())
-                {
-                    JOptionPane.showMessageDialog(this, "IP address isn't specified !", "input Error", JOptionPane.ERROR_MESSAGE);
-                }
-                else
-                {
-                    //do whatever the heck here as this is the place where everthing is checked and verified
-                    System.out.println("IP is "+ipv4+" port is "+port);
-                }
-            }
+            port = Integer.parseInt(portField.getText());
         }
         catch (NumberFormatException e)
         {
+            validated = false;
             if (portField.getText().isEmpty())
             {
+                validated = false;
                 JOptionPane.showMessageDialog(this, "Port or IP can't be left Empty", "Input Error", JOptionPane.WARNING_MESSAGE);
             }
             else
@@ -202,10 +194,33 @@ public class chatStartActivity extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(this, "Port can only be a Number", "Input Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        finally
+
+        if (port < 10 | port >= 65536)
         {
-            //nothing here
+            validated = false;
+            System.out.println("Enter port within range chewtiye");
+            JOptionPane.showMessageDialog(this, "Port isn't in the range specified", "Value Error", JOptionPane.WARNING_MESSAGE);
         }
+
+        if (!mtch.matches())
+        {
+            validated = false;
+            JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if (validated) //means true (by default)
+        {
+            /* if (ipAddrsField.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "IP address isn't specified !", "input Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {*/
+            new clientBot.ChatConsole(ipv4, port).setVisible(true);
+            //do whatever the heck here as this is the place where everthing is checked and verified
+            System.out.println("IP is " + ipv4 + " port is " + port);
+
+        }
+
     }//GEN-LAST:event_serverStartActionPerformed
 
     private void portFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portFieldActionPerformed
@@ -239,7 +254,7 @@ public class chatStartActivity extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() ->
         {
-            new chatStartActivity().setVisible(true);
+            new StartFrame().setVisible(true);
         });
     }
 
