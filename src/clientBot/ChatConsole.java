@@ -24,6 +24,7 @@ public class ChatConsole extends javax.swing.JFrame
     private DateTimeFormatter pattern;
     private LocalDateTime now;
     private long start;
+    private StringBuilder builder;
 
     /**
      * Creates new form serverChatConsole
@@ -231,7 +232,7 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel11.setText("Today");
 
         dateAndTime.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        dateAndTime.setText("<<<Date and time>>>");
+        dateAndTime.setText("Date");
 
         disconnectBtn.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
         disconnectBtn.setText("Disconnect");
@@ -248,13 +249,6 @@ public class ChatConsole extends javax.swing.JFrame
 
         connectedSince.setEditable(false);
         connectedSince.setText("0 Secs");
-        connectedSince.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                connectedSinceActionPerformed(evt);
-            }
-        });
 
         refreshBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/refresh.png"))); // NOI18N
         refreshBtn.addAncestorListener(new javax.swing.event.AncestorListener()
@@ -501,16 +495,24 @@ public class ChatConsole extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_activeClientListActionPerformed
 
-    private void connectedSinceActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_connectedSinceActionPerformed
-    {//GEN-HEADEREND:event_connectedSinceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_connectedSinceActionPerformed
-
     private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_refreshBtnActionPerformed
     {//GEN-HEADEREND:event_refreshBtnActionPerformed
+        builder = new StringBuilder();
         end = System.currentTimeMillis();
         long elapsedtime = (end - start) / 1000;
-        connectedSince.setText(new StringBuilder().append(elapsedtime).append(" Secs").toString());
+        if (elapsedtime > 59)
+        {
+            double time = elapsedtime / 60f;
+            double temp = (Math.floor(time * 100) / 100);
+            // builder.append(String.format("%.3f", time)).append(" Mins");
+            builder.append(temp).append(" Mins");
+            connectedSince.setText(builder.toString());
+        }
+        else
+        {
+            builder.append(elapsedtime).append(" Secs");
+            connectedSince.setText(builder.toString());
+        }
 
         pattern = DateTimeFormatter.ofPattern("dd-MMMM-yyyy hh:mm");
         now = LocalDateTime.now();

@@ -1,9 +1,12 @@
 package clientBot;
 
+import java.io.IOException;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -12,6 +15,8 @@ public class StartFrame extends javax.swing.JFrame
 {
 
     private static final long serialVersionUID = 1L;
+    private ImageIcon ico;
+    private Socket soc;
 
     public StartFrame ()
     {
@@ -132,7 +137,7 @@ public class StartFrame extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,9 +160,9 @@ public class StartFrame extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(serverPass)
                     .addComponent(passField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(serverStart)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(11, 11, 11))
         );
 
         pack();
@@ -166,16 +171,12 @@ public class StartFrame extends javax.swing.JFrame
 
     private void serverStartActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_serverStartActionPerformed
     {//GEN-HEADEREND:event_serverStartActionPerformed
-        /* if(ipAddrsField.getText().isEmpty())
-       {    
-           JOptionPane.showMessageDialog(this, "IP address isn't specified !", "input Error", JOptionPane.ERROR_MESSAGE);
-       }*/
-        //above code causes both pop ups of port and ip fields simultaneously
+
         String IpValidator = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
         Pattern ptrn = Pattern.compile(IpValidator);
         String ipv4 = ipAddrsField.getText();
         Matcher mtch = ptrn.matcher(ipv4);
-        boolean validated = true;
+        boolean isValidated = true;
         int port = 0;
         try
         {
@@ -183,10 +184,10 @@ public class StartFrame extends javax.swing.JFrame
         }
         catch (NumberFormatException e)
         {
-            validated = false;
+            isValidated = false;
             if (portField.getText().isEmpty())
             {
-                validated = false;
+                isValidated = false;
                 JOptionPane.showMessageDialog(this, "Port or IP can't be left Empty", "Input Error", JOptionPane.WARNING_MESSAGE);
             }
             else
@@ -197,24 +198,35 @@ public class StartFrame extends javax.swing.JFrame
 
         if (port < 10 | port >= 65536)
         {
-            validated = false;
+            isValidated = false;
             System.out.println("Enter port within range chewtiye");
             JOptionPane.showMessageDialog(this, "Port isn't in the range specified", "Value Error", JOptionPane.WARNING_MESSAGE);
         }
 
         if (!mtch.matches())
         {
-            validated = false;
+            isValidated = false;
             JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
         }
-        if (validated) //means true (by default)
+       /* else
         {
-            /* if (ipAddrsField.getText().isEmpty())
+
+            try
             {
-                JOptionPane.showMessageDialog(this, "IP address isn't specified !", "input Error", JOptionPane.ERROR_MESSAGE);
+                soc = new Socket(ipv4, port);
             }
-            else
-            {*/
+            catch (IOException ex)
+            {
+                isValidated = false;
+                JOptionPane.showMessageDialog(rootPane, "The host you're trying to connect is not up\n"
+                        + "or not responding to the client requests at\n"
+                        + "the moment please recheck the credentials\n"
+                        + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }*/
+        if (isValidated) //means true (by default)
+        {
+            dispose();
             new clientBot.ChatConsole(ipv4, port).setVisible(true);
             //do whatever the heck here as this is the place where everthing is checked and verified
             System.out.println("IP is " + ipv4 + " port is " + port);
