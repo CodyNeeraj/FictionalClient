@@ -208,9 +208,8 @@ public class StartFrame extends javax.swing.JFrame
             isValidated = false;
             JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
         }
-       /* else
+        else
         {
-
             try
             {
                 soc = new Socket(ipv4, port);
@@ -223,7 +222,7 @@ public class StartFrame extends javax.swing.JFrame
                         + "the moment please recheck the credentials\n"
                         + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
             }
-        }*/
+        }
         if (isValidated) //means true (by default)
         {
             dispose();
