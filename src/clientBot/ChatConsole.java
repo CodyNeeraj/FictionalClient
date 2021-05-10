@@ -29,12 +29,12 @@ public class ChatConsole extends javax.swing.JFrame
     /**
      * Creates new form serverChatConsole
      */
-    public ChatConsole ()
+    public ChatConsole()
     {
         initComponents();
     }
 
-    public ChatConsole (String ip, int p)
+    public ChatConsole(String ip, int p)
     {
         this.ip = ip;
         this.port = p;
@@ -480,7 +480,7 @@ public class ChatConsole extends javax.swing.JFrame
             InetAddress localhost = InetAddress.getLocalHost();
             localIp_Port.setText(localhost.getHostAddress().trim());
         }
-        catch (UnknownHostException ex)
+        catch(UnknownHostException ex)
         {
             localIp_Port.setText("Error");
         }
@@ -500,7 +500,7 @@ public class ChatConsole extends javax.swing.JFrame
         builder = new StringBuilder();
         end = System.currentTimeMillis();
         long elapsedtime = (end - start) / 1000;
-        if (elapsedtime > 59)
+        if(elapsedtime > 59)
         {
             double time = elapsedtime / 60f;
             double temp = (Math.floor(time * 100) / 100);
@@ -527,7 +527,7 @@ public class ChatConsole extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main (String args[])
+    public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -536,28 +536,28 @@ public class ChatConsole extends javax.swing.JFrame
          */
         try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
             {
-                if ("Nimbus".equals(info.getName()))
+                if("Nimbus".equals(info.getName()))
                 {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         }
-        catch (ClassNotFoundException ex)
+        catch(ClassNotFoundException ex)
         {
             java.util.logging.Logger.getLogger(ChatConsole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch (InstantiationException ex)
+        catch(InstantiationException ex)
         {
             java.util.logging.Logger.getLogger(ChatConsole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch (IllegalAccessException ex)
+        catch(IllegalAccessException ex)
         {
             java.util.logging.Logger.getLogger(ChatConsole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        catch(javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(ChatConsole.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -567,7 +567,7 @@ public class ChatConsole extends javax.swing.JFrame
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable()
         {
-            public void run ()
+            public void run()
             {
                 new ChatConsole().setVisible(true);
             }

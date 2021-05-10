@@ -18,7 +18,7 @@ public class StartFrame extends javax.swing.JFrame
     private ImageIcon ico;
     private Socket soc;
 
-    public StartFrame ()
+    public StartFrame()
     {
         try
         {
@@ -26,7 +26,7 @@ public class StartFrame extends javax.swing.JFrame
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             //will set the default installed l&F as windows Native
         }
-        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex)
+        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex)
         {
             Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -182,10 +182,10 @@ public class StartFrame extends javax.swing.JFrame
         {
             port = Integer.parseInt(portField.getText());
         }
-        catch (NumberFormatException e)
+        catch(NumberFormatException e)
         {
             isValidated = false;
-            if (portField.getText().isEmpty())
+            if(portField.getText().isEmpty())
             {
                 isValidated = false;
                 JOptionPane.showMessageDialog(this, "Port or IP can't be left Empty", "Input Error", JOptionPane.WARNING_MESSAGE);
@@ -196,14 +196,14 @@ public class StartFrame extends javax.swing.JFrame
             }
         }
 
-        if (port < 10 | port >= 65536)
+        if(port < 10 | port >= 65536)
         {
             isValidated = false;
             System.out.println("Enter port within range chewtiye");
             JOptionPane.showMessageDialog(this, "Port isn't in the range specified", "Value Error", JOptionPane.WARNING_MESSAGE);
         }
 
-        if (!mtch.matches())
+        if(!mtch.matches())
         {
             isValidated = false;
             JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
@@ -214,7 +214,7 @@ public class StartFrame extends javax.swing.JFrame
             {
                 soc = new Socket(ipv4, port);
             }
-            catch (IOException ex)
+            catch(IOException ex)
             {
                 isValidated = false;
                 JOptionPane.showMessageDialog(rootPane, "The host you're trying to connect is not up\n"
@@ -223,7 +223,7 @@ public class StartFrame extends javax.swing.JFrame
                         + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        if (isValidated) //means true (by default)
+        if(isValidated) //means true (by default)
         {
             dispose();
             new clientBot.ChatConsole(ipv4, port).setVisible(true);
@@ -252,7 +252,7 @@ public class StartFrame extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main (String args[])
+    public static void main(String args[])
     {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

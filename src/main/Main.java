@@ -55,18 +55,6 @@ import my_swing.Send_Sound_New;
 
 public class Main extends javax.swing.JFrame
 {
-    private my_swing.Button cmdEmoji;
-    private my_swing.Button cmdFile;
-    private my_swing.Button cmdMicro;
-    private my_swing.Button cmdPhoto;
-    private my_swing.Panel panel;
-    private my_swing.Panel panel1;
-    private my_swing.Panel panel2;
-    private my_swing.Panel panelMix;
-    private my_swing.Panel panel_emoji;
-    private javax.swing.JPanel panelGroup;
-    private javax.swing.JLayeredPane panelEmoji;
-
     public Main()
     {
         initComponents();
@@ -373,69 +361,65 @@ public class Main extends javax.swing.JFrame
 
     private void start()
     {
-        th = new Thread(new Runnable()
+        th = new Thread(() ->
         {
-            @Override
-            public void run()
+            try
             {
-                try
+                while(true)
                 {
-                    while(true)
+                    System.out.println("waiting message ...");
+                    Message ms = (Message) Method.getIn().readObject();
+                    String status = ms.getStatus();
+                    if(status.equals("Message"))
                     {
-                        System.out.println("waiting message ...");
-                        Message ms = (Message) Method.getIn().readObject();
-                        String status = ms.getStatus();
-                        if(status.equals("Message"))
-                        {
-                            getMessage(ms.getID(), ms.getMessage());
-                        }
-                        else if(status.equals("New"))
-                        {
-                            newFriend(ms.getImage(), ms.getID(), ms.getName().split("!")[0], ms.getName().split("!")[1]);
-                        }
-                        else if(status.equals("Photo"))
-                        {
-                            getPhoto(ms.getID(), ms.getImage());
-                        }
-                        else if(status.equals("File"))
-                        {
-                            getFile(ms.getID(), ms.getName(), ms.getImage());
-                        }
-                        else if(status.equals("Error"))
-                        {
-                            errorFrient(ms.getID());
-                        }
-                        else if(status.equals("Emoji"))
-                        {
-                            getEmoji(ms.getID(), ms.getMessage());
-                        }
-                        else if(status.equals("GetFile"))
-                        {
-                            download(ms);
-                        }
-                        else if(status.equals("Sound"))
-                        {
-                            getSound(ms.getID(), ms.getData(), ms.getMessage());
-                        }
+                        getMessage(ms.getID(), ms.getMessage());
+                    }
+                    else if(status.equals("New"))
+                    {
+                        newFriend(ms.getImage(), ms.getID(), ms.getName().split("!")[0], ms.getName().split("!")[1]);
+                    }
+                    else if(status.equals("Photo"))
+                    {
+                        getPhoto(ms.getID(), ms.getImage());
+                    }
+                    else if(status.equals("File"))
+                    {
+                        getFile(ms.getID(), ms.getName(), ms.getImage());
+                    }
+                    else if(status.equals("Error"))
+                    {
+                        errorFrient(ms.getID());
+                    }
+                    else if(status.equals("Emoji"))
+                    {
+                        getEmoji(ms.getID(), ms.getMessage());
+                    }
+                    else if(status.equals("GetFile"))
+                    {
+                        download(ms);
+                    }
+                    else if(status.equals("Sound"))
+                    {
+                        getSound(ms.getID(), ms.getData(), ms.getMessage());
                     }
                 }
-                catch(Exception e)
+            }
+            catch(Exception e)
+            {
+                String ms = e.getMessage();
+                if(ms.equals("Socket closed"))
                 {
-                    String ms = e.getMessage();
-                    if(ms.equals("Socket closed"))
-                    {
-                        signOut("Sign out");
-                    }
-                    else if(ms.equals("Connection reset"))
-                    {
-                        signOut("Server has error");
-                    }
-                    else
-                    {
-                        signOut("Error : " + ms);
-                    }
+                    signOut("Sign out");
+                }
+                else if(ms.equals("Connection reset"))
+                {
+                    signOut("Server has error");
+                }
+                else
+                {
+                    signOut("Error : " + ms);
+                }
 
-                }
             }
         });
         th.start();
@@ -801,6 +785,7 @@ public class Main extends javax.swing.JFrame
                 }
                 catch(Exception e)
                 {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
                 }
             }
         }).start();
@@ -839,19 +824,7 @@ public class Main extends javax.swing.JFrame
                 }
             }
         }
-        catch(ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(javax.swing.UnsupportedLookAndFeelException ex)
+        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -859,6 +832,7 @@ public class Main extends javax.swing.JFrame
         java.awt.EventQueue.invokeLater(() ->
         {
             new Main().setVisible(true);
+            System.out.println("error chako");
         });
     }
 
@@ -878,5 +852,18 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JScrollPane spChat;
     private javax.swing.JScrollPane spFriend;
     private javax.swing.JTextField txt;
+    private my_swing.Button cmdEmoji;
+    private my_swing.Button cmdFile;
+    private my_swing.Button cmdMicro;
+    private javax.swing.JButton cmdMix;
+    private my_swing.Button cmdPhoto;
+    private my_swing.Panel panel;
+    private my_swing.Panel panel1;
+    private my_swing.Panel panel2;
+    private javax.swing.JLayeredPane panelEmoji;
+    private javax.swing.JPanel panelGroup;
+    private my_swing.Panel panelMix;
+    private my_swing.Panel panel_emoji;
+    private javax.swing.JScrollPane spGroup;
     // End of variables declaration//GEN-END:variables
 }

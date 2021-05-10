@@ -70,4 +70,28 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <target name="-post-jar">       
+        <!-- Tell ANT we're creating a new build artifact, after the main jar file is built. -->
+  
+        <jar jarfile="dist/Package_INDEPENDANT.jar" >   
+            
+            <!-- Tell ANT to build new jar file with specified name. -->
+  
+            <zipfileset src="${dist.jar}" excludes="META-INF/*" /> 
+            
+            <!-- Add everything from main jar file except the manifest into the new  jar file. -->
+  
+            <zipfileset src="lib/swing-layout-1.0.4.jar" excludes="META-INF/*" />
+            <zipfileset src="lib/Message.jar"            excludes="META-INF/*" /> 
+
+            <!-- Also add everything from this dependency in the libs folder except its manifest file into the new jar file. (Do this for every dependency) -->
+  
+            <manifest>    
+                <!-- Create a new manifest file for this new jar file. -->
+  
+                <attribute name="Main-Class" value="main.Login" />  
+                <!-- Set the main class to specified class if there is one. -->
+            </manifest>             
+        </jar>
+    </target>   
 </project>

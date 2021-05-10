@@ -8,10 +8,14 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.ConnectException;
 import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileFilter;
 
 public class Login extends javax.swing.JFrame
@@ -19,6 +23,17 @@ public class Login extends javax.swing.JFrame
 
     public Login()
     {
+        try
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //will set the default installed l&F as windows Native
+        }
+        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex)
+        {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         initComponents();
         open();
     }
@@ -221,19 +236,11 @@ public class Login extends javax.swing.JFrame
 
             }
         }
-        catch(UnknownHostException e)
+        catch(UnknownHostException | java.rmi.UnknownHostException e)
         {
             showStatus("Unknown host : " + txtIP.getText());
         }
-        catch(java.rmi.UnknownHostException e)
-        {
-            showStatus("Unknown host : " + txtIP.getText());
-        }
-        catch(ConnectException e)
-        {
-            showStatus("Server not found");
-        }
-        catch(java.rmi.ConnectException e)
+        catch(ConnectException | java.rmi.ConnectException e)
         {
             showStatus("Server not found");
         }
@@ -340,45 +347,13 @@ public class Login extends javax.swing.JFrame
 
     public static void main(String args[])
     {
-        try
+        java.awt.EventQueue.invokeLater(() ->
         {
-            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            if(args.length == 1)
             {
-                if("Windows".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+                ms = args[0];
             }
-        }
-        catch(ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                if(args.length == 1)
-                {
-                    ms = args[0];
-                }
-                new Login().setVisible(true);
-            }
+            new Login().setVisible(true);
         });
     }
 
