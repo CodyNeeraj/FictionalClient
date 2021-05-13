@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 import javax.swing.ImageIcon;
@@ -22,7 +22,8 @@ public class Send_Emoji_New extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         border = new javax.swing.JLabel();

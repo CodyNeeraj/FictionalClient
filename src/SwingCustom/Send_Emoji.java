@@ -1,11 +1,11 @@
-package my_swing;
+package SwingCustom;
 
 import javax.swing.ImageIcon;
 
-public class Get_Emoji extends javax.swing.JPanel
+public class Send_Emoji extends javax.swing.JPanel
 {
 
-    public Get_Emoji()
+    public Send_Emoji()
     {
         initComponents();
     }
@@ -17,13 +17,13 @@ public class Get_Emoji extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         lb = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(600, 76));
-        setPreferredSize(new java.awt.Dimension(600, 76));
 
         lb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emoji/emoji_green (1).png"))); // NOI18N
@@ -33,9 +33,9 @@ public class Get_Emoji extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addContainerGap(452, Short.MAX_VALUE)
                 .addComponent(lb)
-                .addGap(172, 172, 172))
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

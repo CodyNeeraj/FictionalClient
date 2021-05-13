@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 import java.awt.Graphics;
@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.ImageIcon;
 
-public class Send_File_New extends javax.swing.JPanel
+public class Get_File_New extends javax.swing.JPanel
 {
 
     public int getFileID()
@@ -39,7 +39,7 @@ public class Send_File_New extends javax.swing.JPanel
         this.fileSize = fileSize;
     }
 
-    public Send_File_New()
+    public Get_File_New()
     {
         initComponents();
     }
@@ -58,23 +58,27 @@ public class Send_File_New extends javax.swing.JPanel
         {
             profile.setIcon(Method.getFriends().get(ID).getImage());
         }
+        lbName.setText(Method.getFriends().get(ID).getfName());
         lbFileName.setToolTipText(fileSize);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         border = new javax.swing.JLabel();
         profile = new javax.swing.JLabel();
         lbName = new javax.swing.JLabel();
-        lbFileName = new javax.swing.JButton(){
+        lbFileName = new javax.swing.JButton()
+        {
             @Override
-            protected void paintComponent(Graphics g) {
+            protected void paintComponent(Graphics g)
+            {
                 super.paintComponent(g);
                 Graphics2D g2 = (Graphics2D) g;
-                g2.setColor(new java.awt.Color(72, 173, 243));
+                g2.setColor(new java.awt.Color(195, 191, 191));
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
                 g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 20, 20);
@@ -96,8 +100,7 @@ public class Send_File_New extends javax.swing.JPanel
 
         lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
         lbName.setForeground(new java.awt.Color(29, 118, 206));
-        lbName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lbName.setText("You");
+        lbName.setText("Name");
 
         lbFileName.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 13)); // NOI18N
         lbFileName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_1.png"))); // NOI18N
@@ -105,9 +108,11 @@ public class Send_File_New extends javax.swing.JPanel
         lbFileName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 20));
         lbFileName.setContentAreaFilled(false);
         lbFileName.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbFileName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lbFileName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        lbFileName.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        lbFileName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lbFileNameActionPerformed(evt);
             }
         });
@@ -118,25 +123,27 @@ public class Send_File_New extends javax.swing.JPanel
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbName, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lbFileName)))
-                .addGap(18, 18, 18)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbFileName)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLayeredPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lbName)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbFileName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

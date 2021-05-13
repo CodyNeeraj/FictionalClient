@@ -55,7 +55,7 @@ public class Login extends javax.swing.JFrame
         jPanel1 = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
         txtIP = new javax.swing.JTextField();
-        cmdLogin = new my_swing.Button();
+        cmdLogin = new SwingCustom.Button();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         border = new javax.swing.JLabel();
         profile = new javax.swing.JLabel();
@@ -399,7 +399,7 @@ public class Login extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel border;
-    private my_swing.Button cmdLogin;
+    private SwingCustom.Button cmdLogin;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbStatus;

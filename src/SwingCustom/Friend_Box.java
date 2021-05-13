@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import java.awt.Color;
 import java.awt.Image;
@@ -44,7 +44,8 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         border = new javax.swing.JLabel();

@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 import java.awt.Graphics;
@@ -6,7 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import javax.swing.ImageIcon;
 
-public class Send_File extends javax.swing.JPanel
+public class Get_File extends javax.swing.JPanel
 {
 
     public int getFileID()
@@ -39,7 +39,7 @@ public class Send_File extends javax.swing.JPanel
         this.fileSize = fileSize;
     }
 
-    public Send_File()
+    public Get_File()
     {
         initComponents();
     }
@@ -59,14 +59,17 @@ public class Send_File extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        lbFileName = new javax.swing.JButton(){
+        lbFileName = new javax.swing.JButton()
+        {
             @Override
-            protected void paintComponent(Graphics g) {
+            protected void paintComponent(Graphics g)
+            {
                 super.paintComponent(g);
                 Graphics2D g2 = (Graphics2D) g;
-                g2.setColor(new java.awt.Color(72, 173, 243));
+                g2.setColor(new java.awt.Color(195, 191, 191));
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                     RenderingHints.VALUE_ANTIALIAS_ON);
                 g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 20, 20);
@@ -82,9 +85,11 @@ public class Send_File extends javax.swing.JPanel
         lbFileName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 20));
         lbFileName.setContentAreaFilled(false);
         lbFileName.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lbFileName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        lbFileName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        lbFileName.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        lbFileName.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 lbFileNameActionPerformed(evt);
             }
         });
@@ -93,10 +98,10 @@ public class Send_File extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(84, 84, 84)
                 .addComponent(lbFileName)
-                .addGap(84, 84, 84))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

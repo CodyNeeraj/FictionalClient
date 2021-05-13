@@ -11,7 +11,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Container class="my_swing.Panel" name="panel">
+    <Container class="SwingCustom.Panel" name="panel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -27,7 +27,7 @@
                       <Component id="cmdFile" pref="0" max="32767" attributes="0"/>
                       <Component id="cmdPhoto" alignment="1" pref="0" max="32767" attributes="0"/>
                       <Component id="cmdEmoji" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="cmdMicro" pref="0" max="32767" attributes="0"/>
+                      <Component id="cmdAudio" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -43,14 +43,14 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="cmdFile" min="-2" pref="27" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cmdMicro" min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="cmdAudio" min="-2" pref="27" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="my_swing.Button" name="cmdPhoto">
+        <Component class="SwingCustom.Button" name="cmdPhoto">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -59,14 +59,14 @@
               <Image iconType="3" name="/icon/photo.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/photo_click.png"/>
+              <Image iconType="3" name="/icon/photo_pressed.png"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdPhotoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="my_swing.Button" name="cmdEmoji">
+        <Component class="SwingCustom.Button" name="cmdEmoji">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -75,14 +75,14 @@
               <Image iconType="3" name="/icon/emoji.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/emoji_click.png"/>
+              <Image iconType="3" name="/icon/emoji_pressed.png"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdEmojiActionPerformed"/>
           </Events>
         </Component>
-        <Component class="my_swing.Button" name="cmdFile">
+        <Component class="SwingCustom.Button" name="cmdFile">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -91,14 +91,14 @@
               <Image iconType="3" name="/icon/file.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/file_click.png"/>
+              <Image iconType="3" name="/icon/file_pressed.png"/>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdFileActionPerformed"/>
           </Events>
         </Component>
-        <Component class="my_swing.Button" name="cmdMicro">
+        <Component class="SwingCustom.Button" name="cmdAudio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -107,11 +107,11 @@
               <Image iconType="3" name="/icon/microphone.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/microphone_click.png"/>
+              <Image iconType="3" name="/icon/microphone_pressed.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdMicroActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdAudioActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -136,7 +136,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Container class="my_swing.Panel" name="panel_emoji">
+    <Container class="SwingCustom.Panel" name="panel_emoji">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -170,7 +170,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="my_swing.Panel" name="panel1">
+        <Container class="SwingCustom.Panel" name="panel1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -363,7 +363,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Container class="my_swing.Panel" name="panelMix">
+    <Container class="SwingCustom.Panel" name="panelMix">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="66" type="rgb"/>
@@ -391,7 +391,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="my_swing.Panel" name="panel2">
+        <Container class="SwingCustom.Panel" name="panel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -758,7 +758,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdMoreActionPerformed"/>
           </Events>
         </Component>
-        <Component class="my_swing.Button" name="cmdLogOut">
+        <Component class="SwingCustom.Button" name="cmdLogOut">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>

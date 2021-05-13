@@ -1,14 +1,14 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 
-public class Get_Sound extends javax.swing.JPanel
+public class Send_Sound extends javax.swing.JPanel
 {
 
     private byte[] sound;
     private boolean over = false;
 
-    public Get_Sound()
+    public Send_Sound()
     {
         initComponents();
     }
@@ -22,7 +22,8 @@ public class Get_Sound extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         play = new javax.swing.JProgressBar();
         lbTime = new javax.swing.JLabel();
@@ -31,24 +32,31 @@ public class Get_Sound extends javax.swing.JPanel
         setMaximumSize(new java.awt.Dimension(600, 45));
 
         play.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        play.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        play.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 playStateChanged(evt);
             }
         });
-        play.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        play.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
                 playMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
                 playMouseExited(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
                 playMouseReleased(evt);
             }
         });
 
         lbTime.setFont(new java.awt.Font("sansserif", 0, 13)); // NOI18N
+        lbTime.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbTime.setText("0:00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -56,11 +64,11 @@ public class Get_Sound extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addComponent(play, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(play, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

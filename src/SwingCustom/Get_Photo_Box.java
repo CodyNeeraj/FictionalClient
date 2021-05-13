@@ -1,11 +1,11 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 import java.awt.Dimension;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class Send_Photo_Box extends javax.swing.JPanel
+public class Get_Photo_Box extends javax.swing.JPanel
 {
 
     private boolean isOver = false;
@@ -20,7 +20,7 @@ public class Send_Photo_Box extends javax.swing.JPanel
         this.image = image;
     }
 
-    public Send_Photo_Box()
+    public Get_Photo_Box()
     {
         initComponents();
     }
@@ -49,27 +49,32 @@ public class Send_Photo_Box extends javax.swing.JPanel
             this.setPreferredSize(new Dimension(600, image.getIconHeight() + 12));
             this.setMaximumSize(new Dimension(600, image.getIconHeight() + 12));
         }
+
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         lb = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(600, 142));
 
-        lb.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lb.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        lb.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
                 lbMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
                 lbMouseExited(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
                 lbMouseReleased(evt);
             }
         });
@@ -78,10 +83,10 @@ public class Send_Photo_Box extends javax.swing.JPanel
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(373, 373, 373)
-                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                .addGap(83, 83, 83))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(lb, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addGap(387, 387, 387))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

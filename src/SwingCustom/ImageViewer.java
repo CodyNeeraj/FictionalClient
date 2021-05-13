@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -34,7 +34,8 @@ public class ImageViewer extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         lbImage = new javax.swing.JLabel();
 

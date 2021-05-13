@@ -145,7 +145,7 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIPKeyTyped"/>
           </Events>
         </Component>
-        <Component class="my_swing.Button" name="cmdLogin">
+        <Component class="SwingCustom.Button" name="cmdLogin">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e8" green="a7" red="65" type="rgb"/>

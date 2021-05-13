@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import java.awt.Color;
 import java.awt.Cursor;

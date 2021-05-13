@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 import java.awt.Dimension;
@@ -66,7 +66,8 @@ public class Send_Photo_Box_New extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         border = new javax.swing.JLabel();
@@ -89,14 +90,18 @@ public class Send_Photo_Box_New extends javax.swing.JPanel
 
         lb.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        lb.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        lb.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
                 lbMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
                 lbMouseExited(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
                 lbMouseReleased(evt);
             }
         });

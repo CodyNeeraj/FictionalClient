@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

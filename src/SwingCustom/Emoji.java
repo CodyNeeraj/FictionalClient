@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import javax.swing.ImageIcon;
 

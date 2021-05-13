@@ -1,5 +1,28 @@
 package main;
 
+import SwingCustom.Emoji;
+import SwingCustom.Emoji_Group;
+import SwingCustom.Friend_Box;
+import SwingCustom.Get_Box;
+import SwingCustom.Get_Box_New;
+import SwingCustom.Get_Emoji;
+import SwingCustom.Get_Emoji_New;
+import SwingCustom.Get_File;
+import SwingCustom.Get_File_New;
+import SwingCustom.Get_Photo_Box;
+import SwingCustom.Get_Photo_Box_New;
+import SwingCustom.Get_Sound;
+import SwingCustom.Get_Sound_New;
+import SwingCustom.Send_Box;
+import SwingCustom.Send_Box_New;
+import SwingCustom.Send_Emoji;
+import SwingCustom.Send_Emoji_New;
+import SwingCustom.Send_File;
+import SwingCustom.Send_File_New;
+import SwingCustom.Send_Photo_Box;
+import SwingCustom.Send_Photo_Box_New;
+import SwingCustom.Send_Sound;
+import SwingCustom.Send_Sound_New;
 import function.FileChooser;
 import function.Method;
 import function.Scrolling;
@@ -34,29 +57,6 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileFilter;
 import message.Message;
-import my_swing.Emoji;
-import my_swing.Emoji_Group;
-import my_swing.Friend_Box;
-import my_swing.Get_Box;
-import my_swing.Get_Box_New;
-import my_swing.Get_Emoji;
-import my_swing.Get_Emoji_New;
-import my_swing.Get_File;
-import my_swing.Get_File_New;
-import my_swing.Get_Photo_Box;
-import my_swing.Get_Photo_Box_New;
-import my_swing.Get_Sound;
-import my_swing.Get_Sound_New;
-import my_swing.Send_Box;
-import my_swing.Send_Box_New;
-import my_swing.Send_Emoji;
-import my_swing.Send_Emoji_New;
-import my_swing.Send_File;
-import my_swing.Send_File_New;
-import my_swing.Send_Photo_Box;
-import my_swing.Send_Photo_Box_New;
-import my_swing.Send_Sound;
-import my_swing.Send_Sound_New;
 
 public class ChatConsole extends javax.swing.JFrame
 {
@@ -121,26 +121,29 @@ public class ChatConsole extends javax.swing.JFrame
         setEmoji(eg1);
     }
 
-    @SuppressWarnings({"unchecked"})
+    @SuppressWarnings(
+            {
+                "unchecked"
+            })
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
 
         popUp = new javax.swing.JPopupMenu();
-        panel = new my_swing.Panel();
-        cmdPhoto = new my_swing.Button();
-        cmdEmoji = new my_swing.Button();
-        cmdFile = new my_swing.Button();
-        cmdMicro = new my_swing.Button();
+        panel = new SwingCustom.Panel();
+        cmdPhoto = new SwingCustom.Button();
+        cmdEmoji = new SwingCustom.Button();
+        cmdFile = new SwingCustom.Button();
+        cmdAudio = new SwingCustom.Button();
         popUp_emoji = new javax.swing.JPopupMenu();
-        panel_emoji = new my_swing.Panel();
-        panel1 = new my_swing.Panel();
+        panel_emoji = new SwingCustom.Panel();
+        panel1 = new SwingCustom.Panel();
         panelEmoji = new javax.swing.JLayeredPane();
         spGroup = new javax.swing.JScrollPane();
         panelGroup = new javax.swing.JPanel();
         popMix = new javax.swing.JPopupMenu();
-        panelMix = new my_swing.Panel();
-        panel2 = new my_swing.Panel();
+        panelMix = new SwingCustom.Panel();
+        panel2 = new SwingCustom.Panel();
         cmdMix = new javax.swing.JButton();
         panel_bg = new javax.swing.JPanel();
         spChat = new javax.swing.JScrollPane();
@@ -172,7 +175,7 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmdMore = new javax.swing.JButton();
-        cmdLogOut = new my_swing.Button();
+        cmdLogOut = new SwingCustom.Button();
         lbStatus = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -189,7 +192,7 @@ public class ChatConsole extends javax.swing.JFrame
 
         cmdPhoto.setBackground(new java.awt.Color(255, 255, 255));
         cmdPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/photo.png"))); // NOI18N
-        cmdPhoto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/photo_click.png"))); // NOI18N
+        cmdPhoto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/photo_pressed.png"))); // NOI18N
         cmdPhoto.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -200,7 +203,7 @@ public class ChatConsole extends javax.swing.JFrame
 
         cmdEmoji.setBackground(new java.awt.Color(255, 255, 255));
         cmdEmoji.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/emoji.png"))); // NOI18N
-        cmdEmoji.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/emoji_click.png"))); // NOI18N
+        cmdEmoji.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/emoji_pressed.png"))); // NOI18N
         cmdEmoji.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -211,7 +214,7 @@ public class ChatConsole extends javax.swing.JFrame
 
         cmdFile.setBackground(new java.awt.Color(255, 255, 255));
         cmdFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file.png"))); // NOI18N
-        cmdFile.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_click.png"))); // NOI18N
+        cmdFile.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_pressed.png"))); // NOI18N
         cmdFile.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -220,21 +223,21 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        cmdMicro.setBackground(new java.awt.Color(255, 255, 255));
-        cmdMicro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/microphone.png"))); // NOI18N
-        cmdMicro.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/microphone_click.png"))); // NOI18N
-        cmdMicro.addActionListener(new java.awt.event.ActionListener()
+        cmdAudio.setBackground(new java.awt.Color(255, 255, 255));
+        cmdAudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/microphone.png"))); // NOI18N
+        cmdAudio.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/microphone_pressed.png"))); // NOI18N
+        cmdAudio.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                cmdMicroActionPerformed(evt);
+                cmdAudioActionPerformed(evt);
             }
         });
 
         panel.setLayer(cmdPhoto, javax.swing.JLayeredPane.DEFAULT_LAYER);
         panel.setLayer(cmdEmoji, javax.swing.JLayeredPane.DEFAULT_LAYER);
         panel.setLayer(cmdFile, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        panel.setLayer(cmdMicro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panel.setLayer(cmdAudio, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         org.jdesktop.layout.GroupLayout panelLayout = new org.jdesktop.layout.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -246,7 +249,7 @@ public class ChatConsole extends javax.swing.JFrame
                     .add(cmdFile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, cmdPhoto, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .add(cmdEmoji, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 37, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(cmdMicro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .add(cmdAudio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelLayout.setVerticalGroup(
@@ -259,7 +262,7 @@ public class ChatConsole extends javax.swing.JFrame
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(cmdFile, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(cmdMicro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(cmdAudio, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 27, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -776,9 +779,9 @@ public class ChatConsole extends javax.swing.JFrame
         }
     }//GEN-LAST:event_cmdFileActionPerformed
 
-    private void cmdMicroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMicroActionPerformed
+    private void cmdAudioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAudioActionPerformed
         popMix.show(txt, 170, -90);
-    }//GEN-LAST:event_cmdMicroActionPerformed
+    }//GEN-LAST:event_cmdAudioActionPerformed
 
     private void cmdMixMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdMixMousePressed
         cmdMix.setBackground(new Color(94, 197, 95));
@@ -1203,13 +1206,13 @@ public class ChatConsole extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private my_swing.Button cmdEmoji;
-    private my_swing.Button cmdFile;
-    private my_swing.Button cmdLogOut;
-    private my_swing.Button cmdMicro;
+    private SwingCustom.Button cmdAudio;
+    private SwingCustom.Button cmdEmoji;
+    private SwingCustom.Button cmdFile;
+    private SwingCustom.Button cmdLogOut;
     private javax.swing.JButton cmdMix;
     private javax.swing.JButton cmdMore;
-    private my_swing.Button cmdPhoto;
+    private SwingCustom.Button cmdPhoto;
     private javax.swing.JButton cmdSend;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1222,16 +1225,16 @@ public class ChatConsole extends javax.swing.JFrame
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbStatus;
-    private my_swing.Panel panel;
-    private my_swing.Panel panel1;
-    private my_swing.Panel panel2;
+    private SwingCustom.Panel panel;
+    private SwingCustom.Panel panel1;
+    private SwingCustom.Panel panel2;
     private javax.swing.JDesktopPane panelChat;
     private javax.swing.JLayeredPane panelEmoji;
     private javax.swing.JPanel panelFriend;
     private javax.swing.JPanel panelGroup;
-    private my_swing.Panel panelMix;
+    private SwingCustom.Panel panelMix;
     private javax.swing.JPanel panel_bg;
-    private my_swing.Panel panel_emoji;
+    private SwingCustom.Panel panel_emoji;
     private javax.swing.JPopupMenu popMix;
     private javax.swing.JPopupMenu popUp;
     private javax.swing.JPopupMenu popUp_emoji;

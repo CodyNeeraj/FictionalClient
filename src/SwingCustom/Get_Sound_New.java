@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import function.Method;
 
@@ -26,7 +26,8 @@ public class Get_Sound_New extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
         border = new javax.swing.JLabel();
@@ -54,19 +55,25 @@ public class Get_Sound_New extends javax.swing.JPanel
 
         play.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         play.setFocusable(false);
-        play.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        play.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 playStateChanged(evt);
             }
         });
-        play.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        play.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseEntered(java.awt.event.MouseEvent evt)
+            {
                 playMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
+            public void mouseExited(java.awt.event.MouseEvent evt)
+            {
                 playMouseExited(evt);
             }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
                 playMouseReleased(evt);
             }
         });

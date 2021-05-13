@@ -1,4 +1,4 @@
-package my_swing;
+package SwingCustom;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -19,11 +19,14 @@ public class Get_Box extends javax.swing.JPanel
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
-        txt = new javax.swing.JTextField(){
+        txt = new javax.swing.JTextField()
+        {
             @Override
-            protected void paintComponent(Graphics g) {
+            protected void paintComponent(Graphics g)
+            {
                 super.paintComponent(g);
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setColor(new java.awt.Color(195, 191, 191));

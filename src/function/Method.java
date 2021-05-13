@@ -25,7 +25,7 @@ import javax.swing.JTextField;
 import main.ChatConsole;
 import message.Message;
 import model.Friend;
-import my_swing.ImageViewer;
+import SwingCustom.ImageViewer;
 
 public class Method
 {
