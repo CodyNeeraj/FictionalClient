@@ -121,7 +121,7 @@ public class ChatConsole extends javax.swing.JFrame
         setEmoji(eg1);
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked"})
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
     {
@@ -174,6 +174,14 @@ public class ChatConsole extends javax.swing.JFrame
         cmdMore = new javax.swing.JButton();
         cmdLogOut = new my_swing.Button();
         lbStatus = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         popUp.setBackground(new java.awt.Color(0,0,0,0));
 
@@ -348,6 +356,13 @@ public class ChatConsole extends javax.swing.JFrame
                 cmdMixMouseReleased(evt);
             }
         });
+        cmdMix.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                cmdMixActionPerformed(evt);
+            }
+        });
 
         panel2.setLayer(cmdMix, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -416,8 +431,8 @@ public class ChatConsole extends javax.swing.JFrame
         panelFriend.setLayout(new javax.swing.BoxLayout(panelFriend, javax.swing.BoxLayout.Y_AXIS));
         spFriend.setViewportView(panelFriend);
 
-        txt.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
-        txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5));
+        txt.setFont(new java.awt.Font("Khmer UI", 0, 14)); // NOI18N
+        txt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         txt.setSelectionColor(new java.awt.Color(131, 188, 227));
         txt.addKeyListener(new java.awt.event.KeyAdapter()
         {
@@ -442,19 +457,20 @@ public class ChatConsole extends javax.swing.JFrame
         });
 
         jLabel1.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("List Friend");
+        jLabel1.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel1.setText("Participants");
+        jLabel1.setFocusCycleRoot(true);
 
         jLabel2.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Real Chat");
+        jLabel2.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel2.setText("Chat");
 
         cmdMore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/more.png"))); // NOI18N
         cmdMore.setBorder(null);
         cmdMore.setContentAreaFilled(false);
         cmdMore.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmdMore.setFocusable(false);
-        cmdMore.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/more_click.png"))); // NOI18N
+        cmdMore.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/more_pressed.png"))); // NOI18N
         cmdMore.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -464,13 +480,13 @@ public class ChatConsole extends javax.swing.JFrame
         });
 
         cmdLogOut.setBackground(new java.awt.Color(255, 255, 255));
-        cmdLogOut.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        cmdLogOut.setForeground(new java.awt.Color(51, 51, 51));
-        cmdLogOut.setText("Sign out");
+        cmdLogOut.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        cmdLogOut.setForeground(new java.awt.Color(62, 62, 62));
         cmdLogOut.setColorClick(new java.awt.Color(255, 255, 255));
         cmdLogOut.setColorOver(new java.awt.Color(243, 243, 243));
         cmdLogOut.setFocusable(false);
-        cmdLogOut.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
+        cmdLogOut.setFont(new java.awt.Font("Khmer UI", 1, 12)); // NOI18N
+        cmdLogOut.setLabel("Logout");
         cmdLogOut.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -480,8 +496,48 @@ public class ChatConsole extends javax.swing.JFrame
         });
 
         lbStatus.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
-        lbStatus.setForeground(new java.awt.Color(255, 0, 51));
+        lbStatus.setForeground(new java.awt.Color(62, 62, 62));
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+
+        jLabel3.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel3.setText("Connected to :");
+        jLabel3.setFocusCycleRoot(true);
+
+        jLabel4.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel4.setText("NickName :");
+        jLabel4.setFocusCycleRoot(true);
+
+        jLabel5.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel5.setText("Date :");
+        jLabel5.setFocusCycleRoot(true);
+
+        jLabel6.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel6.setText("Uptime :");
+        jLabel6.setFocusCycleRoot(true);
+
+        jLabel7.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel7.setText("Server IP wit port");
+        jLabel7.setFocusCycleRoot(true);
+
+        jLabel8.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel8.setText("Your entered name");
+        jLabel8.setFocusCycleRoot(true);
+
+        jLabel9.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel9.setText("Todays date and time");
+        jLabel9.setFocusCycleRoot(true);
+
+        jLabel10.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel10.setText("Uptime since online");
+        jLabel10.setFocusCycleRoot(true);
 
         org.jdesktop.layout.GroupLayout panel_bgLayout = new org.jdesktop.layout.GroupLayout(panel_bg);
         panel_bg.setLayout(panel_bgLayout);
@@ -490,39 +546,79 @@ public class ChatConsole extends javax.swing.JFrame
             .add(panel_bgLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(spFriend)
-                    .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
-                        .add(0, 0, Short.MAX_VALUE)
-                        .add(cmdLogOut, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
-                        .add(txt, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdMore)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdSend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(spChat, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
                     .add(panel_bgLayout.createSequentialGroup()
-                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 309, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(spFriend)
+                            .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
+                                .add(0, 0, Short.MAX_VALUE)
+                                .add(cmdLogOut, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                        .add(10, 10, 10)))
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(panel_bgLayout.createSequentialGroup()
+                                .add(txt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 539, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(cmdMore)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(cmdSend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(spChat)
+                            .add(panel_bgLayout.createSequentialGroup()
+                                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 309, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(panel_bgLayout.createSequentialGroup()
+                                        .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .add(10, 10, 10))
+                                    .add(panel_bgLayout.createSequentialGroup()
+                                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jLabel6)
+                                            .add(jLabel5))
+                                        .add(18, 18, 18)
+                                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jLabel9)
+                                            .add(jLabel10))
+                                        .add(0, 0, Short.MAX_VALUE))))))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel3)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(18, 18, 18)
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel8)
+                            .add(jLabel7))
+                        .add(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panel_bgLayout.setVerticalGroup(
             panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(panel_bgLayout.createSequentialGroup()
-                .add(65, 65, 65)
+                .addContainerGap()
+                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel3)
+                    .add(jLabel5)
+                    .add(jLabel7)
+                    .add(jLabel9))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel2)
-                    .add(jLabel1)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(jLabel6)
+                        .add(jLabel10)
+                        .add(jLabel8)))
+                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(panel_bgLayout.createSequentialGroup()
+                        .add(13, 13, 13)
+                        .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+                    .add(panel_bgLayout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel1)
+                            .add(jLabel2))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(spFriend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 412, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(spChat))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                    .add(spChat, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 8, Short.MAX_VALUE)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(txt)
                     .add(cmdMore, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -634,7 +730,7 @@ public class ChatConsole extends javax.swing.JFrame
                     }
                 }
             }
-            catch(IOException | ClassNotFoundException e)
+            catch(Exception e)
             {
                 String ms = e.getMessage();
                 switch(ms)
@@ -705,7 +801,11 @@ public class ChatConsole extends javax.swing.JFrame
     }//GEN-LAST:event_cmdMixMouseReleased
 
     private void cmdLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLogOutActionPerformed
-        int c = JOptionPane.showConfirmDialog(this, "Are you sure you want to sign out ?", "Sign out", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int c = JOptionPane.showConfirmDialog(this,
+                "Are you sure to Sign out ?",
+                "Session",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
         if(c == JOptionPane.YES_OPTION)
         {
             try
@@ -718,6 +818,11 @@ public class ChatConsole extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_cmdLogOutActionPerformed
+
+    private void cmdMixActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_cmdMixActionPerformed
+    {//GEN-HEADEREND:event_cmdMixActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmdMixActionPerformed
 
     private void signOut(String ms)
     {
@@ -1107,7 +1212,15 @@ public class ChatConsole extends javax.swing.JFrame
     private my_swing.Button cmdPhoto;
     private javax.swing.JButton cmdSend;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbStatus;
     private my_swing.Panel panel;
     private my_swing.Panel panel1;
