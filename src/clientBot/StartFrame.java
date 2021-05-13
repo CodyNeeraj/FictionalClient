@@ -196,23 +196,46 @@ public class StartFrame extends javax.swing.JFrame
             }
         }
 
-        if(port < 10 | port >= 65536)
+        if(port < 10)
         {
             isValidated = false;
-            System.out.println("Enter port within range chewtiye");
-            JOptionPane.showMessageDialog(this, "Port isn't in the range specified", "Value Error", JOptionPane.WARNING_MESSAGE);
+            System.out.println("Smaller than range XD");
+            JOptionPane.showMessageDialog(this, "Port is smaller than the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
         }
-
-        if(!mtch.matches())
+        else if(port >= 65536)
+        {
+            isValidated = false;
+            System.out.println("Greater than Range ;(");
+            JOptionPane.showMessageDialog(this, "Port is greater than the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
+        }
+        else if(!mtch.matches())
         {
             isValidated = false;
             JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
         }
-        else
+        else if(mtch.matches() && port >= 10)
+        {
+            System.out.println("Everything perfect mate");
+            isValidated = true;
+        }
+        else if(mtch.matches() && port < 65536)
+        {
+            System.out.println("Everything perfect mate");
+            isValidated = true;
+        }
+
+        if(isValidated == true) //means true (by default)
         {
             try
             {
                 soc = new Socket(ipv4, port);
+                if(!soc.isBound())
+                {
+                    new clientBot.ChatConsole(ipv4, port).setVisible(true);
+                    dispose();
+                    //do whatever the heck here as this is the place where everthing is checked and verified
+                    System.out.println("IP is " + ipv4 + " port is " + port);
+                }
             }
             catch(IOException ex)
             {
@@ -223,15 +246,6 @@ public class StartFrame extends javax.swing.JFrame
                         + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
             }
         }
-        if(isValidated) //means true (by default)
-        {
-            dispose();
-            new clientBot.ChatConsole(ipv4, port).setVisible(true);
-            //do whatever the heck here as this is the place where everthing is checked and verified
-            System.out.println("IP is " + ipv4 + " port is " + port);
-
-        }
-
     }//GEN-LAST:event_serverStartActionPerformed
 
     private void portFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portFieldActionPerformed

@@ -22,7 +22,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
-import main.Main;
+import main.ChatConsole;
 import message.Message;
 import model.Friend;
 import my_swing.ImageViewer;
@@ -214,13 +214,13 @@ public class Method
             String x = ex[ex.length - 1];
             JFileChooser ch = new JFileChooser();
             ch.setSelectedFile(new File(name));
-            int c = ch.showSaveDialog(Main.getFrames()[0]);
+            int c = ch.showSaveDialog(ChatConsole.getFrames()[0]);
             if(c == JFileChooser.APPROVE_OPTION)
             {
                 File f = ch.getSelectedFile();
                 if(f.exists())
                 {
-                    int click = JOptionPane.showConfirmDialog(Main.getFrames()[0], "This file name has already do you want to replace", "Save File", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    int click = JOptionPane.showConfirmDialog(ChatConsole.getFrames()[0], "This file name has already do you want to replace", "Save File", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(click != JOptionPane.YES_OPTION)
                     {
                         return;
