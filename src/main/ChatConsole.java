@@ -39,7 +39,11 @@ import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -52,7 +56,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.Timer;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileFilter;
@@ -541,6 +544,19 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel10.setForeground(new java.awt.Color(62, 62, 62));
         jLabel10.setText("Uptime since online");
         jLabel10.setFocusCycleRoot(true);
+        jLabel10.addAncestorListener(new javax.swing.event.AncestorListener()
+        {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt)
+            {
+                jLabel10AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+        });
 
         org.jdesktop.layout.GroupLayout panel_bgLayout = new org.jdesktop.layout.GroupLayout(panel_bg);
         panel_bg.setLayout(panel_bgLayout);
@@ -826,6 +842,22 @@ public class ChatConsole extends javax.swing.JFrame
     {//GEN-HEADEREND:event_cmdMixActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdMixActionPerformed
+
+    private void jLabel10AncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_jLabel10AncestorAdded
+    {//GEN-HEADEREND:event_jLabel10AncestorAdded
+        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+        Timer t1 = new Timer();
+        TimerTask task = new TimerTask()
+        {
+            @Override
+            public void run()
+            {
+                long uptime = rb.getUptime() / 1000;
+                jLabel10.setText(Long.toString(uptime));
+            }
+        };
+        t1.scheduleAtFixedRate(task, 0, 1000);
+    }//GEN-LAST:event_jLabel10AncestorAdded
 
     private void signOut(String ms)
     {
@@ -1176,7 +1208,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         }).start();
     }
-    private Timer timer = new Timer(5000, new ActionListener()
+    private javax.swing.Timer timer = new javax.swing.Timer(5000, new ActionListener()
     {
         @Override
         public void actionPerformed(ActionEvent ae)

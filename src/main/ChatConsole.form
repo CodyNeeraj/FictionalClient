@@ -895,6 +895,9 @@
             <Property name="text" type="java.lang.String" value="Uptime since online"/>
             <Property name="focusCycleRoot" type="boolean" value="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="ancestorAdded" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="jLabel10AncestorAdded"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
