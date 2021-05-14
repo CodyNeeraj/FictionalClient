@@ -46,7 +46,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -187,8 +186,8 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        ServerAddress = new javax.swing.JLabel();
+        myname = new javax.swing.JLabel();
         date_now = new javax.swing.JLabel();
         uptimeLbl = new javax.swing.JLabel();
         time_now = new javax.swing.JLabel();
@@ -439,6 +438,7 @@ public class ChatConsole extends javax.swing.JFrame
         spFriend.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         panelFriend.setBackground(new java.awt.Color(255, 255, 255));
+        panelFriend.setPreferredSize(new java.awt.Dimension(0, 0));
         panelFriend.setLayout(new javax.swing.BoxLayout(panelFriend, javax.swing.BoxLayout.Y_AXIS));
         spFriend.setViewportView(panelFriend);
 
@@ -530,15 +530,41 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel6.setText("Connected Since :");
         jLabel6.setFocusCycleRoot(true);
 
-        jLabel7.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(62, 62, 62));
-        jLabel7.setText("Server IP wit port");
-        jLabel7.setFocusCycleRoot(true);
+        ServerAddress.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        ServerAddress.setForeground(new java.awt.Color(62, 62, 62));
+        ServerAddress.setText("Server IP wit port");
+        ServerAddress.setFocusCycleRoot(true);
+        ServerAddress.addAncestorListener(new javax.swing.event.AncestorListener()
+        {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt)
+            {
+                ServerAddressAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+        });
 
-        jLabel8.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(62, 62, 62));
-        jLabel8.setText("Your entered name");
-        jLabel8.setFocusCycleRoot(true);
+        myname.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        myname.setForeground(new java.awt.Color(62, 62, 62));
+        myname.setText("Your entered name");
+        myname.setFocusCycleRoot(true);
+        myname.addAncestorListener(new javax.swing.event.AncestorListener()
+        {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt)
+            {
+                mynameAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+        });
 
         date_now.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
         date_now.setForeground(new java.awt.Color(0, 0, 255));
@@ -595,78 +621,81 @@ public class ChatConsole extends javax.swing.JFrame
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(spFriend)
                     .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
-                        .add(0, 0, Short.MAX_VALUE)
-                        .add(cmdLogOut, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(panel_bgLayout.createSequentialGroup()
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel6)
                             .add(jLabel3))
                         .add(18, 18, 18)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel7)
-                            .add(uptimeLbl))
-                        .add(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(panel_bgLayout.createSequentialGroup()
+                                .add(ServerAddress)
+                                .add(0, 1, Short.MAX_VALUE))
+                            .add(uptimeLbl, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, cmdLogOut, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(8, 8, 8)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(panel_bgLayout.createSequentialGroup()
-                        .add(txt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 539, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(cmdMore)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(cmdSend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(spChat)
-                    .add(panel_bgLayout.createSequentialGroup()
-                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 309, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(panel_bgLayout.createSequentialGroup()
-                                .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(10, 10, 10))
+                                .add(jLabel5)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(date_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 94, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(jLabel9)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(time_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(panel_bgLayout.createSequentialGroup()
-                                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(panel_bgLayout.createSequentialGroup()
-                                        .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(18, 18, 18)
-                                        .add(jLabel8))
-                                    .add(panel_bgLayout.createSequentialGroup()
-                                        .add(jLabel5)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(date_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(18, 18, 18)
-                                        .add(jLabel9)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                        .add(time_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                                .add(0, 0, Short.MAX_VALUE)))))
+                                .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 89, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(26, 26, 26)
+                                .add(myname)))
+                        .add(32, 32, 32))
+                    .add(panel_bgLayout.createSequentialGroup()
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(panel_bgLayout.createSequentialGroup()
+                                .add(txt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 539, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(cmdMore)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(cmdSend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(panel_bgLayout.createSequentialGroup()
+                                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 309, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(0, 0, 0)
+                                .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 244, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(0, 1, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panel_bgLayout.setVerticalGroup(
             panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(panel_bgLayout.createSequentialGroup()
-                .addContainerGap()
-                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel3)
-                    .add(jLabel5)
-                    .add(jLabel7)
-                    .add(date_now)
-                    .add(time_now)
-                    .add(jLabel9))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, date_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(jLabel3)
+                        .add(ServerAddress)
+                        .add(time_now)
+                        .add(jLabel9)
+                        .add(jLabel5)))
+                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(panel_bgLayout.createSequentialGroup()
-                        .add(35, 35, 35)
-                        .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
-                    .add(panel_bgLayout.createSequentialGroup()
-                        .add(6, 6, 6)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel6)
-                            .add(uptimeLbl)
-                            .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel8))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(uptimeLbl))
+                        .add(0, 4, Short.MAX_VALUE)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel1)
-                            .add(jLabel2))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .add(jLabel2)))
+                    .add(panel_bgLayout.createSequentialGroup()
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(myname))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 7, Short.MAX_VALUE)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(spFriend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 412, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(spChat, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
@@ -683,13 +712,13 @@ public class ChatConsole extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(panel_bg, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(panel_bg, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .add(panel_bg, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(0, 0, 0))
+                .add(panel_bg, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -882,19 +911,33 @@ public class ChatConsole extends javax.swing.JFrame
         Timer t1 = new Timer();
         TimerTask task = new TimerTask()
         {
-            long millis, second, hours, minute;
+            long hrs, mins, secs;
             int day;
 
             @Override
             public void run()
             {
-                millis = rb.getUptime() / 1000;
-                second = TimeUnit.SECONDS.toSeconds(millis) - (TimeUnit.SECONDS.toMinutes(millis) * 60);
-                hours = TimeUnit.SECONDS.toHours(millis) - (day * 24);
-                minute = TimeUnit.SECONDS.toMinutes(millis) - (TimeUnit.SECONDS.toHours(millis) * 60);
-                // day = (int) TimeUnit.SECONDS.toDays(millis);
-                String temp = hours + ":" + minute + ":" + second;
-                uptimeLbl.setText(temp);
+                secs = rb.getUptime() / 1000;
+//                hrs = TimeUnit.SECONDS.toHours(secs) - (day * 24);
+//                mins = TimeUnit.SECONDS.toMinutes(secs) - (TimeUnit.SECONDS.toHours(secs) * 60);
+//                // day = (int) TimeUnit.SECONDS.toDays(secs);
+//                uptimeLbl.setText(new StringBuilder()
+//                        .append(hrs)
+//                        .append(":")
+//                        .append(mins)
+//                        .append(":")
+//                        .append(secs).toString());
+
+                int sec = (int) secs % 60;
+                int min = (int) ((secs / 60) % 60);
+                int hr = (int) ((secs / 60) / 60);
+                uptimeLbl.setText(new StringBuilder()
+                        .append(hr)
+                        .append(" hrs ")
+                        .append(min)
+                        .append(" mins ")
+                        .append(sec)
+                        .append(" secs").toString());
             }
         };
         t1.scheduleAtFixedRate(task, 0, 1000);
@@ -914,6 +957,16 @@ public class ChatConsole extends javax.swing.JFrame
         };
         t2.scheduleAtFixedRate(task, 0, 1000);
     }//GEN-LAST:event_date_nowAncestorAdded
+
+    private void mynameAncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_mynameAncestorAdded
+    {//GEN-HEADEREND:event_mynameAncestorAdded
+        myname.setText(Method.getMyName());
+    }//GEN-LAST:event_mynameAncestorAdded
+
+    private void ServerAddressAncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_ServerAddressAncestorAdded
+    {//GEN-HEADEREND:event_ServerAddressAncestorAdded
+        ServerAddress.setText(Method.getIP() + " : " + Method.getPort());;
+    }//GEN-LAST:event_ServerAddressAncestorAdded
 
     private void signOut(String ms)
     {
@@ -1294,6 +1347,7 @@ public class ChatConsole extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ServerAddress;
     private SwingCustom.Button cmdAudio;
     private SwingCustom.Button cmdEmoji;
     private SwingCustom.Button cmdFile;
@@ -1309,10 +1363,9 @@ public class ChatConsole extends javax.swing.JFrame
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbStatus;
+    private javax.swing.JLabel myname;
     private SwingCustom.Panel panel;
     private SwingCustom.Panel panel1;
     private SwingCustom.Panel panel2;

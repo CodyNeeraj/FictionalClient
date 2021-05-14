@@ -1,5 +1,6 @@
 package function;
 
+import SwingCustom.ImageViewer;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.FocusAdapter;
@@ -25,10 +26,11 @@ import javax.swing.JTextField;
 import main.ChatConsole;
 import message.Message;
 import model.Friend;
-import SwingCustom.ImageViewer;
 
 public class Method
 {
+    private static int port = 7489;
+    private static String address;
 
     public static Recoder getRecoder()
     {
@@ -101,7 +103,8 @@ public class Method
 
     public static void connect(ImageIcon icon, String userName, String IP) throws Exception
     {
-        client = new Socket(IP, 5000);
+        client = new Socket(IP, port);
+        address = IP;
         out = new ObjectOutputStream(client.getOutputStream());
         in = new ObjectInputStream(client.getInputStream());
         SimpleDateFormat df = new SimpleDateFormat("hh:mm aa");
@@ -333,6 +336,16 @@ public class Method
     public static String getMyName()
     {
         return myName;
+    }
+
+    public static int getPort()
+    {
+        return port;
+    }
+
+    public static String getIP()
+    {
+        return address;
     }
 
     public static void setMyName(String aMyName)

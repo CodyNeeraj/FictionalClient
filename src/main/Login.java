@@ -236,26 +236,18 @@ public class Login extends javax.swing.JFrame
 
             }
         }
-        catch(UnknownHostException e)
+        catch(UnknownHostException | java.rmi.UnknownHostException e)
         {
             showStatus("Unknown host : " + txtIP.getText());
         }
-        catch(java.rmi.UnknownHostException e)
-        {
-            showStatus("Unknown host : " + txtIP.getText());
-        }
-        catch(ConnectException e)
-        {
-            showStatus("Server not found");
-        }
-        catch(java.rmi.ConnectException e)
+        catch(ConnectException | java.rmi.ConnectException e)
         {
             showStatus("Server not found");
         }
         catch(Exception e)
         {
             showStatus("Network is unreachable : connect");
-            System.out.println(e);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
 
     }//GEN-LAST:event_cmdLoginActionPerformed
@@ -366,34 +358,18 @@ public class Login extends javax.swing.JFrame
                 }
             }
         }
-        catch(ClassNotFoundException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(InstantiationException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(IllegalAccessException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch(javax.swing.UnsupportedLookAndFeelException ex)
+        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(new Runnable()
+        java.awt.EventQueue.invokeLater(() ->
         {
-            @Override
-            public void run()
+            if(args.length == 1)
             {
-                if(args.length == 1)
-                {
-                    ms = args[0];
-                }
-                new Login().setVisible(true);
+                ms = args[0];
             }
+            new Login().setVisible(true);
         });
     }
 
