@@ -42,8 +42,11 @@ import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
@@ -186,8 +189,10 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        date_now = new javax.swing.JLabel();
+        uptimeLbl = new javax.swing.JLabel();
+        time_now = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
 
         popUp.setBackground(new java.awt.Color(0,0,0,0));
 
@@ -507,7 +512,7 @@ public class ChatConsole extends javax.swing.JFrame
 
         jLabel3.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(62, 62, 62));
-        jLabel3.setText("Connected to :");
+        jLabel3.setText("Connected with  :");
         jLabel3.setFocusCycleRoot(true);
 
         jLabel4.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
@@ -522,7 +527,7 @@ public class ChatConsole extends javax.swing.JFrame
 
         jLabel6.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(62, 62, 62));
-        jLabel6.setText("Uptime :");
+        jLabel6.setText("Connected Since :");
         jLabel6.setFocusCycleRoot(true);
 
         jLabel7.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
@@ -535,28 +540,51 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel8.setText("Your entered name");
         jLabel8.setFocusCycleRoot(true);
 
-        jLabel9.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(62, 62, 62));
-        jLabel9.setText("Todays date and time");
-        jLabel9.setFocusCycleRoot(true);
-
-        jLabel10.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(62, 62, 62));
-        jLabel10.setText("Uptime since online");
-        jLabel10.setFocusCycleRoot(true);
-        jLabel10.addAncestorListener(new javax.swing.event.AncestorListener()
+        date_now.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        date_now.setForeground(new java.awt.Color(0, 0, 255));
+        date_now.setText("null");
+        date_now.setFocusCycleRoot(true);
+        date_now.addAncestorListener(new javax.swing.event.AncestorListener()
         {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt)
             {
             }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt)
             {
-                jLabel10AncestorAdded(evt);
+                date_nowAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt)
             {
             }
         });
+
+        uptimeLbl.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        uptimeLbl.setForeground(new java.awt.Color(0, 0, 255));
+        uptimeLbl.setText("null");
+        uptimeLbl.setFocusCycleRoot(true);
+        uptimeLbl.addAncestorListener(new javax.swing.event.AncestorListener()
+        {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt)
+            {
+                uptimeLblAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt)
+            {
+            }
+        });
+
+        time_now.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        time_now.setForeground(new java.awt.Color(0, 0, 255));
+        time_now.setText("null");
+        time_now.setFocusCycleRoot(true);
+
+        jLabel9.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(62, 62, 62));
+        jLabel9.setText("Time :");
+        jLabel9.setFocusCycleRoot(true);
 
         org.jdesktop.layout.GroupLayout panel_bgLayout = new org.jdesktop.layout.GroupLayout(panel_bg);
         panel_bg.setLayout(panel_bgLayout);
@@ -565,47 +593,51 @@ public class ChatConsole extends javax.swing.JFrame
             .add(panel_bgLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(spFriend)
+                    .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
+                        .add(0, 0, Short.MAX_VALUE)
+                        .add(cmdLogOut, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(panel_bgLayout.createSequentialGroup()
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(spFriend)
-                            .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
-                                .add(0, 0, Short.MAX_VALUE)
-                                .add(cmdLogOut, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(jLabel6)
+                            .add(jLabel3))
+                        .add(18, 18, 18)
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jLabel7)
+                            .add(uptimeLbl))
+                        .add(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(panel_bgLayout.createSequentialGroup()
+                        .add(txt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 539, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(cmdMore)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(cmdSend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(spChat)
+                    .add(panel_bgLayout.createSequentialGroup()
+                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 309, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(panel_bgLayout.createSequentialGroup()
-                                .add(txt, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 539, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(cmdMore)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(cmdSend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 43, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(spChat)
+                                .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(10, 10, 10))
                             .add(panel_bgLayout.createSequentialGroup()
-                                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 309, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(panel_bgLayout.createSequentialGroup()
-                                        .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .add(10, 10, 10))
-                                    .add(panel_bgLayout.createSequentialGroup()
-                                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(jLabel6)
-                                            .add(jLabel5))
+                                        .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                         .add(18, 18, 18)
-                                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                            .add(jLabel9)
-                                            .add(jLabel10))
-                                        .add(0, 0, Short.MAX_VALUE))))))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
-                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel3)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(18, 18, 18)
-                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel8)
-                            .add(jLabel7))
-                        .add(0, 0, Short.MAX_VALUE)))
+                                        .add(jLabel8))
+                                    .add(panel_bgLayout.createSequentialGroup()
+                                        .add(jLabel5)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(date_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 86, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(18, 18, 18)
+                                        .add(jLabel9)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                        .add(time_now, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 85, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         panel_bgLayout.setVerticalGroup(
@@ -616,19 +648,20 @@ public class ChatConsole extends javax.swing.JFrame
                     .add(jLabel3)
                     .add(jLabel5)
                     .add(jLabel7)
+                    .add(date_now)
+                    .add(time_now)
                     .add(jLabel9))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 16, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(jLabel6)
-                        .add(jLabel10)
-                        .add(jLabel8)))
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(panel_bgLayout.createSequentialGroup()
-                        .add(13, 13, 13)
+                        .add(35, 35, 35)
                         .add(lbStatus, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
                     .add(panel_bgLayout.createSequentialGroup()
+                        .add(6, 6, 6)
+                        .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel6)
+                            .add(uptimeLbl)
+                            .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 13, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel8))
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                             .add(jLabel1)
@@ -843,21 +876,44 @@ public class ChatConsole extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdMixActionPerformed
 
-    private void jLabel10AncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_jLabel10AncestorAdded
-    {//GEN-HEADEREND:event_jLabel10AncestorAdded
+    private void uptimeLblAncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_uptimeLblAncestorAdded
+    {//GEN-HEADEREND:event_uptimeLblAncestorAdded
         RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
         Timer t1 = new Timer();
+        TimerTask task = new TimerTask()
+        {
+            long millis, second, hours, minute;
+            int day;
+
+            @Override
+            public void run()
+            {
+                millis = rb.getUptime() / 1000;
+                second = TimeUnit.SECONDS.toSeconds(millis) - (TimeUnit.SECONDS.toMinutes(millis) * 60);
+                hours = TimeUnit.SECONDS.toHours(millis) - (day * 24);
+                minute = TimeUnit.SECONDS.toMinutes(millis) - (TimeUnit.SECONDS.toHours(millis) * 60);
+                // day = (int) TimeUnit.SECONDS.toDays(millis);
+                String temp = hours + ":" + minute + ":" + second;
+                uptimeLbl.setText(temp);
+            }
+        };
+        t1.scheduleAtFixedRate(task, 0, 1000);
+    }//GEN-LAST:event_uptimeLblAncestorAdded
+
+    private void date_nowAncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_date_nowAncestorAdded
+    {//GEN-HEADEREND:event_date_nowAncestorAdded
+        date_now.setText(DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDateTime.now()));
+        Timer t2 = new Timer();
         TimerTask task = new TimerTask()
         {
             @Override
             public void run()
             {
-                long uptime = rb.getUptime() / 1000;
-                jLabel10.setText(Long.toString(uptime));
+                time_now.setText(DateTimeFormatter.ofPattern("hh:mm:ss a").format(LocalDateTime.now()));
             }
         };
-        t1.scheduleAtFixedRate(task, 0, 1000);
-    }//GEN-LAST:event_jLabel10AncestorAdded
+        t2.scheduleAtFixedRate(task, 0, 1000);
+    }//GEN-LAST:event_date_nowAncestorAdded
 
     private void signOut(String ms)
     {
@@ -1246,8 +1302,8 @@ public class ChatConsole extends javax.swing.JFrame
     private javax.swing.JButton cmdMore;
     private SwingCustom.Button cmdPhoto;
     private javax.swing.JButton cmdSend;
+    private javax.swing.JLabel date_now;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1273,6 +1329,8 @@ public class ChatConsole extends javax.swing.JFrame
     private javax.swing.JScrollPane spChat;
     private javax.swing.JScrollPane spFriend;
     private javax.swing.JScrollPane spGroup;
+    private javax.swing.JLabel time_now;
     private javax.swing.JTextField txt;
+    private javax.swing.JLabel uptimeLbl;
     // End of variables declaration//GEN-END:variables
 }
