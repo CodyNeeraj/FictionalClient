@@ -231,7 +231,7 @@ public class StartFrame extends javax.swing.JFrame
                 soc = new Socket(ipv4, port);
                 if(!soc.isBound())
                 {
-                    new clientBot.ChatConsole(ipv4, port).setVisible(true);
+                    // new clientBot.ChatConsole(ipv4, port).setVisible(true);
                     dispose();
                     //do whatever the heck here as this is the place where everthing is checked and verified
                     System.out.println("IP is " + ipv4 + " port is " + port);
