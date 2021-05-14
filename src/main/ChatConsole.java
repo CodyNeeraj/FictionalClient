@@ -413,8 +413,7 @@ public class ChatConsole extends javax.swing.JFrame
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Desi Client");
-        setAlwaysOnTop(true);
+        setTitle("CodyNeeraj's Socketty Client");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
