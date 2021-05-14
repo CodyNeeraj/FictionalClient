@@ -93,7 +93,7 @@ public class ChatConsole extends javax.swing.JFrame
         Method.setFram(this);
         new Scrolling(panelChat);
         new Scrolling(panelFriend);
-        Method.setTextFieldStyle(txt, "Type a message here ...");
+        Method.setTextFieldStyle(txt, " Type a message here ...");
         for(int i = 0; i < 10; i++)
         {
             cmdSendActionPerformed(null);
@@ -830,7 +830,6 @@ public class ChatConsole extends javax.swing.JFrame
                         signOut("Error : " + ms);
                         break;
                 }
-
             }
         });
         th.start();
@@ -989,6 +988,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         catch(Exception e)
         {
+            Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
