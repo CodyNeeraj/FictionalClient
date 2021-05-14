@@ -42,8 +42,8 @@ public class Login extends javax.swing.JFrame
     {
         //Title icon
         setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
-        Method.setTextFieldSyle(txtUser, "User Name");
-        Method.setTextFieldSyle(txtIP, "IP Address");
+        Method.setTextFieldStyle(txtUser, "User Name");
+        Method.setTextFieldStyle(txtIP, "IP Address");
         showStatus(ms);
     }
 
@@ -57,7 +57,6 @@ public class Login extends javax.swing.JFrame
         txtIP = new javax.swing.JTextField();
         cmdLogin = new SwingCustom.Button();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        border = new javax.swing.JLabel();
         profile = new javax.swing.JLabel();
         lbStatus = new javax.swing.JLabel();
 
@@ -72,13 +71,6 @@ public class Login extends javax.swing.JFrame
         txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         txtUser.setSelectionColor(new java.awt.Color(131, 188, 227));
-        txtUser.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                txtUserActionPerformed(evt);
-            }
-        });
         txtUser.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
@@ -92,13 +84,6 @@ public class Login extends javax.swing.JFrame
         txtIP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         txtIP.setSelectionColor(new java.awt.Color(131, 188, 227));
-        txtIP.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                txtIPActionPerformed(evt);
-            }
-        });
         txtIP.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
@@ -109,7 +94,7 @@ public class Login extends javax.swing.JFrame
 
         cmdLogin.setBackground(new java.awt.Color(101, 167, 232));
         cmdLogin.setForeground(new java.awt.Color(255, 255, 255));
-        cmdLogin.setText("Log in");
+        cmdLogin.setText("Connect");
         cmdLogin.setColorClick(new java.awt.Color(152, 196, 239));
         cmdLogin.setColorOver(new java.awt.Color(31, 121, 208));
         cmdLogin.setFillBorder(20);
@@ -125,20 +110,15 @@ public class Login extends javax.swing.JFrame
 
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
-        border.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/border.png"))); // NOI18N
-        border.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        border.addMouseListener(new java.awt.event.MouseAdapter()
+        profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile.png"))); // NOI18N
+        profile.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                borderMouseClicked(evt);
+                profileMouseClicked(evt);
             }
         });
-        jLayeredPane1.add(border);
-
-        profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
         lbStatus.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
@@ -252,8 +232,27 @@ public class Login extends javax.swing.JFrame
 
     }//GEN-LAST:event_cmdLoginActionPerformed
 
-    private void borderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_borderMouseClicked
-        if(evt.getClickCount() == 2 && SwingUtilities.isLeftMouseButton(evt))
+    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+        if(evt.getKeyChar() == 10)
+        {
+            txtIP.grabFocus();
+        }
+        if(txtUser.getText().trim().length() >= 15)
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtUserKeyTyped
+
+    private void txtIPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIPKeyTyped
+        if(evt.getKeyChar() == 10)
+        {
+            cmdLoginActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtIPKeyTyped
+
+    private void profileMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_profileMouseClicked
+    {//GEN-HEADEREND:event_profileMouseClicked
+        if(evt.getClickCount() == 1 && SwingUtilities.isLeftMouseButton(evt))
         {
             JFileChooser ch = new JFileChooser();
             FileChooser preview = new FileChooser();
@@ -291,35 +290,7 @@ public class Login extends javax.swing.JFrame
                 profile.setIcon(profile_pic);
             }
         }
-    }//GEN-LAST:event_borderMouseClicked
-
-    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
-        if(evt.getKeyChar() == 10)
-        {
-            txtIP.grabFocus();
-        }
-        if(txtUser.getText().trim().length() >= 15)
-        {
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtUserKeyTyped
-
-    private void txtIPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIPKeyTyped
-        if(evt.getKeyChar() == 10)
-        {
-            cmdLoginActionPerformed(null);
-        }
-    }//GEN-LAST:event_txtIPKeyTyped
-
-    private void txtIPActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtIPActionPerformed
-    {//GEN-HEADEREND:event_txtIPActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIPActionPerformed
-
-    private void txtUserActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtUserActionPerformed
-    {//GEN-HEADEREND:event_txtUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserActionPerformed
+    }//GEN-LAST:event_profileMouseClicked
 
     private ImageIcon profile_pic;
     private Timer timer = new Timer(5000, new ActionListener()
@@ -347,22 +318,6 @@ public class Login extends javax.swing.JFrame
 
     public static void main(String args[])
     {
-        try
-        {
-            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if("Windows".equals(info.getName()))
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        }
-        catch(ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex)
-        {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
         java.awt.EventQueue.invokeLater(() ->
         {
             if(args.length == 1)
@@ -374,7 +329,6 @@ public class Login extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel border;
     private SwingCustom.Button cmdLogin;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;

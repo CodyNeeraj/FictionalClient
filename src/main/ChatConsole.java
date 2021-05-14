@@ -93,7 +93,7 @@ public class ChatConsole extends javax.swing.JFrame
         Method.setFram(this);
         new Scrolling(panelChat);
         new Scrolling(panelFriend);
-        Method.setTextFieldSyle(txt, "Type a message here ...");
+        Method.setTextFieldStyle(txt, "Type a message here ...");
         for(int i = 0; i < 10; i++)
         {
             cmdSendActionPerformed(null);

@@ -52,7 +52,7 @@ public class Method
     private static JFrame fram;
     private static Recoder recoder = new Recoder();
 
-    public static void setTextFieldSyle(JTextField txt, String style)
+    public static void setTextFieldStyle(JTextField txt, String style)
     {
         txt.setName("");
         txt.setForeground(new Color(186, 186, 186));
