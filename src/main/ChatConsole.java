@@ -412,11 +412,16 @@ public class ChatConsole extends javax.swing.JFrame
                 .add(1, 1, 1))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Desi Client");
+        setAlwaysOnTop(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt)
             {
                 formWindowOpened(evt);
@@ -933,11 +938,10 @@ public class ChatConsole extends javax.swing.JFrame
                 int hr = (int) ((secs / 60) / 60);
                 uptimeLbl.setText(new StringBuilder()
                         .append(hr)
-                        .append(" hrs ")
+                        .append(":")
                         .append(min)
-                        .append(" mins ")
-                        .append(sec)
-                        .append(" secs").toString());
+                        .append(":")
+                        .append(sec).toString());
             }
         };
         t1.scheduleAtFixedRate(task, 0, 1000);
@@ -967,6 +971,11 @@ public class ChatConsole extends javax.swing.JFrame
     {//GEN-HEADEREND:event_ServerAddressAncestorAdded
         ServerAddress.setText(Method.getIP() + " : " + Method.getPort());;
     }//GEN-LAST:event_ServerAddressAncestorAdded
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        cmdLogOut.doClick();
+    }//GEN-LAST:event_formWindowClosing
 
     private void signOut(String ms)
     {
