@@ -43,6 +43,7 @@ import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -919,12 +920,13 @@ public class ChatConsole extends javax.swing.JFrame
         TimerTask task = new TimerTask()
         {
             long hrs, mins, secs;
-            int day;
 
             @Override
             public void run()
             {
                 secs = rb.getUptime() / 1000;
+
+//                By using TimeUnit inbuilt Class
 //                hrs = TimeUnit.SECONDS.toHours(secs) - (day * 24);
 //                mins = TimeUnit.SECONDS.toMinutes(secs) - (TimeUnit.SECONDS.toHours(secs) * 60);
 //                // day = (int) TimeUnit.SECONDS.toDays(secs);
@@ -934,16 +936,19 @@ public class ChatConsole extends javax.swing.JFrame
 //                        .append(mins)
 //                        .append(":")
 //                        .append(secs).toString());
-
-                int sec = (int) secs % 60;
-                int min = (int) ((secs / 60) % 60);
-                int hr = (int) ((secs / 60) / 60);
-                uptimeLbl.setText(new StringBuilder()
-                        .append(hr)
-                        .append(":")
-                        .append(min)
-                        .append(":")
-                        .append(sec).toString());
+//                By using Simple Calculation and then formating it with String
+//                int sec = (int) secs % 60;
+//                int min = (int) ((secs / 60) % 60);
+//                int hr = (int) ((secs / 60) / 60);
+//                uptimeLbl.setText(new StringBuilder()
+//                        .append(hr)
+//                        .append(":")
+//                        .append(min)
+//                        .append(":")
+//                        .append(sec).toString());
+//                uptimeLbl.setText(String.format("%02d:%02d:%02d", hr, min, sec));
+//                BY using Java8 Stream API
+                uptimeLbl.setText(LocalTime.MIN.plusSeconds(secs).toString());
             }
         };
         t1.scheduleAtFixedRate(task, 0, 1000);
