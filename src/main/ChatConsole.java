@@ -151,7 +151,7 @@ public class ChatConsole extends javax.swing.JFrame
         panel2 = new SwingCustom.Panel();
         cmdMix = new javax.swing.JButton();
         panel_bg = new javax.swing.JPanel();
-        spChat = new javax.swing.JScrollPane();
+        ChatScrollPane = new javax.swing.JScrollPane();
         panelChat = new javax.swing.JDesktopPane()
         {
             @Override
@@ -162,7 +162,7 @@ public class ChatConsole extends javax.swing.JFrame
                 g.fillRect(0, 0, getWidth(), getHeight());
             }
         };
-        spFriend = new javax.swing.JScrollPane();
+        FriendsScrollPane = new javax.swing.JScrollPane();
         panelFriend = new javax.swing.JPanel();
         txt = new javax.swing.JTextField()
         {
@@ -429,22 +429,21 @@ public class ChatConsole extends javax.swing.JFrame
 
         panel_bg.setBackground(new java.awt.Color(255, 255, 255));
 
-        spChat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        spChat.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        spChat.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        ChatScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        ChatScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         panelChat.setBackground(new java.awt.Color(255, 255, 255));
         panelChat.setLayout(new javax.swing.BoxLayout(panelChat, javax.swing.BoxLayout.Y_AXIS));
-        spChat.setViewportView(panelChat);
+        ChatScrollPane.setViewportView(panelChat);
 
-        spFriend.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        spFriend.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        spFriend.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+        FriendsScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        FriendsScrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        FriendsScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         panelFriend.setBackground(new java.awt.Color(255, 255, 255));
         panelFriend.setPreferredSize(new java.awt.Dimension(0, 0));
         panelFriend.setLayout(new javax.swing.BoxLayout(panelFriend, javax.swing.BoxLayout.Y_AXIS));
-        spFriend.setViewportView(panelFriend);
+        FriendsScrollPane.setViewportView(panelFriend);
 
         txt.setFont(new java.awt.Font("Khmer UI", 0, 14)); // NOI18N
         txt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -623,7 +622,7 @@ public class ChatConsole extends javax.swing.JFrame
             .add(panel_bgLayout.createSequentialGroup()
                 .addContainerGap()
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(spFriend)
+                    .add(FriendsScrollPane)
                     .add(jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(panel_bgLayout.createSequentialGroup()
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -638,7 +637,7 @@ public class ChatConsole extends javax.swing.JFrame
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, cmdLogOut, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .add(8, 8, 8)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(spChat)
+                    .add(ChatScrollPane)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, panel_bgLayout.createSequentialGroup()
                         .add(0, 0, Short.MAX_VALUE)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -701,8 +700,8 @@ public class ChatConsole extends javax.swing.JFrame
                         .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 7, Short.MAX_VALUE)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(spFriend, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 412, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(spChat, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
+                    .add(FriendsScrollPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 412, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(ChatScrollPane, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 8, Short.MAX_VALUE)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(txt)
@@ -1027,7 +1026,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         currentID = ID;
         refresh(panelChat);
-        scrollToBottom(spChat);
+        scrollToBottom(ChatScrollPane);
     }
 
     private void getPhoto(int ID, ImageIcon image)
@@ -1065,7 +1064,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         currentID = ID;
         refresh(panelChat);
-        scrollToBottom(spChat);
+        scrollToBottom(ChatScrollPane);
     }
 
     private void getEmoji(int ID, String emoji)
@@ -1103,7 +1102,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         currentID = ID;
         refresh(panelChat);
-        scrollToBottom(spChat);
+        scrollToBottom(ChatScrollPane);
     }
 
     private void getFile(int ID, String ms, ImageIcon icon)
@@ -1141,7 +1140,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         currentID = ID;
         refresh(panelChat);
-        scrollToBottom(spChat);
+        scrollToBottom(ChatScrollPane);
     }
 
     private void getSound(int ID, byte[] sound, String time)
@@ -1179,7 +1178,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         currentID = ID;
         refresh(panelChat);
-        scrollToBottom(spChat);
+        scrollToBottom(ChatScrollPane);
     }
 
     private void download(Message ms)
@@ -1355,6 +1354,8 @@ public class ChatConsole extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane ChatScrollPane;
+    private javax.swing.JScrollPane FriendsScrollPane;
     private javax.swing.JLabel ServerAddress;
     private SwingCustom.Button cmdAudio;
     private SwingCustom.Button cmdEmoji;
@@ -1387,8 +1388,6 @@ public class ChatConsole extends javax.swing.JFrame
     private javax.swing.JPopupMenu popMix;
     private javax.swing.JPopupMenu popUp;
     private javax.swing.JPopupMenu popUp_emoji;
-    private javax.swing.JScrollPane spChat;
-    private javax.swing.JScrollPane spFriend;
     private javax.swing.JScrollPane spGroup;
     private javax.swing.JLabel time_now;
     private javax.swing.JTextField txt;
