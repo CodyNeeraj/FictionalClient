@@ -1,6 +1,9 @@
 /build/
 /dist/
-/nbproject/private/profiler
+/nbproject/private/
+
+#Contains bookmark of the last editing tab opened
+/nbproject/private/private.xml
 /test/
 /*.class
 /data/
