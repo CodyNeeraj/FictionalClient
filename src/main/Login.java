@@ -14,7 +14,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -45,9 +44,9 @@ public class Login extends javax.swing.JFrame
     {
         //Title icon
         setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
-        Method.setTextFieldStyle(UserNameField, "User Name");
+        Method.setTextFieldStyle(UserNameField, "Username");
         Method.setTextFieldStyle(IpField, "IP Address");
-        Method.setTextFieldStyle(PortField, "Port");
+        Method.setTextFieldStyle(PortField, "Port Number");
         showStatus(ms);
     }
 
@@ -204,116 +203,107 @@ public class Login extends javax.swing.JFrame
             Pattern ptrn = Pattern.compile(IpValidator);
             String ipv4 = IpField.getText();
             Matcher mtch = ptrn.matcher(ipv4);
-            boolean isValidated = true;
+            boolean isValidated, isValidName, isValidPort, isValidIP;
+            isValidated = isValidPort = isValidName = isValidIP = false;
             int port = 0;
-            try
-            {
-                port = Integer.parseInt(PortField.getText());
-            }
-            catch(NumberFormatException e)
+            if(UserNameField.getText().isEmpty() || !UserNameField.getName().equals("have"))
             {
                 isValidated = false;
-                if(PortField.getText().isEmpty())
+                UserNameField.grabFocus();
+                showStatus("Please input your Username");
+            }
+            if(!PortField.getText().isEmpty())
+            {
+                if(PortField.getText().trim().matches("^\\d+$"))
                 {
-                    JOptionPane.showMessageDialog(this, "Port or IP can't be left Empty", "Input Error", JOptionPane.WARNING_MESSAGE);
+                    isValidPort = true;
+                    port = Integer.parseInt(PortField.getText());
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(this, "Port can only be a Number", "Input Error", JOptionPane.ERROR_MESSAGE);
+                    isValidPort = false;
+                    PortField.grabFocus();
+                    System.out.println("Wrong Value for Port");
+                    showStatus("Port can only be an Integer Number !");
                 }
             }
+
             if((port < 10) || (port >= 65536))
             {
-                isValidated = false;
-                System.out.println("Wrong range XD");
-                JOptionPane.showMessageDialog(this, "Port is not in the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
+                isValidPort = false;
+                showStatus("Port not in Range (10 - 65535)");
+                PortField.grabFocus();
             }
 
             if((!IpField.getText().toLowerCase().trim().equals("localhost")) || (!mtch.matches()))
             {
-                isValidated = false;
-                // JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
+                isValidIP = false;
+                IpField.grabFocus();
+            }
+
+            if(UserNameField.getText().trim().length() > 15)
+            {
+                isValidName = false;
+                UserNameField.grabFocus();
+                showStatus("Username must less than 15 characters");
+            }
+            if(UserNameField.getText().trim().length() < 15)
+            {
+                isValidName = true;
+            }
+            if(UserNameField.getText().isEmpty())
+            {
+                showStatus("Name can't be left Empty");
             }
 
             if(port > 10 && port < 65536)//in range function (checking after being in the memory first)
             {
                 if((IpField.getText().toLowerCase().trim().equals("localhost")) || (mtch.matches()))
                 {
-                    System.out.println("Everything perfect mate");
-                    isValidated = true;
+                    isValidIP = true;
+                    System.out.println("IP and port are both valid !");
                 }
-                else
+                else if(IpField.getText().isEmpty())
                 {
-                    isValidated = false;
-                    JOptionPane.showMessageDialog(this, "Malformed IP address Entered !", "Value Error", JOptionPane.ERROR_MESSAGE);
+                    showStatus("IP address can't be left Empty");
                 }
+                else if(isValidIP == false)
+                {
+                    isValidIP = false;
+                    IpField.grabFocus();
+                    showStatus("Malformed IP address Entered !");
+                }
+                isValidPort = true;
             }
-
-            if(isValidated == true) //means true (by default)
+            if(isValidPort == true && isValidName == true && isValidIP == true)
             {
-                try
-                {
-//                    soc = new Socket(ipv4, port);
-//                    if(soc.isBound())
-//                    {
-//                        // new clientBot.ChatConsole(ipv4, port).setVisible(true);
-//                        dispose();
-//                        //do whatever the heck here as this is the place where everthing is checked and verified
-//                        System.out.println("IP is " + ipv4 + " port is " + port);
-//                    }
-                    System.out.println("Main code goes here");
-                }
-                catch(Exception ex)
-                {
-                    isValidated = false;
-                    JOptionPane.showMessageDialog(rootPane, "The host you're trying to connect is not up\n"
-                            + "or not responding to the client requests at\n"
-                            + "the moment please recheck the credentials\n"
-                            + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
-                }
+                isValidated = true;
+                System.out.println("Everthing is perfect mate");
             }
-            if(UserNameField.getText().equals("") || !UserNameField.getName().equals("have"))
+            if(isValidated == true)
             {
-                UserNameField.grabFocus();
-                showStatus("Please input your user name");
-            }
-            else
-            {
-                if(UserNameField.getText().trim().length() > 15)
-                {
-                    UserNameField.grabFocus();
-                    showStatus("User name must less than 15 character");
-                }
-                else
-                {
-                    String IP = IpField.getText().trim();
-                    if(IpField.getText().equals("") || !IpField.getName().equals("have"))
-                    {
-                        IP = "localhost";
-                        System.err.println("have");
-                    }
-                    String userName = UserNameField.getText().trim();
-                    Method.connect(profile_pic, userName, IP, 9999);
-                    this.dispose();
-                    ChatConsole.main(null);
-                }
-
+                Method.connect(profile_pic, UserNameField.getText().trim(), IpField.getText().trim(), port);
+                this.dispose();
+                ChatConsole.main(null);
             }
         }
         catch(UnknownHostException | java.rmi.UnknownHostException e)
         {
-            showStatus("Unknown host : " + IpField.getText());
+            showStatus("Unknown host : " + IpField.getText() + "@" + PortField.getText());
         }
         catch(ConnectException | java.rmi.ConnectException e)
         {
             showStatus("Server not found");
         }
+        catch(NumberFormatException e)
+        {
+            showStatus("Value not an instanceof Integer");
+        }
         catch(Exception e)
         {
-            showStatus("Network is unreachable : connect");
+            showStatus("Network is currently unreachable");
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
-
     }//GEN-LAST:event_ConnectBtnActionPerformed
 
     private void UserNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserNameFieldKeyTyped
