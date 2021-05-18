@@ -10,8 +10,11 @@ import java.net.ConnectException;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -44,6 +47,7 @@ public class Login extends javax.swing.JFrame
         setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
         Method.setTextFieldStyle(UserNameField, "User Name");
         Method.setTextFieldStyle(IpField, "IP Address");
+        Method.setTextFieldStyle(PortField, "Port");
         showStatus(ms);
     }
 
@@ -55,19 +59,20 @@ public class Login extends javax.swing.JFrame
         jPanel1 = new javax.swing.JPanel();
         UserNameField = new javax.swing.JTextField();
         IpField = new javax.swing.JTextField();
+        PortField = new javax.swing.JTextField();
         ConnectBtn = new SwingCustom.Button();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        profile = new javax.swing.JLabel();
         errorStatus = new javax.swing.JLabel();
+        profile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Log in");
+        setTitle("Socketty Connect");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
         UserNameField.setBackground(new java.awt.Color(204, 204, 204));
-        UserNameField.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        UserNameField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         UserNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UserNameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         UserNameField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -80,7 +85,7 @@ public class Login extends javax.swing.JFrame
         });
 
         IpField.setBackground(new java.awt.Color(204, 204, 204));
-        IpField.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        IpField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         IpField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IpField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         IpField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -92,6 +97,12 @@ public class Login extends javax.swing.JFrame
             }
         });
 
+        PortField.setBackground(new java.awt.Color(204, 204, 204));
+        PortField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        PortField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PortField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        PortField.setSelectionColor(new java.awt.Color(131, 188, 227));
+
         ConnectBtn.setBackground(new java.awt.Color(101, 167, 232));
         ConnectBtn.setForeground(new java.awt.Color(255, 255, 255));
         ConnectBtn.setText("Connect");
@@ -99,7 +110,7 @@ public class Login extends javax.swing.JFrame
         ConnectBtn.setColorOver(new java.awt.Color(31, 121, 208));
         ConnectBtn.setFillBorder(20);
         ConnectBtn.setFocusable(false);
-        ConnectBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        ConnectBtn.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
         ConnectBtn.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -110,6 +121,10 @@ public class Login extends javax.swing.JFrame
 
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
+        errorStatus.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        errorStatus.setForeground(new java.awt.Color(204, 0, 0));
+        errorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile.png"))); // NOI18N
         profile.addMouseListener(new java.awt.event.MouseAdapter()
@@ -119,11 +134,6 @@ public class Login extends javax.swing.JFrame
                 profileMouseClicked(evt);
             }
         });
-        jLayeredPane1.add(profile);
-
-        errorStatus.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
-        errorStatus.setForeground(new java.awt.Color(204, 0, 0));
-        errorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,54 +141,55 @@ public class Login extends javax.swing.JFrame
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(errorStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IpField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84))
+                        .addGap(141, 141, 141)
+                        .addComponent(profile)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(12, 12, 12)
+                        .addComponent(errorStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(IpField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PortField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(13, 13, 13))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(ConnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
+                .addComponent(ConnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(profile))
                 .addGap(18, 18, 18)
-                .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(IpField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(IpField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PortField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(ConnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
                 .addComponent(errorStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -188,6 +199,79 @@ public class Login extends javax.swing.JFrame
     private void ConnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectBtnActionPerformed
         try
         {
+
+            String IpValidator = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+            Pattern ptrn = Pattern.compile(IpValidator);
+            String ipv4 = IpField.getText();
+            Matcher mtch = ptrn.matcher(ipv4);
+            boolean isValidated = true;
+            int port = 0;
+            try
+            {
+                port = Integer.parseInt(PortField.getText());
+            }
+            catch(NumberFormatException e)
+            {
+                isValidated = false;
+                if(PortField.getText().isEmpty())
+                {
+                    JOptionPane.showMessageDialog(this, "Port or IP can't be left Empty", "Input Error", JOptionPane.WARNING_MESSAGE);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "Port can only be a Number", "Input Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            if((port < 10) || (port >= 65536))
+            {
+                isValidated = false;
+                System.out.println("Wrong range XD");
+                JOptionPane.showMessageDialog(this, "Port is not in the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+            if((!IpField.getText().toLowerCase().trim().equals("localhost")) || (!mtch.matches()))
+            {
+                isValidated = false;
+                // JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            if(port > 10 && port < 65536)//in range function (checking after being in the memory first)
+            {
+                if((IpField.getText().toLowerCase().trim().equals("localhost")) || (mtch.matches()))
+                {
+                    System.out.println("Everything perfect mate");
+                    isValidated = true;
+                }
+                else
+                {
+                    isValidated = false;
+                    JOptionPane.showMessageDialog(this, "Malformed IP address Entered !", "Value Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+
+            if(isValidated == true) //means true (by default)
+            {
+                try
+                {
+//                    soc = new Socket(ipv4, port);
+//                    if(soc.isBound())
+//                    {
+//                        // new clientBot.ChatConsole(ipv4, port).setVisible(true);
+//                        dispose();
+//                        //do whatever the heck here as this is the place where everthing is checked and verified
+//                        System.out.println("IP is " + ipv4 + " port is " + port);
+//                    }
+                    System.out.println("Main code goes here");
+                }
+                catch(Exception ex)
+                {
+                    isValidated = false;
+                    JOptionPane.showMessageDialog(rootPane, "The host you're trying to connect is not up\n"
+                            + "or not responding to the client requests at\n"
+                            + "the moment please recheck the credentials\n"
+                            + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
             if(UserNameField.getText().equals("") || !UserNameField.getName().equals("have"))
             {
                 UserNameField.grabFocus();
@@ -209,7 +293,7 @@ public class Login extends javax.swing.JFrame
                         System.err.println("have");
                     }
                     String userName = UserNameField.getText().trim();
-                    Method.connect(profile_pic, userName, IP);
+                    Method.connect(profile_pic, userName, IP, 9999);
                     this.dispose();
                     ChatConsole.main(null);
                 }
@@ -331,6 +415,7 @@ public class Login extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private SwingCustom.Button ConnectBtn;
     private javax.swing.JTextField IpField;
+    private javax.swing.JTextField PortField;
     private javax.swing.JTextField UserNameField;
     private javax.swing.JLabel errorStatus;
     private javax.swing.JLayeredPane jLayeredPane1;

@@ -29,7 +29,7 @@ import model.Friend;
 
 public class Method
 {
-    private static int port = 7489;
+    private static int port;
     private static String address;
 
     public static Recoder getRecoder()
@@ -101,8 +101,9 @@ public class Method
         });
     }
 
-    public static void connect(ImageIcon icon, String userName, String IP) throws Exception
+    public static void connect(ImageIcon icon, String userName, String IP, int Port) throws Exception
     {
+        port = Port;
         client = new Socket(IP, port);
         address = IP;
         out = new ObjectOutputStream(client.getOutputStream());
