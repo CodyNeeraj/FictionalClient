@@ -171,7 +171,6 @@ public class StartFrame extends javax.swing.JFrame
 
     private void serverStartActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_serverStartActionPerformed
     {//GEN-HEADEREND:event_serverStartActionPerformed
-
         String IpValidator = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
         Pattern ptrn = Pattern.compile(IpValidator);
         String ipv4 = ipAddrsField.getText();
@@ -187,7 +186,6 @@ public class StartFrame extends javax.swing.JFrame
             isValidated = false;
             if(portField.getText().isEmpty())
             {
-                isValidated = false;
                 JOptionPane.showMessageDialog(this, "Port or IP can't be left Empty", "Input Error", JOptionPane.WARNING_MESSAGE);
             }
             else
@@ -195,33 +193,31 @@ public class StartFrame extends javax.swing.JFrame
                 JOptionPane.showMessageDialog(this, "Port can only be a Number", "Input Error", JOptionPane.ERROR_MESSAGE);
             }
         }
+        if((port < 10) || (port >= 65536))
+        {
+            isValidated = false;
+            System.out.println("Wrong range XD");
+            JOptionPane.showMessageDialog(this, "Port is not in the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
+        }
 
-        if(port < 10)
+        if((!ipAddrsField.getText().toLowerCase().trim().equals("localhost")) || (!mtch.matches()))
         {
             isValidated = false;
-            System.out.println("Smaller than range XD");
-            JOptionPane.showMessageDialog(this, "Port is smaller than the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
+            // JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
         }
-        else if(port >= 65536)
+
+        if(port > 10 && port < 65536)//in range function (checking after being in the memory first)
         {
-            isValidated = false;
-            System.out.println("Greater than Range ;(");
-            JOptionPane.showMessageDialog(this, "Port is greater than the range specified", "Range Error", JOptionPane.WARNING_MESSAGE);
-        }
-        else if(!mtch.matches())
-        {
-            isValidated = false;
-            JOptionPane.showMessageDialog(this, "Please Enter a valid IP\nA valid IP is in the range of\n255.255.255.255 (0-255)", "Value Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else if(mtch.matches() && port >= 10)
-        {
-            System.out.println("Everything perfect mate");
-            isValidated = true;
-        }
-        else if(mtch.matches() && port < 65536)
-        {
-            System.out.println("Everything perfect mate");
-            isValidated = true;
+            if((ipAddrsField.getText().toLowerCase().trim().equals("localhost")) || (mtch.matches()))
+            {
+                System.out.println("Everything perfect mate");
+                isValidated = true;
+            }
+            else
+            {
+                isValidated = false;
+                JOptionPane.showMessageDialog(this, "Malformed IP address Entered !", "Value Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
 
         if(isValidated == true) //means true (by default)
@@ -229,7 +225,7 @@ public class StartFrame extends javax.swing.JFrame
             try
             {
                 soc = new Socket(ipv4, port);
-                if(!soc.isBound())
+                if(soc.isBound())
                 {
                     // new clientBot.ChatConsole(ipv4, port).setVisible(true);
                     dispose();
