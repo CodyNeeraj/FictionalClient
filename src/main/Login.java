@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
         UserNameField.setBackground(new java.awt.Color(204, 204, 204));
-        UserNameField.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 18)); // NOI18N
+        UserNameField.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         UserNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UserNameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         UserNameField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -80,7 +80,7 @@ public class Login extends javax.swing.JFrame
         });
 
         IpField.setBackground(new java.awt.Color(204, 204, 204));
-        IpField.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 18)); // NOI18N
+        IpField.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         IpField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IpField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         IpField.setSelectionColor(new java.awt.Color(131, 188, 227));
