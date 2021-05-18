@@ -76,22 +76,8 @@ public class StartFrame extends javax.swing.JFrame
         });
 
         ipAddrsField.setToolTipText("Please enter dot (.) separated IPv4 address only !");
-        ipAddrsField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                ipAddrsFieldActionPerformed(evt);
-            }
-        });
 
         portField.setToolTipText("Please change if the Port you entered is not available !");
-        portField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                portFieldActionPerformed(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
         jLabel3.setText("(10-65535)");
@@ -103,14 +89,6 @@ public class StartFrame extends javax.swing.JFrame
 
         serverPass.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         serverPass.setText("Password");
-
-        passField.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                passFieldActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -243,22 +221,6 @@ public class StartFrame extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_serverStartActionPerformed
-
-    private void portFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_portFieldActionPerformed
-    {//GEN-HEADEREND:event_portFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_portFieldActionPerformed
-
-    private void passFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_passFieldActionPerformed
-    {//GEN-HEADEREND:event_passFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passFieldActionPerformed
-
-    private void ipAddrsFieldActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ipAddrsFieldActionPerformed
-    {//GEN-HEADEREND:event_ipAddrsFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ipAddrsFieldActionPerformed
-
     /**
      * @param args the command line arguments
      */

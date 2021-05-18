@@ -122,17 +122,11 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Please enter dot (.) separated IPv4 address only !"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ipAddrsFieldActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="portField">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value="Please change if the Port you entered is not available !"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="portFieldActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -161,9 +155,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="passField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passFieldActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

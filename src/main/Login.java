@@ -42,8 +42,8 @@ public class Login extends javax.swing.JFrame
     {
         //Title icon
         setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
-        Method.setTextFieldStyle(txtUser, "User Name");
-        Method.setTextFieldStyle(txtIP, "IP Address");
+        Method.setTextFieldStyle(UserNameField, "User Name");
+        Method.setTextFieldStyle(IpField, "IP Address");
         showStatus(ms);
     }
 
@@ -53,12 +53,12 @@ public class Login extends javax.swing.JFrame
     {
 
         jPanel1 = new javax.swing.JPanel();
-        txtUser = new javax.swing.JTextField();
-        txtIP = new javax.swing.JTextField();
-        cmdLogin = new SwingCustom.Button();
+        UserNameField = new javax.swing.JTextField();
+        IpField = new javax.swing.JTextField();
+        ConnectBtn = new SwingCustom.Button();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         profile = new javax.swing.JLabel();
-        lbStatus = new javax.swing.JLabel();
+        errorStatus = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Log in");
@@ -66,45 +66,45 @@ public class Login extends javax.swing.JFrame
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
-        txtUser.setBackground(new java.awt.Color(204, 204, 204));
-        txtUser.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 18)); // NOI18N
-        txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
-        txtUser.setSelectionColor(new java.awt.Color(131, 188, 227));
-        txtUser.addKeyListener(new java.awt.event.KeyAdapter()
+        UserNameField.setBackground(new java.awt.Color(204, 204, 204));
+        UserNameField.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 18)); // NOI18N
+        UserNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        UserNameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        UserNameField.setSelectionColor(new java.awt.Color(131, 188, 227));
+        UserNameField.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                txtUserKeyTyped(evt);
+                UserNameFieldKeyTyped(evt);
             }
         });
 
-        txtIP.setBackground(new java.awt.Color(204, 204, 204));
-        txtIP.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 18)); // NOI18N
-        txtIP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtIP.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
-        txtIP.setSelectionColor(new java.awt.Color(131, 188, 227));
-        txtIP.addKeyListener(new java.awt.event.KeyAdapter()
+        IpField.setBackground(new java.awt.Color(204, 204, 204));
+        IpField.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 18)); // NOI18N
+        IpField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        IpField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
+        IpField.setSelectionColor(new java.awt.Color(131, 188, 227));
+        IpField.addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
-                txtIPKeyTyped(evt);
+                IpFieldKeyTyped(evt);
             }
         });
 
-        cmdLogin.setBackground(new java.awt.Color(101, 167, 232));
-        cmdLogin.setForeground(new java.awt.Color(255, 255, 255));
-        cmdLogin.setText("Connect");
-        cmdLogin.setColorClick(new java.awt.Color(152, 196, 239));
-        cmdLogin.setColorOver(new java.awt.Color(31, 121, 208));
-        cmdLogin.setFillBorder(20);
-        cmdLogin.setFocusable(false);
-        cmdLogin.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        cmdLogin.addActionListener(new java.awt.event.ActionListener()
+        ConnectBtn.setBackground(new java.awt.Color(101, 167, 232));
+        ConnectBtn.setForeground(new java.awt.Color(255, 255, 255));
+        ConnectBtn.setText("Connect");
+        ConnectBtn.setColorClick(new java.awt.Color(152, 196, 239));
+        ConnectBtn.setColorOver(new java.awt.Color(31, 121, 208));
+        ConnectBtn.setFillBorder(20);
+        ConnectBtn.setFocusable(false);
+        ConnectBtn.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        ConnectBtn.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                cmdLoginActionPerformed(evt);
+                ConnectBtnActionPerformed(evt);
             }
         });
 
@@ -121,9 +121,9 @@ public class Login extends javax.swing.JFrame
         });
         jLayeredPane1.add(profile);
 
-        lbStatus.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
-        lbStatus.setForeground(new java.awt.Color(204, 0, 0));
-        lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        errorStatus.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
+        errorStatus.setForeground(new java.awt.Color(204, 0, 0));
+        errorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,12 +133,12 @@ public class Login extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(errorStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IpField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(84, 84, 84))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(170, 170, 170)
@@ -147,7 +147,7 @@ public class Login extends javax.swing.JFrame
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(118, 118, 118)
-                .addComponent(cmdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ConnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -156,13 +156,13 @@ public class Login extends javax.swing.JFrame
                 .addGap(24, 24, 24)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UserNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(IpField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cmdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ConnectBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(errorStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -185,30 +185,30 @@ public class Login extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmdLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLoginActionPerformed
+    private void ConnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectBtnActionPerformed
         try
         {
-            if(txtUser.getText().equals("") || !txtUser.getName().equals("have"))
+            if(UserNameField.getText().equals("") || !UserNameField.getName().equals("have"))
             {
-                txtUser.grabFocus();
+                UserNameField.grabFocus();
                 showStatus("Please input your user name");
             }
             else
             {
-                if(txtUser.getText().trim().length() > 15)
+                if(UserNameField.getText().trim().length() > 15)
                 {
-                    txtUser.grabFocus();
+                    UserNameField.grabFocus();
                     showStatus("User name must less than 15 character");
                 }
                 else
                 {
-                    String IP = txtIP.getText().trim();
-                    if(txtIP.getText().equals("") || !txtIP.getName().equals("have"))
+                    String IP = IpField.getText().trim();
+                    if(IpField.getText().equals("") || !IpField.getName().equals("have"))
                     {
                         IP = "localhost";
                         System.err.println("have");
                     }
-                    String userName = txtUser.getText().trim();
+                    String userName = UserNameField.getText().trim();
                     Method.connect(profile_pic, userName, IP);
                     this.dispose();
                     ChatConsole.main(null);
@@ -218,7 +218,7 @@ public class Login extends javax.swing.JFrame
         }
         catch(UnknownHostException | java.rmi.UnknownHostException e)
         {
-            showStatus("Unknown host : " + txtIP.getText());
+            showStatus("Unknown host : " + IpField.getText());
         }
         catch(ConnectException | java.rmi.ConnectException e)
         {
@@ -230,35 +230,35 @@ public class Login extends javax.swing.JFrame
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
 
-    }//GEN-LAST:event_cmdLoginActionPerformed
+    }//GEN-LAST:event_ConnectBtnActionPerformed
 
-    private void txtUserKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyTyped
+    private void UserNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserNameFieldKeyTyped
         if(evt.getKeyChar() == 10)
         {
-            txtIP.grabFocus();
+            IpField.grabFocus();
         }
-        if(txtUser.getText().trim().length() >= 15)
+        if(UserNameField.getText().trim().length() >= 15)
         {
             evt.consume();
         }
-    }//GEN-LAST:event_txtUserKeyTyped
+    }//GEN-LAST:event_UserNameFieldKeyTyped
 
-    private void txtIPKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIPKeyTyped
+    private void IpFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IpFieldKeyTyped
         if(evt.getKeyChar() == 10)
         {
-            cmdLoginActionPerformed(null);
+            ConnectBtnActionPerformed(null);
         }
-    }//GEN-LAST:event_txtIPKeyTyped
+    }//GEN-LAST:event_IpFieldKeyTyped
 
     private void profileMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_profileMouseClicked
     {//GEN-HEADEREND:event_profileMouseClicked
         if(evt.getClickCount() == 1 && SwingUtilities.isLeftMouseButton(evt))
         {
-            JFileChooser ch = new JFileChooser();
+            JFileChooser fileChooser = new JFileChooser();
             FileChooser preview = new FileChooser();
-            ch.setAccessory(preview);
-            ch.addPropertyChangeListener(preview);
-            ch.setFileFilter(new FileFilter()
+            fileChooser.setAccessory(preview);
+            fileChooser.addPropertyChangeListener(preview);
+            fileChooser.setFileFilter(new FileFilter()
             {
                 @Override
                 public boolean accept(File file)
@@ -273,10 +273,10 @@ public class Login extends javax.swing.JFrame
                     return "png,jpg";
                 }
             });
-            int opt = ch.showOpenDialog(this);
-            if(opt == JFileChooser.APPROVE_OPTION)
+            int selectedValue = fileChooser.showOpenDialog(this);
+            if(selectedValue == JFileChooser.APPROVE_OPTION)
             {
-                ImageIcon image = new ImageIcon(ch.getSelectedFile().getAbsolutePath());
+                ImageIcon image = new ImageIcon(fileChooser.getSelectedFile().getAbsolutePath());
                 Image img;
                 if(image.getIconWidth() > image.getIconHeight())
                 {
@@ -298,20 +298,20 @@ public class Login extends javax.swing.JFrame
         @Override
         public void actionPerformed(ActionEvent ae)
         {
-            lbStatus.setText("");
+            errorStatus.setText("");
             timer.stop();
         }
     });
 
-    private void showStatus(String error)
+    private void showStatus(String errorData)
     {
         if(timer.isRunning())
         {
-            lbStatus.setText("");
+            errorStatus.setText("");
             timer.stop();
         }
         timer.start();
-        lbStatus.setText(error);
+        errorStatus.setText(errorData);
     }
 
     private static String ms = "";
@@ -329,12 +329,12 @@ public class Login extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private SwingCustom.Button cmdLogin;
+    private SwingCustom.Button ConnectBtn;
+    private javax.swing.JTextField IpField;
+    private javax.swing.JTextField UserNameField;
+    private javax.swing.JLabel errorStatus;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbStatus;
     private javax.swing.JLabel profile;
-    private javax.swing.JTextField txtIP;
-    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

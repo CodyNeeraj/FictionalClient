@@ -55,13 +55,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lbStatus" max="32767" attributes="0"/>
+                          <Component id="errorStatus" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtUser" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
-                              <Component id="txtIP" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                              <Component id="UserNameField" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
+                              <Component id="IpField" alignment="0" min="-2" pref="260" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                       </Group>
@@ -75,7 +75,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                  <Component id="cmdLogin" min="-2" pref="204" max="-2" attributes="0"/>
+                  <Component id="ConnectBtn" min="-2" pref="204" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -86,20 +86,20 @@
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="jLayeredPane1" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtUser" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="UserNameField" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtIP" min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="IpField" min="-2" pref="45" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="cmdLogin" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="ConnectBtn" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lbStatus" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="errorStatus" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="txtUser">
+        <Component class="javax.swing.JTextField" name="UserNameField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -118,10 +118,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtUserKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="UserNameFieldKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtIP">
+        <Component class="javax.swing.JTextField" name="IpField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -140,10 +140,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtIPKeyTyped"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="IpFieldKeyTyped"/>
           </Events>
         </Component>
-        <Component class="SwingCustom.Button" name="cmdLogin">
+        <Component class="SwingCustom.Button" name="ConnectBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e8" green="a7" red="65" type="rgb"/>
@@ -165,7 +165,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdLoginActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConnectBtnActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
@@ -210,7 +210,7 @@
             </CodeStatement>
           </LayoutCode>
         </Container>
-        <Component class="javax.swing.JLabel" name="lbStatus">
+        <Component class="javax.swing.JLabel" name="errorStatus">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Khmer SBBIC Serif" size="14" style="0"/>
