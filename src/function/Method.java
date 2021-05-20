@@ -3,6 +3,9 @@ package function;
 import SwingCustom.ImageViewer;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
+import java.awt.HeadlessException;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
@@ -10,6 +13,7 @@ import java.awt.event.KeyEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -17,6 +21,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -32,14 +38,14 @@ public class Method
     private static int port;
     private static String address;
 
-    public static Recoder getRecoder()
+    public static AudioRecorder getRecorder()
     {
-        return recoder;
+        return recorder;
     }
 
-    public static void setRecoder(Recoder aRecoder)
+    public static void setRecorder(AudioRecorder Recorder)
     {
-        recoder = aRecoder;
+        recorder = Recorder;
     }
 
     private static HashMap<Integer, Friend> friends = new HashMap<>();
@@ -49,13 +55,14 @@ public class Method
     private static int myID;
     private static String myName;
     private static String time;
-    private static JFrame fram;
-    private static Recoder recoder = new Recoder();
+    private static JFrame frame;
+    private Font khmerFont;
+    private static AudioRecorder recorder = new AudioRecorder();
 
     public static void setTextFieldStyle(JTextField txt, String style)
     {
         txt.setName("");
-        txt.setForeground(new Color(186, 186, 186));
+        txt.setForeground(new Color(130, 130, 130));
         txt.setText(style);
         txt.addFocusListener(new FocusAdapter()
         {
@@ -64,7 +71,7 @@ public class Method
             {
                 if(txt.getName().equals(""))
                 {
-                    txt.setForeground(new Color(51, 51, 51));
+                    txt.setForeground(new Color(25, 25, 25));
                     txt.setText("");
                 }
             }
@@ -74,7 +81,7 @@ public class Method
             {
                 if(txt.getText().trim().equals(""))
                 {
-                    txt.setForeground(new Color(186, 186, 186));
+                    txt.setForeground(new Color(130, 130, 130));
                     txt.setText(style);
                     txt.setName("");
                 }
@@ -142,10 +149,12 @@ public class Method
 
     public static void sendFile(File file) throws Exception
     {
-        FileInputStream in = new FileInputStream(file);
-        byte data[] = new byte[in.available()];
-        in.read(data);
-        in.close();
+        byte[] data;
+        try(FileInputStream ins = new FileInputStream(file))
+        {
+            data = new byte[ins.available()];
+            ins.read(data);
+        }
         String fileSize = convertSize(file.length());
         Message ms = new Message();
         ms.setStatus("File");
@@ -224,7 +233,7 @@ public class Method
                 File f = ch.getSelectedFile();
                 if(f.exists())
                 {
-                    int click = JOptionPane.showConfirmDialog(ChatConsole.getFrames()[0], "This file name has already do you want to replace", "Save File", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    int click = JOptionPane.showConfirmDialog(ChatConsole.getFrames()[0], "This file name has already Exists, do you want to replace", "Save File", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if(click != JOptionPane.YES_OPTION)
                     {
                         return;
@@ -244,9 +253,13 @@ public class Method
                 out.flush();
             }
         }
+        catch(HeadlessException | IOException e)
+        {
+            JOptionPane.showMessageDialog(frame, e, "Error", JOptionPane.ERROR_MESSAGE);
+        }
         catch(Exception e)
         {
-            JOptionPane.showMessageDialog(fram, e, "Error", JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -259,7 +272,7 @@ public class Method
         pop.add(obj);
         int w = (int) obj.getPreferredSize().getWidth();
         int h = (int) obj.getPreferredSize().getHeight();
-        pop.show(fram, fram.getWidth() / 2 - w / 2, fram.getHeight() / 2 - h / 2);
+        pop.show(frame, frame.getWidth() / 2 - w / 2, frame.getHeight() / 2 - h / 2);
     }
     private static final String[] fileSizeUnits =
     {
@@ -284,12 +297,31 @@ public class Method
         return sizeToReturn;
     }
 
-    public static Font getFount()
+    public Font getKhmer_Font()
+    {
+        try
+        {
+            // load a custom font in your project folder
+//            myStream = new BufferedInputStream(new FileInputStream(FONT_PATH_TELEGRAFICO));
+//            ttfBase = Font.createFont(Font.TRUETYPE_FONT, myStream);
+            khmerFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")).deriveFont(1, 16f);
+//            khmerFont = Font.createFont(Font.TRUETYPE_FONT, new File("/Font/Khmer_SBBIC_Serif.ttf")).deriveFont(30f);
+            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")));
+        }
+        catch(IOException | FontFormatException e)
+        {
+            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return khmerFont;
+    }
+
+    public static Font getFont()
     {
         return new java.awt.Font("Khmer SBBIC Serif", 0, 12);
     }
 
-    public static Font getFountBold()
+    public static Font getFontBold()
     {
         return new java.awt.Font("Khmer SBBIC Serif", 1, 12);
     }
@@ -299,9 +331,9 @@ public class Method
         return friends;
     }
 
-    public static void setFriends(HashMap<Integer, Friend> aFriends)
+    public static void setFriends(HashMap<Integer, Friend> Friends)
     {
-        friends = aFriends;
+        friends = Friends;
     }
 
     public static ObjectOutputStream getOut()
@@ -309,9 +341,9 @@ public class Method
         return out;
     }
 
-    public static void setOut(ObjectOutputStream aOut)
+    public static void setOut(ObjectOutputStream Out)
     {
-        out = aOut;
+        out = Out;
     }
 
     public static ObjectInputStream getIn()
@@ -319,9 +351,9 @@ public class Method
         return in;
     }
 
-    public static void setIn(ObjectInputStream aIn)
+    public static void setIn(ObjectInputStream In)
     {
-        in = aIn;
+        in = In;
     }
 
     public static int getMyID()
@@ -329,9 +361,9 @@ public class Method
         return myID;
     }
 
-    public static void setMyID(int aMyID)
+    public static void setMyID(int MyID)
     {
-        myID = aMyID;
+        myID = MyID;
     }
 
     public static String getMyName()
@@ -349,9 +381,9 @@ public class Method
         return address;
     }
 
-    public static void setMyName(String aMyName)
+    public static void setMyName(String MyName)
     {
-        myName = aMyName;
+        myName = MyName;
     }
 
     public static Socket getClient()
@@ -359,9 +391,9 @@ public class Method
         return client;
     }
 
-    public static void setClient(Socket aClient)
+    public static void setClient(Socket Client)
     {
-        client = aClient;
+        client = Client;
     }
 
     public static String getTime()
@@ -369,18 +401,18 @@ public class Method
         return time;
     }
 
-    public static void setTime(String aTime)
+    public static void setTime(String Time)
     {
-        time = aTime;
+        time = Time;
     }
 
-    public static JFrame getFram()
+    public static JFrame getFrame()
     {
-        return fram;
+        return frame;
     }
 
-    public static void setFram(JFrame aFram)
+    public static void setFrame(JFrame Frame)
     {
-        fram = aFram;
+        frame = Frame;
     }
 }

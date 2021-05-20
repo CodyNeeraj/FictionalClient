@@ -1,5 +1,6 @@
 package main;
 
+import function.Method;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -205,6 +206,9 @@ public class StartFrame extends javax.swing.JFrame
                 soc = new Socket(ipv4, port);
                 if(soc.isBound())
                 {
+                    Method.connect(null, portField.getText().trim(), ipAddrsField.getText().trim(), port);
+                    this.dispose();
+                    ChatConsole.main(null);
                     // new clientBot.ChatConsole(ipv4, port).setVisible(true);
                     dispose();
                     //do whatever the heck here as this is the place where everthing is checked and verified
@@ -218,6 +222,10 @@ public class StartFrame extends javax.swing.JFrame
                         + "or not responding to the client requests at\n"
                         + "the moment please recheck the credentials\n"
                         + "or retry after sometime !", "Connection Error", JOptionPane.ERROR_MESSAGE);
+            }
+            catch(Exception ex)
+            {
+                Logger.getLogger(StartFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_serverStartActionPerformed

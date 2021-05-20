@@ -14,7 +14,7 @@ import javax.sound.sampled.TargetDataLine;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
-public class Recoder
+public class AudioRecorder
 {
 
     private boolean running;
@@ -25,7 +25,7 @@ public class Recoder
     private TargetDataLine line;
     private int time;
 
-    public Recoder()
+    public AudioRecorder()
     {
         try
         {

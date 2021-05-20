@@ -91,7 +91,7 @@ public class ChatConsole extends javax.swing.JFrame
         popUp_emoji.add(panel_emoji);
         popMix.add(panelMix);
         popMix.setBackground(new Color(0, 0, 0, 0));
-        Method.setFram(this);
+        Method.setFrame(this);
         new Scrolling(panelChat);
         new Scrolling(panelFriend);
         Method.setTextFieldStyle(txt, " Type a message here ...");
@@ -872,7 +872,7 @@ public class ChatConsole extends javax.swing.JFrame
     private void cmdMixMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdMixMousePressed
         cmdMix.setBackground(new Color(94, 197, 95));
         cmdMix.setText("Starting");
-        Method.getRecoder().captureAudio();
+        Method.getRecorder().captureAudio();
     }//GEN-LAST:event_cmdMixMousePressed
 
     private void cmdMixMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmdMixMouseReleased
@@ -880,7 +880,7 @@ public class ChatConsole extends javax.swing.JFrame
         {
             cmdMix.setBackground(new Color(242, 67, 67));
             cmdMix.setText("Start");
-            Method.sendSound(Method.getRecoder().stop(), Method.getRecoder().getTime());
+            Method.sendSound(Method.getRecorder().stop(), Method.getRecorder().getTime());
             popMix.setVisible(false);
         }
         catch(Exception e)
@@ -976,7 +976,7 @@ public class ChatConsole extends javax.swing.JFrame
 
     private void ServerAddressAncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_ServerAddressAncestorAdded
     {//GEN-HEADEREND:event_ServerAddressAncestorAdded
-        ServerAddress.setText(Method.getIP() + "@" + Method.getPort());;
+        ServerAddress.setText(Method.getIP() + "@" + Method.getPort());
     }//GEN-LAST:event_ServerAddressAncestorAdded
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing

@@ -22,6 +22,7 @@ import javax.swing.filechooser.FileFilter;
 
 public class Login extends javax.swing.JFrame
 {
+    private static final long serialVersionUID = 1L;
 
     public Login()
     {
@@ -71,7 +72,7 @@ public class Login extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
         UserNameField.setBackground(new java.awt.Color(204, 204, 204));
-        UserNameField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        UserNameField.setFont(new Method().getKhmer_Font());
         UserNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UserNameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         UserNameField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -302,7 +303,7 @@ public class Login extends javax.swing.JFrame
         catch(Exception e)
         {
             showStatus("Network is currently unreachable");
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
+            Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_ConnectBtnActionPerformed
 
@@ -315,6 +316,7 @@ public class Login extends javax.swing.JFrame
         {
             evt.consume();
         }
+        System.out.println(UserNameField.getFont());
     }//GEN-LAST:event_UserNameFieldKeyTyped
 
     private void IpFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IpFieldKeyTyped

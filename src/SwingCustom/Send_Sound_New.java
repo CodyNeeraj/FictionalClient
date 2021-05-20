@@ -131,12 +131,12 @@ public class Send_Sound_New extends javax.swing.JPanel
             if(!p)
             {
                 play.setValue(0);
-                Method.getRecoder().playAudio(sound, play);
+                Method.getRecorder().playAudio(sound, play);
                 p = true;
             }
             else
             {
-                Method.getRecoder().stopPlay();
+                Method.getRecorder().stopPlay();
                 p = false;
             }
         }
