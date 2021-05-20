@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.Method;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -56,6 +57,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
 
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(210, 61));
+        setPreferredSize(new java.awt.Dimension(212, 61));
 
         jLayeredPane1.setBackground(new java.awt.Color(255, 255, 255));
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
@@ -76,7 +78,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbTime.setText("12:00 PM");
 
-        lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 13)); // NOI18N
+        lbName.setFont(Method.getFont().deriveFont(1, 13f));
         lbName.setForeground(new java.awt.Color(51, 51, 51));
         lbName.setText("Friend Name");
 
@@ -155,6 +157,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
 
     public Friend_Box()
     {
+        lbName.setFont(Method.getFont().deriveFont(1, 13f));
         initComponents();
     }
 
