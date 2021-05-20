@@ -157,8 +157,8 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
 
     public Friend_Box()
     {
-        lbName.setFont(Method.getFont().deriveFont(1, 13f));
         initComponents();
+        lbName.setFont(Method.getFont().deriveFont(1, 13f));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -472,12 +472,12 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 14)); // NOI18N
+        jLabel1.setFont(Method.getFont().deriveFont(1, 13f));
         jLabel1.setForeground(new java.awt.Color(62, 62, 62));
         jLabel1.setText("Participants");
         jLabel1.setFocusCycleRoot(true);
 
-        jLabel2.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 14)); // NOI18N
+        jLabel2.setFont(Method.getFont().deriveFont(1, 13f));
         jLabel2.setForeground(new java.awt.Color(62, 62, 62));
         jLabel2.setText("Chat");
 
@@ -511,7 +511,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        lbStatus.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 14)); // NOI18N
+        lbStatus.setFont(Method.getFont().deriveFont(0, 13f));
         lbStatus.setForeground(new java.awt.Color(62, 62, 62));
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 
