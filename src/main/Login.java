@@ -303,6 +303,7 @@ public class Login extends javax.swing.JFrame
         catch(Exception e)
         {
             showStatus("Network is currently unreachable");
+            System.out.println("Exception caught already (Status label is displayed the error already)");
             Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_ConnectBtnActionPerformed

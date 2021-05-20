@@ -760,6 +760,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
             catch(Exception e)
             {
+                Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }//GEN-LAST:event_cmdSendActionPerformed
@@ -822,6 +823,8 @@ public class ChatConsole extends javax.swing.JFrame
             }
             catch(Exception e)
             {
+                System.out.println("For  this exception,  you don't need to be worried about !");
+                Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
                 String ms = e.getMessage();
                 switch(ms)
                 {
@@ -861,6 +864,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         catch(Exception e)
         {
+            Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
             showStatus("Error : " + e.getMessage());
         }
     }//GEN-LAST:event_cmdFileActionPerformed
@@ -885,6 +889,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         catch(Exception e)
         {
+            Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
             showStatus("Error : " + e.getMessage());
         }
     }//GEN-LAST:event_cmdMixMouseReleased
@@ -1266,6 +1271,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
             catch(Exception e)
             {
+                Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
                 showStatus("Error : Can't send photo");
             }
         }
@@ -1308,6 +1314,7 @@ public class ChatConsole extends javax.swing.JFrame
         }
         catch(Exception e)
         {
+            Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
             showStatus("Error : " + e.getMessage());
         }
     }

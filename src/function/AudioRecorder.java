@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -34,6 +36,7 @@ public class AudioRecorder
         catch(Exception e)
         {
             System.err.println(e);
+            Logger.getLogger(AudioRecorder.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -57,6 +60,7 @@ public class AudioRecorder
         }
         catch(Exception e)
         {
+            Logger.getLogger(AudioRecorder.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, e);
         }
         return null;
@@ -153,6 +157,7 @@ public class AudioRecorder
         }
         catch(Exception e)
         {
+            Logger.getLogger(AudioRecorder.class.getName()).log(Level.SEVERE, null, e);
             System.err.println("Line unavailable: " + e);
         }
     }
