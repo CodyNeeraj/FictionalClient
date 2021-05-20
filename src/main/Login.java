@@ -72,7 +72,7 @@ public class Login extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
         UserNameField.setBackground(new java.awt.Color(204, 204, 204));
-        UserNameField.setFont(new Method().getKhmer_Font());
+        UserNameField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         UserNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UserNameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         UserNameField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -121,7 +121,7 @@ public class Login extends javax.swing.JFrame
 
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
-        errorStatus.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        errorStatus.setFont(new Method().getKhmer_Font());
         errorStatus.setForeground(new java.awt.Color(204, 0, 0));
         errorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -316,7 +316,6 @@ public class Login extends javax.swing.JFrame
         {
             evt.consume();
         }
-        System.out.println(UserNameField.getFont());
     }//GEN-LAST:event_UserNameFieldKeyTyped
 
     private void IpFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IpFieldKeyTyped

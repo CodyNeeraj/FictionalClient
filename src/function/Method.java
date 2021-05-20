@@ -4,7 +4,6 @@ import SwingCustom.ImageViewer;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -52,11 +51,11 @@ public class Method
     private static Socket client;
     private static ObjectOutputStream out;
     private static ObjectInputStream in;
+    private Font khmerFont;
     private static int myID;
     private static String myName;
     private static String time;
     private static JFrame frame;
-    private Font khmerFont;
     private static AudioRecorder recorder = new AudioRecorder();
 
     public static void setTextFieldStyle(JTextField txt, String style)
@@ -302,28 +301,28 @@ public class Method
         try
         {
             // load a custom font in your project folder
-//            myStream = new BufferedInputStream(new FileInputStream(FONT_PATH_TELEGRAFICO));
-//            ttfBase = Font.createFont(Font.TRUETYPE_FONT, myStream);
-            khmerFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")).deriveFont(1, 16f);
-//            khmerFont = Font.createFont(Font.TRUETYPE_FONT, new File("/Font/Khmer_SBBIC_Serif.ttf")).deriveFont(30f);
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")));
+            khmerFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf"));
+//            Can also be used as an alternative to the above code
+//            InputStream fileStream = getClass().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf");
+//            khmerFont = Font.createFont(Font.TRUETYPE_FONT, fileStream);
+//            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+//            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")));
         }
-        catch(IOException | FontFormatException e)
+        catch(FontFormatException | IOException e)
         {
             Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, e);
         }
-        return khmerFont;
+        return khmerFont.deriveFont(0, 12f);
     }
 
     public static Font getFont()
     {
-        return new java.awt.Font("Khmer SBBIC Serif", 0, 12);
+        return new Method().getKhmer_Font();
     }
 
     public static Font getFontBold()
     {
-        return new java.awt.Font("Khmer SBBIC Serif", 1, 12);
+        return new Method().getKhmer_Font().deriveFont(Font.BOLD);
     }
 
     public static HashMap<Integer, Friend> getFriends()
