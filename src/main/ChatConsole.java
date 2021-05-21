@@ -82,7 +82,6 @@ public class ChatConsole extends javax.swing.JFrame
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
-        cmdMix.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(1, 18f));
         open();
     }
 
@@ -532,7 +531,7 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel5.setText("Date :");
         jLabel5.setFocusCycleRoot(true);
 
-        jLabel6.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel6.setFont(FontLoader.getKhmer_UIFont().deriveFont(1, 14f));
         jLabel6.setForeground(new java.awt.Color(62, 62, 62));
         jLabel6.setText("Connected Since :");
         jLabel6.setFocusCycleRoot(true);

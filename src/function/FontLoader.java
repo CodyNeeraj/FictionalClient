@@ -2,7 +2,9 @@ package function;
 
 import java.awt.Font;
 import java.awt.FontFormatException;
+import java.awt.GraphicsEnvironment;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,6 +21,7 @@ public class FontLoader
     private static Font SegoeUI_SBFont;
     private static Font MicrosoftSansSerifFont;
     private Boolean isExecuted = false;
+    private static String installedFonts;
 
     private FontLoader()
     {
@@ -27,6 +30,7 @@ public class FontLoader
 
     private void checker()
     {
+        SystemFontLoader();
         //will load the external fonts for using later with components
         if(isExecuted == false)
         {
@@ -36,6 +40,13 @@ public class FontLoader
         {
             System.out.println("Class already loaded before by some variable");
         }
+    }
+
+    private void SystemFontLoader()
+    {
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String fonts[] = ge.getAvailableFontFamilyNames();
+        installedFonts = Arrays.toString(fonts);
     }
 
     private void Loader()
@@ -74,11 +85,24 @@ public class FontLoader
 
     public static Font getKhmer_UIFont()
     {
+//        if(khmerUIFont == null)
+//        {
+//            new FontLoader().checker();
+//        }
+//        return khmerUIFont;
         if(khmerUIFont == null)
         {
             new FontLoader().checker();
         }
-        return khmerUIFont;
+        if(installedFonts.contains("Khmer UI"))
+        {
+            return new Font("Khmer UI", 0, 0);
+        }
+        if(!installedFonts.contains("Khmer UI"))
+        {
+            return khmerUIFont;
+        }
+        return null;
     }
 
     public static Font getConsolasFont()
@@ -87,7 +111,15 @@ public class FontLoader
         {
             new FontLoader().checker();
         }
-        return ConsolasFont;
+        if(installedFonts.contains("Consolas"))
+        {
+            return new Font("Consolas", 0, 0);
+        }
+        if(!installedFonts.contains("Consolas"))
+        {
+            return ConsolasFont;
+        }
+        return null;
     }
 
     public static Font getSegoe_UIFont()
@@ -96,7 +128,15 @@ public class FontLoader
         {
             new FontLoader().checker();
         }
-        return SegoeUIFont;
+        if(installedFonts.contains("Segoe UI"))
+        {
+            return new Font("Segoe UI", 0, 0);
+        }
+        if(!installedFonts.contains("Segoe UI"))
+        {
+            return SegoeUIFont;
+        }
+        return null;
     }
 
     public static Font getSegoe_UI_SBFont()
@@ -105,7 +145,15 @@ public class FontLoader
         {
             new FontLoader().checker();
         }
-        return SegoeUI_SBFont;
+        if(installedFonts.contains("Segoe UI Semibold"))
+        {
+            return new Font("Segoe UI Semibold", 0, 0);
+        }
+        if(!installedFonts.contains("Segoe UI Semibold"))
+        {
+            return SegoeUI_SBFont;
+        }
+        return null;
     }
 
     public static Font getMicrosoft_Sans_serifFont()
@@ -114,7 +162,15 @@ public class FontLoader
         {
             new FontLoader().checker();
         }
-        return MicrosoftSansSerifFont;
+        if(installedFonts.contains("Microsoft Sans Serif"))
+        {
+            return new Font("Microsoft Sans Serif", 0, 0);
+        }
+        if(!installedFonts.contains("Microsoft Sans Serif"))
+        {
+            return MicrosoftSansSerifFont;
+        }
+        return null;
     }
 
     public static Font getFont()
