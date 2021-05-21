@@ -30,7 +30,6 @@ public class FontLoader
 
     private void checker()
     {
-        SystemFontLoader();
         //will load the external fonts for using later with components
         if(isExecuted == false)
         {
@@ -51,6 +50,7 @@ public class FontLoader
 
     private void Loader()
     {
+        SystemFontLoader();
         try
         {
 //            load a custom font in your project folder
