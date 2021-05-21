@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import function.Method;
 
 public class Get_Sound_New extends javax.swing.JPanel
@@ -8,6 +9,8 @@ public class Get_Sound_New extends javax.swing.JPanel
     public Get_Sound_New()
     {
         initComponents();
+        lbName.setFont(FontLoader.getFont().deriveFont(1, 12f));
+        lbTime.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(0, 13f));
     }
     private byte[] sound;
     private boolean over = false;

@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -10,6 +11,7 @@ public class Get_Box extends javax.swing.JPanel
     public Get_Box()
     {
         initComponents();
+        txt.setFont(FontLoader.getFont().deriveFont(0, 13f));
     }
 
     public void setMessage(String ms)
@@ -41,7 +43,7 @@ public class Get_Box extends javax.swing.JPanel
         setPreferredSize(new java.awt.Dimension(600, 45));
 
         txt.setEditable(false);
-        txt.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 13)); // NOI18N
+        txt.setFont(FontLoader.getFont());
         txt.setText("your message here");
         txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         txt.setSelectionColor(new java.awt.Color(131, 188, 227));

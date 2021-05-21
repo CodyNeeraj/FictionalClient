@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import function.Method;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,6 +12,8 @@ public class Send_Box_New extends javax.swing.JPanel
     public Send_Box_New()
     {
         initComponents();
+        txt.setFont(FontLoader.getFont().deriveFont(0, 13f));
+        lbName.setFont(FontLoader.getFont().deriveFont(1, 12f));
     }
 
     public void setMessage(int ID, String ms)

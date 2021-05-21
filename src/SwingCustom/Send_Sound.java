@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import function.Method;
 
 public class Send_Sound extends javax.swing.JPanel
@@ -11,6 +12,7 @@ public class Send_Sound extends javax.swing.JPanel
     public Send_Sound()
     {
         initComponents();
+        lbTime.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(0, 13f));
     }
 
     public void set(byte[] sound, String time)

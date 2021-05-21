@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import function.Method;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -42,6 +43,7 @@ public class Send_File extends javax.swing.JPanel
     public Send_File()
     {
         initComponents();
+        lbFileName.setFont(FontLoader.getFont().deriveFont(0, 13f));
     }
     private int fileID;
     private String fileName;

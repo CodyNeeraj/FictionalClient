@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import function.Method;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -23,6 +24,7 @@ public class Send_Photo_Box_New extends javax.swing.JPanel
     public Send_Photo_Box_New()
     {
         initComponents();
+        lbName.setFont(FontLoader.getFont().deriveFont(1, 12f));
     }
     private ImageIcon image;
 

@@ -82,6 +82,7 @@ public class ChatConsole extends javax.swing.JFrame
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
+        cmdMix.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(1, 18f));
         open();
     }
 

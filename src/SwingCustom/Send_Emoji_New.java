@@ -1,5 +1,6 @@
 package SwingCustom;
 
+import function.FontLoader;
 import function.Method;
 import javax.swing.ImageIcon;
 
@@ -9,6 +10,7 @@ public class Send_Emoji_New extends javax.swing.JPanel
     public Send_Emoji_New()
     {
         initComponents();
+        lbName.setFont(FontLoader.getFont().deriveFont(1, 12f));
     }
 
     public void setPhoto(int ID, String emoji)
