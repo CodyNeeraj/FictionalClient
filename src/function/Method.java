@@ -2,8 +2,6 @@ package function;
 
 import SwingCustom.ImageViewer;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontFormatException;
 import java.awt.HeadlessException;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -51,12 +49,6 @@ public class Method
     private static Socket client;
     private static ObjectOutputStream out;
     private static ObjectInputStream in;
-    private Font khmerFont;
-    private Font khmerUIFont;
-    private Font ConsolasFont;
-    private Font SegoeUIFont;
-    private Font SegoeUI_SBFont;
-    private Font MicrosoftSansSerifFont;
     private static int myID;
     private static String myName;
     private static String time;
@@ -299,100 +291,6 @@ public class Method
         System.out.println("Systematic file size: " + bytes + " " + fileSizeUnits[index]);
         sizeToReturn = df.format(bytes) + " " + fileSizeUnits[index];
         return sizeToReturn;
-    }
-
-    public Font getKhmer_Font()
-    {
-        try
-        {
-            // load a custom font in your project folder
-            khmerFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf"));
-//            Can also be used as an alternative to the above code
-//            InputStream fileStream = getClass().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf");
-//            khmerFont = Font.createFont(Font.TRUETYPE_FONT, fileStream);
-//            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-//            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")));
-        }
-        catch(FontFormatException | IOException e)
-        {
-            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return khmerFont.deriveFont(0, 12f);
-    }
-
-    public Font getKhmer_UIFont()
-    {
-        try
-        {
-            khmerUIFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/KhmerUI.ttf"));
-        }
-        catch(FontFormatException | IOException ex)
-        {
-            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return khmerUIFont;
-    }
-
-    public Font getConsolasFont()
-    {
-        try
-        {
-            ConsolasFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/Consolas.ttf"));
-        }
-        catch(FontFormatException | IOException ex)
-        {
-            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return ConsolasFont;
-    }
-
-    public Font getSegoe_UIFont()
-    {
-        try
-        {
-            SegoeUIFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/SegoeUI.ttf"));
-        }
-        catch(FontFormatException | IOException ex)
-        {
-            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return SegoeUIFont;
-    }
-
-    public Font getSegoe_UI_SBFont()
-    {
-        try
-        {
-            SegoeUI_SBFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/SegoeUI_SB.ttf"));
-        }
-        catch(FontFormatException | IOException ex)
-        {
-            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return SegoeUI_SBFont;
-    }
-
-    public Font getMicrosoft_Sans_serifFont()
-    {
-        try
-        {
-            MicrosoftSansSerifFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/MicrosoftSansSerif.ttf"));
-        }
-        catch(FontFormatException | IOException ex)
-        {
-            Logger.getLogger(Method.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return MicrosoftSansSerifFont;
-    }
-
-    public static Font getFont()
-    {
-        return new Method().getKhmer_Font();
-    }
-
-    public static Font getFontBold()
-    {
-        return new Method().getKhmer_Font().deriveFont(Font.BOLD);
     }
 
     public static HashMap<Integer, Friend> getFriends()

@@ -1,6 +1,6 @@
 package SwingCustom;
 
-import function.Method;
+import function.FontLoader;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -78,7 +78,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbTime.setText("12:00 PM");
 
-        lbName.setFont(Method.getFont().deriveFont(1, 13f));
+        lbName.setFont(FontLoader.getFont().deriveFont(1, 13f));
         lbName.setForeground(new java.awt.Color(51, 51, 51));
         lbName.setText("Friend Name");
 
@@ -158,7 +158,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
     public Friend_Box()
     {
         initComponents();
-        lbName.setFont(Method.getFont().deriveFont(1, 13f));
+        lbName.setFont(FontLoader.getFont().deriveFont(1, 13f));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,6 +1,7 @@
 package main;
 
 import function.FileChooser;
+import function.FontLoader;
 import function.Method;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -121,7 +122,7 @@ public class Login extends javax.swing.JFrame
 
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
-        errorStatus.setFont(new Method().getKhmer_Font());
+        errorStatus.setFont(FontLoader.getKhmer_Font());
         errorStatus.setForeground(new java.awt.Color(204, 0, 0));
         errorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
