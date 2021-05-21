@@ -24,6 +24,7 @@ import SwingCustom.Send_Photo_Box_New;
 import SwingCustom.Send_Sound;
 import SwingCustom.Send_Sound_New;
 import function.FileChooser;
+import function.FontLoader;
 import function.Method;
 import function.Scrolling;
 import java.awt.Adjustable;
@@ -472,12 +473,12 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        jLabel1.setFont(Method.getFont().deriveFont(1, 13f));
+        jLabel1.setFont(FontLoader.getFont().deriveFont(1, 13f));
         jLabel1.setForeground(new java.awt.Color(62, 62, 62));
         jLabel1.setText("Participants");
         jLabel1.setFocusCycleRoot(true);
 
-        jLabel2.setFont(Method.getFont().deriveFont(1, 13f));
+        jLabel2.setFont(FontLoader.getFont().deriveFont(1, 13f));
         jLabel2.setForeground(new java.awt.Color(62, 62, 62));
         jLabel2.setText("Chat");
 
@@ -511,7 +512,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        lbStatus.setFont(Method.getFont().deriveFont(0, 13f));
+        lbStatus.setFont(FontLoader.getFont().deriveFont(0, 13f));
         lbStatus.setForeground(new java.awt.Color(62, 62, 62));
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 

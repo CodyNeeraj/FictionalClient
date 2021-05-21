@@ -18,11 +18,19 @@ public class FontLoader
     private static Font SegoeUIFont;
     private static Font SegoeUI_SBFont;
     private static Font MicrosoftSansSerifFont;
+    private Boolean isExecuted = false;
 
     private FontLoader()
     {
         //will load the external fonts for using later with components
-        Loader();
+        if(isExecuted == false)
+        {
+            Loader();
+        }
+        else if(isExecuted == true)
+        {
+            System.out.println("Class already loaded before by some variable");
+        }
     }
 
     private void Loader()
@@ -42,6 +50,7 @@ public class FontLoader
             SegoeUIFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/SegoeUI.ttf"));
             SegoeUI_SBFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/SegoeUI_SB.ttf"));
             MicrosoftSansSerifFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/MicrosoftSansSerif.ttf"));
+            isExecuted = true;
         }
         catch(FontFormatException | IOException e)
         {

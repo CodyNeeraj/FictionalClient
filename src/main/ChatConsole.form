@@ -736,7 +736,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="Method.getFont().deriveFont(1, 13f)" type="code"/>
+              <Connection code="FontLoader.getFont().deriveFont(1, 13f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -748,7 +748,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="Method.getFont().deriveFont(1, 13f)" type="code"/>
+              <Connection code="FontLoader.getFont().deriveFont(1, 13f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -811,7 +811,7 @@
         <Component class="javax.swing.JLabel" name="lbStatus">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="Method.getFont().deriveFont(0, 13f)" type="code"/>
+              <Connection code="FontLoader.getFont().deriveFont(0, 13f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
