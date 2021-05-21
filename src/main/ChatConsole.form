@@ -821,8 +821,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -833,8 +833,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -845,8 +845,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -858,7 +858,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="FontLoader.getKhmer_UIFont().deriveFont(1, 14f)" type="code"/>
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -869,8 +869,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="ServerAddress">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -884,8 +884,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="myname">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>
@@ -900,8 +900,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="date_now">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
@@ -915,8 +915,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="uptimeLbl">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
@@ -930,8 +930,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="time_now">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
@@ -942,8 +942,8 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Khmer UI" size="14" style="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f)" type="code"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3e" green="3e" red="3e" type="rgb"/>

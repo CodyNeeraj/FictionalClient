@@ -516,27 +516,27 @@ public class ChatConsole extends javax.swing.JFrame
         lbStatus.setForeground(new java.awt.Color(62, 62, 62));
         lbStatus.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
 
-        jLabel3.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel3.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         jLabel3.setForeground(new java.awt.Color(62, 62, 62));
         jLabel3.setText("Connected with  :");
         jLabel3.setFocusCycleRoot(true);
 
-        jLabel4.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel4.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         jLabel4.setForeground(new java.awt.Color(62, 62, 62));
         jLabel4.setText("Your Name  :");
         jLabel4.setFocusCycleRoot(true);
 
-        jLabel5.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel5.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         jLabel5.setForeground(new java.awt.Color(62, 62, 62));
         jLabel5.setText("Date :");
         jLabel5.setFocusCycleRoot(true);
 
-        jLabel6.setFont(FontLoader.getKhmer_UIFont().deriveFont(1, 14f));
+        jLabel6.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         jLabel6.setForeground(new java.awt.Color(62, 62, 62));
         jLabel6.setText("Connected Since :");
         jLabel6.setFocusCycleRoot(true);
 
-        ServerAddress.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        ServerAddress.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         ServerAddress.setForeground(new java.awt.Color(62, 62, 62));
         ServerAddress.setText("Server IP wit port");
         ServerAddress.setFocusCycleRoot(true);
@@ -554,7 +554,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        myname.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        myname.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         myname.setForeground(new java.awt.Color(62, 62, 62));
         myname.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         myname.setText("null");
@@ -573,7 +573,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        date_now.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        date_now.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         date_now.setForeground(new java.awt.Color(0, 0, 255));
         date_now.setText("null");
         date_now.setFocusCycleRoot(true);
@@ -591,7 +591,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        uptimeLbl.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        uptimeLbl.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         uptimeLbl.setForeground(new java.awt.Color(0, 0, 255));
         uptimeLbl.setText("null");
         uptimeLbl.setFocusCycleRoot(true);
@@ -609,12 +609,12 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        time_now.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        time_now.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         time_now.setForeground(new java.awt.Color(0, 0, 255));
         time_now.setText("null");
         time_now.setFocusCycleRoot(true);
 
-        jLabel9.setFont(new java.awt.Font("Khmer UI", 1, 14)); // NOI18N
+        jLabel9.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 14f));
         jLabel9.setForeground(new java.awt.Color(62, 62, 62));
         jLabel9.setText("Time :");
         jLabel9.setFocusCycleRoot(true);
