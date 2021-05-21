@@ -73,7 +73,7 @@ public class Login extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
         UserNameField.setBackground(new java.awt.Color(204, 204, 204));
-        UserNameField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        UserNameField.setFont(FontLoader.getConsolasFont().deriveFont(1, 16f));
         UserNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UserNameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         UserNameField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -86,7 +86,7 @@ public class Login extends javax.swing.JFrame
         });
 
         IpField.setBackground(new java.awt.Color(204, 204, 204));
-        IpField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        IpField.setFont(FontLoader.getConsolasFont().deriveFont(1, 16f));
         IpField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         IpField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         IpField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -99,7 +99,7 @@ public class Login extends javax.swing.JFrame
         });
 
         PortField.setBackground(new java.awt.Color(204, 204, 204));
-        PortField.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        PortField.setFont(FontLoader.getConsolasFont().deriveFont(1, 16f));
         PortField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PortField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         PortField.setSelectionColor(new java.awt.Color(131, 188, 227));
@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame
         ConnectBtn.setColorOver(new java.awt.Color(31, 121, 208));
         ConnectBtn.setFillBorder(20);
         ConnectBtn.setFocusable(false);
-        ConnectBtn.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        ConnectBtn.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(1, 13f));
         ConnectBtn.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

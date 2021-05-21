@@ -16,6 +16,7 @@ public class FontLoader
 {
     private static Font khmerFont;
     private static Font khmerUIFont;
+    private static Font khmerBoldFont;
     private static Font ConsolasFont;
     private static Font SegoeUIFont;
     private static Font SegoeUI_SBFont;
@@ -62,6 +63,7 @@ public class FontLoader
 //            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, getClass().getClassLoader().getResourceAsStream("/Font/Khmer_SBBIC_Serif.ttf")));
 
             khmerUIFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/KhmerUI.ttf"));
+            khmerBoldFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/KhmerUI_Bold.ttf"));
             ConsolasFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/Consolas.ttf"));
             SegoeUIFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/SegoeUI.ttf"));
             SegoeUI_SBFont = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/Font/SegoeUI_SB.ttf"));
@@ -101,6 +103,23 @@ public class FontLoader
         if(!installedFonts.contains("Khmer UI"))
         {
             return khmerUIFont;
+        }
+        return null;
+    }
+
+    public static Font getKhmer_UI_BoldFont()
+    {
+        if(khmerBoldFont == null)
+        {
+            new FontLoader().checker();
+        }
+        if(installedFonts.contains("Khmer UI"))
+        {
+            return new Font("Khmer UI", 0, 0);
+        }
+        if(!installedFonts.contains("Khmer UI"))
+        {
+            return khmerBoldFont;
         }
         return null;
     }
