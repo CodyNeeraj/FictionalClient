@@ -44,7 +44,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLayeredPane1" pref="61" max="32767" attributes="0"/>
+                  <Component id="jLayeredPane1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="lbName" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -60,8 +60,8 @@
     <Component class="javax.swing.JTextField" name="txt">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Khmer SBBIC Serif" size="13" style="0"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="FontLoader.getKhmer_Font().deriveFont(0, 13f)" type="code"/>
         </Property>
         <Property name="text" type="java.lang.String" value="your message here"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -80,7 +80,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField(){&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) {&#xa;        super.paintComponent(g);&#xa;        Graphics2D g2 = (Graphics2D) g;&#xa;        g2.setColor(new java.awt.Color(195, 191, 191));&#xa;        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,&#xa;            RenderingHints.VALUE_ANTIALIAS_ON);&#xa;        g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 20, 20);&#xa;    }&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTextField()&#xa;{&#xa;    @Override&#xa;    protected void paintComponent(Graphics g)&#xa;    {&#xa;        super.paintComponent(g);&#xa;        Graphics2D g2 = (Graphics2D) g;&#xa;        g2.setColor(new java.awt.Color(195, 191, 191));&#xa;        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,&#xa;            RenderingHints.VALUE_ANTIALIAS_ON);&#xa;        g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 20, 20);&#xa;    }&#xa;}"/>
       </AuxValues>
     </Component>
     <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
@@ -132,8 +132,8 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lbName">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Khmer SBBIC Serif" size="12" style="1"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="FontLoader.getKhmer_Font().deriveFont(1, 12f)" type="code"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ce" green="76" red="1d" type="rgb"/>

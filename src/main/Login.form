@@ -180,7 +180,7 @@
             <Property name="fillBorder" type="int" value="20"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="FontLoader.getMicrosoft_Sans_serifFont().deriveFont(1, 13f)" type="code"/>
+              <Connection code="FontLoader.getSans_Serif_Font().deriveFont(1, 13f)" type="code"/>
             </Property>
           </Properties>
           <Events>

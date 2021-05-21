@@ -12,7 +12,7 @@ public class Send_Sound extends javax.swing.JPanel
     public Send_Sound()
     {
         initComponents();
-        lbTime.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(0, 13f));
+        lbTime.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 13f));
     }
 
     public void set(byte[] sound, String time)
@@ -57,7 +57,7 @@ public class Send_Sound extends javax.swing.JPanel
             }
         });
 
-        lbTime.setFont(new java.awt.Font("sansserif", 0, 13)); // NOI18N
+        lbTime.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 13f));
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbTime.setText("0:00");
 

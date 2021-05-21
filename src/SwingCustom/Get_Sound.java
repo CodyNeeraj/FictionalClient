@@ -57,7 +57,7 @@ public class Get_Sound extends javax.swing.JPanel
             }
         });
 
-        lbTime.setFont(new java.awt.Font("sansserif", 0, 13)); // NOI18N
+        lbTime.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 13f));
         lbTime.setText("0:00");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

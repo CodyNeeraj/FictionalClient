@@ -101,11 +101,11 @@ public class Get_File_New extends javax.swing.JPanel
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
-        lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
+        lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
         lbName.setForeground(new java.awt.Color(29, 118, 206));
         lbName.setText("Name");
 
-        lbFileName.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 13)); // NOI18N
+        lbFileName.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
         lbFileName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_1.png"))); // NOI18N
         lbFileName.setText("File name.rar");
         lbFileName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 20));

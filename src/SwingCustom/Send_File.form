@@ -44,8 +44,8 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="lbFileName">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Khmer SBBIC Serif" size="13" style="0"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="FontLoader.getKhmer_Font().deriveFont(0, 13f)" type="code"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/icon/file_1.png"/>
@@ -66,7 +66,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbFileNameActionPerformed"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton(){&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) {&#xa;        super.paintComponent(g);&#xa;        Graphics2D g2 = (Graphics2D) g;&#xa;        g2.setColor(new java.awt.Color(72, 173, 243));&#xa;        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,&#xa;            RenderingHints.VALUE_ANTIALIAS_ON);&#xa;        g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 20, 20);&#xa;    }&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JButton()&#xa;{&#xa;    @Override&#xa;    protected void paintComponent(Graphics g)&#xa;    {&#xa;        super.paintComponent(g);&#xa;        Graphics2D g2 = (Graphics2D) g;&#xa;        g2.setColor(new java.awt.Color(72, 173, 243));&#xa;        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,&#xa;            RenderingHints.VALUE_ANTIALIAS_ON);&#xa;        g2.drawRoundRect(0, 0, getWidth()-1, getHeight()-1, 20, 20);&#xa;    }&#xa;}"/>
       </AuxValues>
     </Component>
   </SubComponents>

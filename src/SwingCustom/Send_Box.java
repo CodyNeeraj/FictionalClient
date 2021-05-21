@@ -43,7 +43,7 @@ public class Send_Box extends javax.swing.JPanel
         setPreferredSize(new java.awt.Dimension(600, 45));
 
         txt.setEditable(false);
-        txt.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 13)); // NOI18N
+        txt.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
         txt.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         txt.setText("your message here");
         txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));

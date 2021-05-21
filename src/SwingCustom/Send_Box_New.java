@@ -52,7 +52,7 @@ public class Send_Box_New extends javax.swing.JPanel
         setMaximumSize(new java.awt.Dimension(600, 72));
 
         txt.setEditable(false);
-        txt.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 13)); // NOI18N
+        txt.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
         txt.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         txt.setText("Your message here ..");
         txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
@@ -70,7 +70,7 @@ public class Send_Box_New extends javax.swing.JPanel
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
-        lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
+        lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
         lbName.setForeground(new java.awt.Color(29, 118, 206));
         lbName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbName.setText("You");

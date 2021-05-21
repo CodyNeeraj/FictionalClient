@@ -68,7 +68,7 @@ import message.Message;
 public class ChatConsole extends javax.swing.JFrame
 {
     private static final long serialVersionUID = 1L;
-
+    
     public ChatConsole()
     {
         try
@@ -82,9 +82,10 @@ public class ChatConsole extends javax.swing.JFrame
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
+        cmdMix.setFont(FontLoader.getSans_Serif_Font().deriveFont(1, 18f));
         open();
     }
-
+    
     private void open()
     {
         setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
@@ -127,7 +128,7 @@ public class ChatConsole extends javax.swing.JFrame
         panelGroup.add(eg2);
         setEmoji(eg1);
     }
-
+    
     @SuppressWarnings(
             {
                 "unchecked"
@@ -448,7 +449,7 @@ public class ChatConsole extends javax.swing.JFrame
         panelFriend.setLayout(new javax.swing.BoxLayout(panelFriend, javax.swing.BoxLayout.Y_AXIS));
         FriendScrollPane.setViewportView(panelFriend);
 
-        txt.setFont(new java.awt.Font("Khmer UI", 0, 14)); // NOI18N
+        txt.setFont(FontLoader.getKhmer_UIFont().deriveFont(0, 14f));
         txt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         txt.setSelectionColor(new java.awt.Color(131, 188, 227));
         txt.addKeyListener(new java.awt.event.KeyAdapter()
@@ -502,7 +503,7 @@ public class ChatConsole extends javax.swing.JFrame
         cmdLogOut.setColorClick(new java.awt.Color(255, 255, 255));
         cmdLogOut.setColorOver(new java.awt.Color(243, 243, 243));
         cmdLogOut.setFocusable(false);
-        cmdLogOut.setFont(new java.awt.Font("Khmer UI", 1, 12)); // NOI18N
+        cmdLogOut.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 12f));
         cmdLogOut.setLabel("Logout");
         cmdLogOut.addActionListener(new java.awt.event.ActionListener()
         {
@@ -776,10 +777,10 @@ public class ChatConsole extends javax.swing.JFrame
             cmdSendActionPerformed(null);
         }
     }//GEN-LAST:event_txtKeyTyped
-
+    
     private Thread th;
     private int currentID = 0;
-
+    
     private void start()
     {
         th = new Thread(() ->
@@ -926,7 +927,7 @@ public class ChatConsole extends javax.swing.JFrame
         TimerTask task = new TimerTask()
         {
             long hrs, mins, secs;
-
+            
             @Override
             public void run()
             {
@@ -989,7 +990,7 @@ public class ChatConsole extends javax.swing.JFrame
     {//GEN-HEADEREND:event_formWindowClosing
         cmdLogOut.doClick();
     }//GEN-LAST:event_formWindowClosing
-
+    
     private void signOut(String ms)
     {
         try
@@ -1006,7 +1007,7 @@ public class ChatConsole extends javax.swing.JFrame
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-
+    
     private void getMessage(int ID, String ms)
     {
         if(ID == Method.getMyID())
@@ -1044,7 +1045,7 @@ public class ChatConsole extends javax.swing.JFrame
         refresh(panelChat);
         scrollToBottom(ChatScrollPane);
     }
-
+    
     private void getPhoto(int ID, ImageIcon image)
     {
         if(ID == Method.getMyID())
@@ -1082,7 +1083,7 @@ public class ChatConsole extends javax.swing.JFrame
         refresh(panelChat);
         scrollToBottom(ChatScrollPane);
     }
-
+    
     private void getEmoji(int ID, String emoji)
     {
         if(ID == Method.getMyID())
@@ -1120,7 +1121,7 @@ public class ChatConsole extends javax.swing.JFrame
         refresh(panelChat);
         scrollToBottom(ChatScrollPane);
     }
-
+    
     private void getFile(int ID, String ms, ImageIcon icon)
     {
         if(ID == Method.getMyID())
@@ -1158,7 +1159,7 @@ public class ChatConsole extends javax.swing.JFrame
         refresh(panelChat);
         scrollToBottom(ChatScrollPane);
     }
-
+    
     private void getSound(int ID, byte[] sound, String time)
     {
         if(ID == Method.getMyID())
@@ -1196,7 +1197,7 @@ public class ChatConsole extends javax.swing.JFrame
         refresh(panelChat);
         scrollToBottom(ChatScrollPane);
     }
-
+    
     private void download(Message ms)
     {
         try
@@ -1213,7 +1214,7 @@ public class ChatConsole extends javax.swing.JFrame
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-
+    
     private void newFriend(ImageIcon image, int ID, String name, String time)
     {
         Friend_Box friend = new Friend_Box();
@@ -1227,20 +1228,20 @@ public class ChatConsole extends javax.swing.JFrame
         panelFriend.add(friend);
         refresh(panelFriend);
     }
-
+    
     private void errorFrient(int ID)
     {
         panelFriend.remove((Component) Method.getFriends().get(ID));
         Method.getFriends().remove(ID);
         refresh(panelFriend);
     }
-
+    
     private void refresh(Component obj)
     {
         obj.revalidate();
         obj.repaint();
     }
-
+    
     private void setImage()
     {
         JFileChooser ch = new JFileChooser();
@@ -1255,7 +1256,7 @@ public class ChatConsole extends javax.swing.JFrame
                 String name = file.getName();
                 return file.isDirectory() || name.endsWith(".png") || name.endsWith(".PNG") || name.endsWith("jpg") || name.endsWith("JPG");
             }
-
+            
             @Override
             public String getDescription()
             {
@@ -1277,7 +1278,7 @@ public class ChatConsole extends javax.swing.JFrame
             }
         }
     }
-
+    
     private void setFile() throws Exception
     {
         JFileChooser ch = new JFileChooser();
@@ -1290,7 +1291,7 @@ public class ChatConsole extends javax.swing.JFrame
             Method.sendFile(ch.getSelectedFile());
         }
     }
-
+    
     private void scrollToBottom(JScrollPane scrollPane)
     {
         JScrollBar verticalBar = scrollPane.getVerticalScrollBar();
@@ -1306,7 +1307,7 @@ public class ChatConsole extends javax.swing.JFrame
         };
         verticalBar.addAdjustmentListener(downScroller);
     }
-
+    
     private void setEmoji(String emoji)
     {
         try
@@ -1319,7 +1320,7 @@ public class ChatConsole extends javax.swing.JFrame
             showStatus("Error : " + e.getMessage());
         }
     }
-
+    
     private void playSound()
     {
         new Thread(new Runnable()
@@ -1351,7 +1352,7 @@ public class ChatConsole extends javax.swing.JFrame
             timer.stop();
         }
     });
-
+    
     private void showStatus(String error)
     {
         if(timer.isRunning())
@@ -1362,7 +1363,7 @@ public class ChatConsole extends javax.swing.JFrame
         timer.start();
         lbStatus.setText(error);
     }
-
+    
     public static void main(String args[])
     {
         java.awt.EventQueue.invokeLater(() ->

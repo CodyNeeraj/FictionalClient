@@ -54,7 +54,7 @@ public class Get_Box_New extends javax.swing.JPanel
         setPreferredSize(new java.awt.Dimension(600, 72));
 
         txt.setEditable(false);
-        txt.setFont(new java.awt.Font("Khmer SBBIC Serif", 0, 13)); // NOI18N
+        txt.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
         txt.setText("your message here");
         txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
         txt.setMaximumSize(new java.awt.Dimension(510, 33));
@@ -71,7 +71,7 @@ public class Get_Box_New extends javax.swing.JPanel
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
-        lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
+        lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
         lbName.setForeground(new java.awt.Color(29, 118, 206));
         lbName.setText("Name");
 
@@ -93,7 +93,7 @@ public class Get_Box_New extends javax.swing.JPanel
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(jLayeredPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

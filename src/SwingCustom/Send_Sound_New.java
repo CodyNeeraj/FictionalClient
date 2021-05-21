@@ -10,7 +10,7 @@ public class Send_Sound_New extends javax.swing.JPanel
     {
         initComponents();
         lbName.setFont(FontLoader.getFont().deriveFont(1, 12f));
-        lbTime.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(0, 13f));
+        lbTime.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 13f));
     }
     private byte[] sound;
     private boolean over = false;
@@ -51,7 +51,7 @@ public class Send_Sound_New extends javax.swing.JPanel
         profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
-        lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
+        lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
         lbName.setForeground(new java.awt.Color(29, 118, 206));
         lbName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbName.setText("You");
@@ -81,7 +81,7 @@ public class Send_Sound_New extends javax.swing.JPanel
             }
         });
 
-        lbTime.setFont(new java.awt.Font("sansserif", 0, 13)); // NOI18N
+        lbTime.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 13f));
         lbTime.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbTime.setText("0:00");
 

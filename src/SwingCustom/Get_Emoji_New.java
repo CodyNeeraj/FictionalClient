@@ -51,7 +51,7 @@ public class Get_Emoji_New extends javax.swing.JPanel
         lb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emoji/emoji_green (1).png"))); // NOI18N
 
-        lbName.setFont(new java.awt.Font("Khmer SBBIC Serif", 1, 12)); // NOI18N
+        lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
         lbName.setForeground(new java.awt.Color(29, 118, 206));
         lbName.setText("Name");
 

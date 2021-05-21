@@ -111,7 +111,7 @@ public class Login extends javax.swing.JFrame
         ConnectBtn.setColorOver(new java.awt.Color(31, 121, 208));
         ConnectBtn.setFillBorder(20);
         ConnectBtn.setFocusable(false);
-        ConnectBtn.setFont(FontLoader.getMicrosoft_Sans_serifFont().deriveFont(1, 13f));
+        ConnectBtn.setFont(FontLoader.getSans_Serif_Font().deriveFont(1, 13f));
         ConnectBtn.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

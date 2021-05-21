@@ -175,17 +175,17 @@ public class FontLoader
         return null;
     }
 
-    public static Font getMicrosoft_Sans_serifFont()
+    public static Font getSans_Serif_Font()
     {
         if(MicrosoftSansSerifFont == null)
         {
             new FontLoader().checker();
         }
-        if(installedFonts.contains("Microsoft Sans Serif"))
+        if(installedFonts.contains("SansSerif"))
         {
-            return new Font("Microsoft Sans Serif", 0, 0);
+            return new Font("SansSerif", 0, 0);
         }
-        if(!installedFonts.contains("Microsoft Sans Serif"))
+        if(!installedFonts.contains("SansSerif"))
         {
             return MicrosoftSansSerifFont;
         }
