@@ -22,6 +22,11 @@ public class FontLoader
 
     private FontLoader()
     {
+        checker();
+    }
+
+    private void checker()
+    {
         //will load the external fonts for using later with components
         if(isExecuted == false)
         {
@@ -62,7 +67,7 @@ public class FontLoader
     {
         if(khmerFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return khmerFont.deriveFont(0, 12f);
     }
@@ -71,7 +76,7 @@ public class FontLoader
     {
         if(khmerUIFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return khmerUIFont;
     }
@@ -80,7 +85,7 @@ public class FontLoader
     {
         if(ConsolasFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return ConsolasFont;
     }
@@ -89,7 +94,7 @@ public class FontLoader
     {
         if(SegoeUIFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return SegoeUIFont;
     }
@@ -98,7 +103,7 @@ public class FontLoader
     {
         if(SegoeUI_SBFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return SegoeUI_SBFont;
     }
@@ -107,7 +112,7 @@ public class FontLoader
     {
         if(MicrosoftSansSerifFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return MicrosoftSansSerifFont;
     }
@@ -116,7 +121,7 @@ public class FontLoader
     {
         if(khmerFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return khmerFont;
     }
@@ -125,7 +130,7 @@ public class FontLoader
     {
         if(khmerFont == null)
         {
-            new FontLoader().Loader();
+            new FontLoader().checker();
         }
         return khmerFont.deriveFont(Font.BOLD);
     }
