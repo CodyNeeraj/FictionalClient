@@ -55,7 +55,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
         lbTime = new javax.swing.JLabel();
         lbName = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(210, 61));
         setPreferredSize(new java.awt.Dimension(212, 61));
 
@@ -63,7 +63,6 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
         border.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/border_small.png"))); // NOI18N
         border.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLayeredPane1.add(border);
 
