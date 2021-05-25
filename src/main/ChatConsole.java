@@ -519,7 +519,7 @@ public class ChatConsole extends javax.swing.JFrame
         cmdLogOut.setColorOver(new java.awt.Color(243, 243, 243));
         cmdLogOut.setFocusable(false);
         cmdLogOut.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 12f));
-        cmdLogOut.setLabel("Logout");
+        cmdLogOut.setText("Logout");
         cmdLogOut.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
