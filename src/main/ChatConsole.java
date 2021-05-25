@@ -452,8 +452,23 @@ public class ChatConsole extends javax.swing.JFrame
         txt.setFont(FontLoader.getKhmer_UIFont().deriveFont(0, 14f));
         txt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         txt.setSelectionColor(new java.awt.Color(131, 188, 227));
+        txt.addFocusListener(new java.awt.event.FocusAdapter()
+        {
+            public void focusGained(java.awt.event.FocusEvent evt)
+            {
+                txtFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt)
+            {
+                txtFocusLost(evt);
+            }
+        });
         txt.addKeyListener(new java.awt.event.KeyAdapter()
         {
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                txtKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt)
             {
                 txtKeyTyped(evt);
@@ -990,6 +1005,34 @@ public class ChatConsole extends javax.swing.JFrame
     {//GEN-HEADEREND:event_formWindowClosing
         cmdLogOut.doClick();
     }//GEN-LAST:event_formWindowClosing
+
+    private void txtKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_txtKeyPressed
+    {//GEN-HEADEREND:event_txtKeyPressed
+        txt.setForeground(Color.BLACK);
+        if(txt.getText().equals(" Type your message here ..."))
+        {
+            txt.setText("");
+            txt.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_txtKeyPressed
+
+    private void txtFocusLost(java.awt.event.FocusEvent evt)//GEN-FIRST:event_txtFocusLost
+    {//GEN-HEADEREND:event_txtFocusLost
+        if(txt.getText().equals(""))
+        {
+            txt.setForeground(Color.GRAY);
+            txt.setCaretPosition(0);
+            txt.setText(" Type your message here ...");
+        }
+    }//GEN-LAST:event_txtFocusLost
+
+    private void txtFocusGained(java.awt.event.FocusEvent evt)//GEN-FIRST:event_txtFocusGained
+    {//GEN-HEADEREND:event_txtFocusGained
+        if(txt.getText().equals(" Type your message here ..."))
+        {
+            txt.setCaretPosition(0);
+        }
+    }//GEN-LAST:event_txtFocusGained
 
     private void signOut(String ms)
     {
