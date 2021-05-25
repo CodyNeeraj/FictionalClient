@@ -12,7 +12,7 @@ public class Get_Emoji extends javax.swing.JPanel
 
     public void setPhoto(String emoji)
     {
-        lb.setIcon(new ImageIcon(getClass().getResource("/emoji/" + emoji)));
+        lb.setIcon(new ImageIcon(getClass().getResource("/Icons/Emojis/" + emoji)));
     }
 
     @SuppressWarnings("unchecked")
@@ -27,7 +27,7 @@ public class Get_Emoji extends javax.swing.JPanel
         setPreferredSize(new java.awt.Dimension(600, 76));
 
         lb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emoji/emoji_green (1).png"))); // NOI18N
+        lb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Emojis/emoji_green (1).png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

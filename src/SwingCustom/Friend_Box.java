@@ -67,7 +67,7 @@ public class Friend_Box extends javax.swing.JPanel implements Friend
         jLayeredPane1.add(border);
 
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
         line.setBackground(new java.awt.Color(216, 215, 215));

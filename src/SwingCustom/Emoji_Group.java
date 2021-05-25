@@ -24,7 +24,7 @@ public class Emoji_Group extends javax.swing.JButton
         setBorder(null);
         setPreferredSize(new java.awt.Dimension(50, 32));
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        setIcon(new ImageIcon(getClass().getResource("/emoji/" + icon)));
+        setIcon(new ImageIcon(getClass().getResource("/Icons/Emojis/" + icon)));
     }
 
 }

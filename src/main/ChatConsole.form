@@ -56,10 +56,10 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/photo.png"/>
+              <Image iconType="3" name="/Icons/photo.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/photo_pressed.png"/>
+              <Image iconType="3" name="/Icons/photo_pressed.png"/>
             </Property>
           </Properties>
           <Events>
@@ -72,10 +72,10 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/emoji.png"/>
+              <Image iconType="3" name="/Icons/emoji.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/emoji_pressed.png"/>
+              <Image iconType="3" name="/Icons/emoji_pressed.png"/>
             </Property>
           </Properties>
           <Events>
@@ -88,10 +88,10 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/file.png"/>
+              <Image iconType="3" name="/Icons/file.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/file_pressed.png"/>
+              <Image iconType="3" name="/Icons/file_pressed.png"/>
             </Property>
           </Properties>
           <Events>
@@ -104,10 +104,10 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/microphone.png"/>
+              <Image iconType="3" name="/Icons/microphone.png"/>
             </Property>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/microphone_pressed.png"/>
+              <Image iconType="3" name="/Icons/microphone_pressed.png"/>
             </Property>
           </Properties>
           <Events>
@@ -715,7 +715,7 @@
         <Component class="javax.swing.JButton" name="cmdSend">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/send.png"/>
+              <Image iconType="3" name="/Icons/send.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -726,7 +726,7 @@
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/send_click.png"/>
+              <Image iconType="3" name="/Icons/send_click.png"/>
             </Property>
           </Properties>
           <Events>
@@ -759,7 +759,7 @@
         <Component class="javax.swing.JButton" name="cmdMore">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/more.png"/>
+              <Image iconType="3" name="/Icons/more.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -770,7 +770,7 @@
             </Property>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/more_pressed.png"/>
+              <Image iconType="3" name="/Icons/more_pressed.png"/>
             </Property>
           </Properties>
           <Events>

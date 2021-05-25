@@ -45,7 +45,7 @@ public class Login extends javax.swing.JFrame
     private void open()
     {
         //Title icon
-        setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Icons/icon.png")).getImage());
         Method.setTextFieldStyle(UserNameField, "Username");
         Method.setTextFieldStyle(IpField, "IP Address");
         Method.setTextFieldStyle(PortField, "Port Number");
@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame
         errorStatus.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/profile.png"))); // NOI18N
         profile.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)

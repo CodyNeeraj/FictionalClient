@@ -93,11 +93,11 @@ public class Send_File_New extends javax.swing.JPanel
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
         border.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/border_small.png"))); // NOI18N
+        border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/border_small.png"))); // NOI18N
         jLayeredPane1.add(border);
 
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
         lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
@@ -106,7 +106,7 @@ public class Send_File_New extends javax.swing.JPanel
         lbName.setText("You");
 
         lbFileName.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
-        lbFileName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_1.png"))); // NOI18N
+        lbFileName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/file_1.png"))); // NOI18N
         lbFileName.setText("File name.rar");
         lbFileName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 20));
         lbFileName.setContentAreaFilled(false);

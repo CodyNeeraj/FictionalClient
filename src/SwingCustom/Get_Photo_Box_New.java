@@ -85,11 +85,11 @@ public class Get_Photo_Box_New extends javax.swing.JPanel
         jLayeredPane1.setLayout(new javax.swing.OverlayLayout(jLayeredPane1));
 
         border.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/border_small.png"))); // NOI18N
+        border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/border_small.png"))); // NOI18N
         jLayeredPane1.add(border);
 
         profile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/profile_small.png"))); // NOI18N
+        profile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/profile_small.png"))); // NOI18N
         jLayeredPane1.add(profile);
 
         lb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

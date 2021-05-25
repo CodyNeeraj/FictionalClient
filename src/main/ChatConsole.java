@@ -88,7 +88,7 @@ public class ChatConsole extends javax.swing.JFrame
 
     private void open()
     {
-        setIconImage(new ImageIcon(getClass().getResource("/icon/icon.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/Icons/icon.png")).getImage());
         popUp.add(panel);
         popUp_emoji.add(panel_emoji);
         popMix.add(panelMix);
@@ -101,31 +101,31 @@ public class ChatConsole extends javax.swing.JFrame
         {
             cmdSendActionPerformed(null);
         }
-        Emoji_Group eg1 = new Emoji_Group("emoji_green.png", 28);
-        eg1.setName("emoji_green");
+        Emoji_Group eg1 = new Emoji_Group("emoji.png", 24);
+        eg1.setName("emoji");
         eg1.addActionListener((ActionEvent ae) ->
         {
             setEmoji(eg1);
         });
         panelGroup.add(eg1);
-        Emoji_Group eg2 = new Emoji_Group("emoji_yellow.png", 28);
-        eg2.setName("emoji_yellow");
-        eg2.addActionListener((ActionEvent ae) ->
-        {
-            panelEmoji.removeAll();
-            for(int i = 1; i <= eg2.getIcons(); i++)
-            {
-                Emoji emo = new Emoji(eg2.getName() + " (" + i + ").png");
-                emo.addActionListener((ActionEvent ae1) ->
-                {
-                    setEmoji(emo.getName());
-                });
-                panelEmoji.add(emo);
-            }
-            panelEmoji.revalidate();
-            panelEmoji.repaint();
-        });
-        panelGroup.add(eg2);
+//        Emoji_Group eg2 = new Emoji_Group("emoji_yellow.png", 28);
+//        eg2.setName("emoji_yellow");
+//        eg2.addActionListener((ActionEvent ae) ->
+//        {
+//            panelEmoji.removeAll();
+//            for(int i = 1; i <= eg2.getIcons(); i++)
+//            {
+//                Emoji emo = new Emoji(eg2.getName() + " (" + i + ").png");
+//                emo.addActionListener((ActionEvent ae1) ->
+//                {
+//                    setEmoji(emo.getName());
+//                });
+//                panelEmoji.add(emo);
+//            }
+//            panelEmoji.revalidate();
+//            panelEmoji.repaint();
+//        });
+//        panelGroup.add(eg2);
         setEmoji(eg1);
     }
 
@@ -201,8 +201,8 @@ public class ChatConsole extends javax.swing.JFrame
         panel.setBackground(new java.awt.Color(255, 255, 255));
 
         cmdPhoto.setBackground(new java.awt.Color(255, 255, 255));
-        cmdPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/photo.png"))); // NOI18N
-        cmdPhoto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/photo_pressed.png"))); // NOI18N
+        cmdPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/photo.png"))); // NOI18N
+        cmdPhoto.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/photo_pressed.png"))); // NOI18N
         cmdPhoto.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -212,8 +212,8 @@ public class ChatConsole extends javax.swing.JFrame
         });
 
         cmdEmoji.setBackground(new java.awt.Color(255, 255, 255));
-        cmdEmoji.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/emoji.png"))); // NOI18N
-        cmdEmoji.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/emoji_pressed.png"))); // NOI18N
+        cmdEmoji.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/emoji.png"))); // NOI18N
+        cmdEmoji.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/emoji_pressed.png"))); // NOI18N
         cmdEmoji.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -223,8 +223,8 @@ public class ChatConsole extends javax.swing.JFrame
         });
 
         cmdFile.setBackground(new java.awt.Color(255, 255, 255));
-        cmdFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file.png"))); // NOI18N
-        cmdFile.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_pressed.png"))); // NOI18N
+        cmdFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/file.png"))); // NOI18N
+        cmdFile.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/file_pressed.png"))); // NOI18N
         cmdFile.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -234,8 +234,8 @@ public class ChatConsole extends javax.swing.JFrame
         });
 
         cmdAudio.setBackground(new java.awt.Color(255, 255, 255));
-        cmdAudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/microphone.png"))); // NOI18N
-        cmdAudio.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/microphone_pressed.png"))); // NOI18N
+        cmdAudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/microphone.png"))); // NOI18N
+        cmdAudio.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/microphone_pressed.png"))); // NOI18N
         cmdAudio.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -460,12 +460,12 @@ public class ChatConsole extends javax.swing.JFrame
             }
         });
 
-        cmdSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/send.png"))); // NOI18N
+        cmdSend.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/send.png"))); // NOI18N
         cmdSend.setBorder(null);
         cmdSend.setContentAreaFilled(false);
         cmdSend.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmdSend.setFocusable(false);
-        cmdSend.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/send_click.png"))); // NOI18N
+        cmdSend.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/send_click.png"))); // NOI18N
         cmdSend.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -483,12 +483,12 @@ public class ChatConsole extends javax.swing.JFrame
         jLabel2.setForeground(new java.awt.Color(62, 62, 62));
         jLabel2.setText("Chat");
 
-        cmdMore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/more.png"))); // NOI18N
+        cmdMore.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/more.png"))); // NOI18N
         cmdMore.setBorder(null);
         cmdMore.setContentAreaFilled(false);
         cmdMore.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmdMore.setFocusable(false);
-        cmdMore.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/more_pressed.png"))); // NOI18N
+        cmdMore.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/more_pressed.png"))); // NOI18N
         cmdMore.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

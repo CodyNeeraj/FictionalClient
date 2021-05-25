@@ -82,7 +82,7 @@ public class Send_File extends javax.swing.JPanel
         setMaximumSize(new java.awt.Dimension(600, 45));
 
         lbFileName.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
-        lbFileName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/file_1.png"))); // NOI18N
+        lbFileName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/file_1.png"))); // NOI18N
         lbFileName.setText("File name.rar");
         lbFileName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 20, 1, 20));
         lbFileName.setContentAreaFilled(false);

@@ -48,7 +48,7 @@
           <Connection code="FontLoader.getKhmer_Font().deriveFont(0, 13f)" type="code"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/icon/file_1.png"/>
+          <Image iconType="3" name="/Icons/file_1.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="File name.rar"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

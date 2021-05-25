@@ -89,7 +89,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/border_small.png"/>
+              <Image iconType="3" name="/Icons/border_small.png"/>
             </Property>
           </Properties>
         </Component>
@@ -97,7 +97,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icon/profile_small.png"/>
+              <Image iconType="3" name="/Icons/profile_small.png"/>
             </Property>
           </Properties>
         </Component>
