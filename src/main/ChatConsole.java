@@ -40,8 +40,6 @@ import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.lang.management.RuntimeMXBean;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -937,16 +935,19 @@ public class ChatConsole extends javax.swing.JFrame
 
     private void uptimeLblAncestorAdded(javax.swing.event.AncestorEvent evt)//GEN-FIRST:event_uptimeLblAncestorAdded
     {//GEN-HEADEREND:event_uptimeLblAncestorAdded
-        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+//        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+//        rb.getUptime();
+        long start = System.currentTimeMillis() / 1000;
         Timer t1 = new Timer();
         TimerTask task = new TimerTask()
         {
-            long hrs, mins, secs;
+            long hrs, mins, secs, now;
 
             @Override
             public void run()
             {
-                secs = rb.getUptime() / 1000;
+                now = System.currentTimeMillis() / 1000;
+                secs = now - start;
 
 //                By using TimeUnit inbuilt Class
 //                hrs = TimeUnit.SECONDS.toHours(secs) - (day * 24);
