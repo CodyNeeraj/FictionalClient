@@ -73,6 +73,7 @@ import message.Message;
 public class ChatConsole extends javax.swing.JFrame
 {
     private static final long serialVersionUID = 1L;
+    private static long startTime = System.currentTimeMillis() / 1000;
 
     public ChatConsole()
     {
@@ -993,7 +994,6 @@ public class ChatConsole extends javax.swing.JFrame
     {//GEN-HEADEREND:event_uptimeLblAncestorAdded
 //        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
 //        rb.getUptime();
-        long start = System.currentTimeMillis() / 1000;
         Timer t1 = new Timer();
         TimerTask task = new TimerTask()
         {
@@ -1003,7 +1003,7 @@ public class ChatConsole extends javax.swing.JFrame
             public void run()
             {
                 now = System.currentTimeMillis() / 1000;
-                secs = now - start;
+                secs = now - startTime;
 
 //                By using TimeUnit inbuilt Class
 //                hrs = TimeUnit.SECONDS.toHours(secs) - (day * 24);
