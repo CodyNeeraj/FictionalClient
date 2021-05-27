@@ -27,12 +27,19 @@ import function.FileChooser;
 import function.FontLoader;
 import function.Method;
 import function.Scrolling;
+import java.awt.AWTException;
 import java.awt.Adjustable;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
 import java.awt.RenderingHints;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
@@ -80,6 +87,7 @@ public class ChatConsole extends javax.swing.JFrame
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
+        initComponentsNew();
         cmdMix.setFont(FontLoader.getSans_Serif_Font().deriveFont(1, 18f));
         open();
     }
@@ -749,6 +757,54 @@ public class ChatConsole extends javax.swing.JFrame
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void initComponentsNew()
+    {
+        SystemTray = SystemTray.getSystemTray();
+        PopupMenu = new PopupMenu();
+        showItem = new MenuItem("Socketty's Client");
+        showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
+        exitItem = new MenuItem("Exit");
+        exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
+        URL url = System.class.getResource("/Icons/tray_icon.png");
+        ico = Toolkit.getDefaultToolkit().getImage(url);
+        trayIcon = new TrayIcon(ico, "Socketty Connector", PopupMenu);
+        //adjust to default size as per system recommendation
+        trayIcon.setImageAutoSize(true);
+        PopupMenu.add(showItem);
+        PopupMenu.addSeparator();
+        PopupMenu.add(exitItem);
+
+        showItem.addActionListener((java.awt.event.ActionEvent evt) ->
+        {
+            showItemActionPerformed(evt);
+        });
+
+        exitItem.addActionListener((ActionEvent evt) ->
+        {
+            exitItemActionPerformed(evt);
+        });
+        try
+        {
+            SystemTray.add(trayIcon);
+        }
+        catch(AWTException e)
+        {
+            Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    private void showItemActionPerformed(ActionEvent evt)
+    {
+        this.setVisible(true);
+        this.revalidate();
+    }
+
+    private void exitItemActionPerformed(ActionEvent evt)
+    {
+        this.setVisible(true);
+        cmdLogOut.doClick();
+    }
+
     private void setEmoji(Emoji_Group eg1)
     {
         panelEmoji.removeAll();
@@ -1004,7 +1060,14 @@ public class ChatConsole extends javax.swing.JFrame
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
     {//GEN-HEADEREND:event_formWindowClosing
-        cmdLogOut.doClick();
+        if(!SystemTray.isSupported())
+        {
+            cmdLogOut.doClick();
+        }
+        if(SystemTray.isSupported())
+        {
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_formWindowClosing
 
     private void txtKeyPressed(java.awt.event.KeyEvent evt)//GEN-FIRST:event_txtKeyPressed
@@ -1416,6 +1479,12 @@ public class ChatConsole extends javax.swing.JFrame
         });
     }
 
+    private SystemTray SystemTray;
+    private PopupMenu PopupMenu;
+    private MenuItem showItem;
+    private MenuItem exitItem;
+    private Image ico;
+    private TrayIcon trayIcon;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ChatScrollPane;
     private javax.swing.JScrollPane FriendScrollPane;

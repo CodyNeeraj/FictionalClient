@@ -3,11 +3,18 @@ package main;
 import function.FileChooser;
 import function.FontLoader;
 import function.Method;
+import java.awt.AWTException;
 import java.awt.Image;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
+import java.awt.SystemTray;
+import java.awt.Toolkit;
+import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.ConnectException;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,8 +44,8 @@ public class Login extends javax.swing.JFrame
         {
             Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         initComponents();
+        initComponentsNew();
         open();
     }
 
@@ -66,9 +73,16 @@ public class Login extends javax.swing.JFrame
         errorStatus = new javax.swing.JLabel();
         profile = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Socketty Connect");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter()
+        {
+            public void windowClosing(java.awt.event.WindowEvent evt)
+            {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
 
@@ -196,6 +210,55 @@ public class Login extends javax.swing.JFrame
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void initComponentsNew()
+    {
+        SystemTray = SystemTray.getSystemTray();
+        PopupMenu = new PopupMenu();
+        showItem = new MenuItem("Socketty's Client");
+        showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
+        exitItem = new MenuItem("Exit");
+        exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
+        URL url = System.class.getResource("/Icons/tray_icon.png");
+        ico = Toolkit.getDefaultToolkit().getImage(url);
+        trayIcon = new TrayIcon(ico, "Socketty Connector", PopupMenu);
+        //adjust to default size as per system recommendation
+        trayIcon.setImageAutoSize(true);
+        PopupMenu.add(showItem);
+        PopupMenu.addSeparator();
+        PopupMenu.add(exitItem);
+
+        showItem.addActionListener((java.awt.event.ActionEvent evt) ->
+        {
+            showItemActionPerformed(evt);
+        });
+
+        exitItem.addActionListener((ActionEvent evt) ->
+        {
+            exitItemActionPerformed(evt);
+        });
+        try
+        {
+            SystemTray.add(trayIcon);
+        }
+        catch(AWTException e)
+        {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    private void showItemActionPerformed(ActionEvent evt)
+    {
+        this.setVisible(true);
+        this.revalidate();
+    }
+
+    private void exitItemActionPerformed(ActionEvent evt)
+    {
+        this.setVisible(true);
+        this.setVisible(true);
+        System.exit(0);
+    }
 
     private void ConnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectBtnActionPerformed
         try
@@ -369,6 +432,18 @@ public class Login extends javax.swing.JFrame
         }
     }//GEN-LAST:event_profileMouseClicked
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
+    {//GEN-HEADEREND:event_formWindowClosing
+        if(!SystemTray.isSupported())
+        {
+            System.exit(0);
+        }
+        if(SystemTray.isSupported())
+        {
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_formWindowClosing
+
     private ImageIcon profile_pic;
     private Timer timer = new Timer(5000, new ActionListener()
     {
@@ -404,7 +479,12 @@ public class Login extends javax.swing.JFrame
             new Login().setVisible(true);
         });
     }
-
+    private SystemTray SystemTray;
+    private PopupMenu PopupMenu;
+    private MenuItem showItem;
+    private MenuItem exitItem;
+    private Image ico;
+    private TrayIcon trayIcon;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private SwingCustom.Button ConnectBtn;
     private javax.swing.JTextField IpField;
