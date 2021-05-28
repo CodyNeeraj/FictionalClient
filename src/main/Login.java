@@ -259,7 +259,7 @@ public class Login extends javax.swing.JFrame
         this.setVisible(true);
         System.exit(0);
     }
-
+    
     private void ConnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectBtnActionPerformed
         try
         {
@@ -372,7 +372,7 @@ public class Login extends javax.swing.JFrame
             Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_ConnectBtnActionPerformed
-
+    
     private void UserNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserNameFieldKeyTyped
         if(evt.getKeyChar() == 10)
         {
@@ -383,14 +383,14 @@ public class Login extends javax.swing.JFrame
             evt.consume();
         }
     }//GEN-LAST:event_UserNameFieldKeyTyped
-
+    
     private void IpFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IpFieldKeyTyped
         if(evt.getKeyChar() == 10)
         {
             ConnectBtnActionPerformed(null);
         }
     }//GEN-LAST:event_IpFieldKeyTyped
-
+    
     private void profileMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_profileMouseClicked
     {//GEN-HEADEREND:event_profileMouseClicked
         if(evt.getClickCount() == 1 && SwingUtilities.isLeftMouseButton(evt))
@@ -432,7 +432,7 @@ public class Login extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_profileMouseClicked
-
+    
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
     {//GEN-HEADEREND:event_formWindowClosing
         if(!SystemTray.isSupported())

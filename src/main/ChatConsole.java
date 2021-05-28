@@ -899,10 +899,10 @@ public class ChatConsole extends javax.swing.JFrame
                 switch(ms)
                 {
                     case "Socket closed":
-                        signOut("Sign out");
+                        signOut("Logged out");
                         break;
                     case "Connection reset":
-                        signOut("Server has error");
+                        signOut("Server has an error");
                         break;
                     default:
                         signOut("Error : " + ms);
