@@ -16,7 +16,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class StartFrame extends javax.swing.JFrame
 {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 5455364458445364L;
     private ImageIcon ico;
     private Socket soc;
 

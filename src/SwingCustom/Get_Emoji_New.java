@@ -49,7 +49,7 @@ public class Get_Emoji_New extends javax.swing.JPanel
         jLayeredPane1.add(profile);
 
         lb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Emojis/emoji_green (1).png"))); // NOI18N
+        lb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/Emojis/emoji (1).png"))); // NOI18N
 
         lbName.setFont(FontLoader.getKhmer_Font().deriveFont(1, 12f));
         lbName.setForeground(new java.awt.Color(29, 118, 206));

@@ -72,8 +72,8 @@ import message.Message;
 
 public class ChatConsole extends javax.swing.JFrame
 {
-    private static final long serialVersionUID = 1L;
-    private static long startTime = System.currentTimeMillis() / 1000;
+    private static final long serialVersionUID = 5455364458445364L;
+    private static final long startTime = System.currentTimeMillis() / 1000;
 
     public ChatConsole()
     {

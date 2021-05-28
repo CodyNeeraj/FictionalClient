@@ -108,7 +108,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Icons/Emojis/emoji_green (1).png"/>
+          <Image iconType="3" name="/Icons/Emojis/emoji (1).png"/>
         </Property>
       </Properties>
     </Component>
