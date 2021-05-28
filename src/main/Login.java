@@ -31,7 +31,7 @@ import javax.swing.filechooser.FileFilter;
 public class Login extends javax.swing.JFrame
 {
     private static final long serialVersionUID = 5455364458445364L;
-
+    
     public Login()
     {
         try
@@ -48,7 +48,7 @@ public class Login extends javax.swing.JFrame
         initComponentsNew();
         open();
     }
-
+    
     private void open()
     {
         //Title icon
@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame
         Method.setTextFieldStyle(PortField, "Port Number");
         showStatus(ms);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents()
@@ -219,7 +219,7 @@ public class Login extends javax.swing.JFrame
         showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
         exitItem = new MenuItem("Exit");
         exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
-        URL url = System.class.getResource("/Icons/tray_icon.png");
+        URL url = getClass().getResource("/Icons/tray_icon.png");
         ico = Toolkit.getDefaultToolkit().getImage(url);
         trayIcon = new TrayIcon(ico, "Socketty Connector", PopupMenu);
         //adjust to default size as per system recommendation
@@ -227,12 +227,12 @@ public class Login extends javax.swing.JFrame
         PopupMenu.add(showItem);
         PopupMenu.addSeparator();
         PopupMenu.add(exitItem);
-
+        
         showItem.addActionListener((java.awt.event.ActionEvent evt) ->
         {
             showItemActionPerformed(evt);
         });
-
+        
         exitItem.addActionListener((ActionEvent evt) ->
         {
             exitItemActionPerformed(evt);
@@ -246,13 +246,13 @@ public class Login extends javax.swing.JFrame
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-
+    
     private void showItemActionPerformed(ActionEvent evt)
     {
         this.setVisible(true);
         this.revalidate();
     }
-
+    
     private void exitItemActionPerformed(ActionEvent evt)
     {
         this.setVisible(true);
@@ -263,7 +263,7 @@ public class Login extends javax.swing.JFrame
     private void ConnectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnectBtnActionPerformed
         try
         {
-
+            
             String IpValidator = "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
             Pattern ptrn = Pattern.compile(IpValidator);
             String ipv4 = IpField.getText();
@@ -292,20 +292,20 @@ public class Login extends javax.swing.JFrame
                     showStatus("Port can only be an Integer Number !");
                 }
             }
-
+            
             if((port < 10) || (port >= 65536))
             {
                 isValidPort = false;
                 showStatus("Port not in Range (10 - 65535)");
                 PortField.grabFocus();
             }
-
+            
             if((!IpField.getText().toLowerCase().trim().equals("localhost")) || (!mtch.matches()))
             {
                 isValidIP = false;
                 IpField.grabFocus();
             }
-
+            
             if(UserNameField.getText().trim().length() > 15)
             {
                 isValidName = false;
@@ -320,7 +320,7 @@ public class Login extends javax.swing.JFrame
             {
                 showStatus("Name can't be left Empty");
             }
-
+            
             if(port > 10 && port < 65536)//in range function (checking after being in the memory first)
             {
                 if((IpField.getText().toLowerCase().trim().equals("localhost")) || (mtch.matches()))
@@ -349,6 +349,7 @@ public class Login extends javax.swing.JFrame
             {
                 Method.connect(profile_pic, UserNameField.getText().trim(), IpField.getText().trim(), port);
                 this.dispose();
+                SystemTray.remove(trayIcon);
                 ChatConsole.main(null);
             }
         }
@@ -406,7 +407,7 @@ public class Login extends javax.swing.JFrame
                     String name = file.getName();
                     return file.isDirectory() || name.endsWith(".png") || name.endsWith(".PNG") || name.endsWith("jpg") || name.endsWith("JPG");
                 }
-
+                
                 @Override
                 public String getDescription()
                 {
@@ -443,7 +444,7 @@ public class Login extends javax.swing.JFrame
             this.setVisible(false);
         }
     }//GEN-LAST:event_formWindowClosing
-
+    
     private ImageIcon profile_pic;
     private Timer timer = new Timer(5000, new ActionListener()
     {
@@ -454,7 +455,7 @@ public class Login extends javax.swing.JFrame
             timer.stop();
         }
     });
-
+    
     private void showStatus(String errorData)
     {
         if(timer.isRunning())
@@ -465,9 +466,9 @@ public class Login extends javax.swing.JFrame
         timer.start();
         errorStatus.setText(errorData);
     }
-
+    
     private static String ms = "";
-
+    
     public static void main(String args[])
     {
         java.awt.EventQueue.invokeLater(() ->

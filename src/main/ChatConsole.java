@@ -766,7 +766,7 @@ public class ChatConsole extends javax.swing.JFrame
         showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
         exitItem = new MenuItem("Exit");
         exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
-        URL url = System.class.getResource("/Icons/tray_icon.png");
+        URL url = getClass().getResource("/Icons/tray_icon.png");
         ico = Toolkit.getDefaultToolkit().getImage(url);
         trayIcon = new TrayIcon(ico, "Socketty Connector", PopupMenu);
         //adjust to default size as per system recommendation
@@ -895,8 +895,6 @@ public class ChatConsole extends javax.swing.JFrame
             }
             catch(Exception e)
             {
-                System.out.println("For  this exception,  you don't need to be worried about !");
-                Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
                 String ms = e.getMessage();
                 switch(ms)
                 {
@@ -1103,6 +1101,7 @@ public class ChatConsole extends javax.swing.JFrame
         try
         {
             this.dispose();
+            SystemTray.remove(trayIcon);
             String[] v =
             {
                 ms
