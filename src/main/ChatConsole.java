@@ -784,6 +784,10 @@ public class ChatConsole extends javax.swing.JFrame
         {
             exitItemActionPerformed(evt);
         });
+        trayIcon.addActionListener((ActionEvent evt) ->
+        {
+            trayIconActionPerformed(evt);
+        });
         try
         {
             SystemTray.add(trayIcon);
@@ -795,6 +799,12 @@ public class ChatConsole extends javax.swing.JFrame
     }
 
     private void showItemActionPerformed(ActionEvent evt)
+    {
+        this.setVisible(true);
+        this.revalidate();
+    }
+
+    private void trayIconActionPerformed(ActionEvent evt)
     {
         this.setVisible(true);
         this.revalidate();
@@ -1067,7 +1077,28 @@ public class ChatConsole extends javax.swing.JFrame
         }
         if(SystemTray.isSupported())
         {
-            this.setVisible(false);
+            String options[] = new String[]
+            {
+                "Hide", "Exit"
+            };
+            int response = JOptionPane.showOptionDialog(
+                    this,
+                    "Do you really wish to Exit or Just Hide ?",
+                    "Exit",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+
+            if(response == 0)
+            {
+                this.setVisible(false);
+            }
+            if(response == 1)
+            {
+                cmdLogOut.doClick();
+            }
         }
     }//GEN-LAST:event_formWindowClosing
 

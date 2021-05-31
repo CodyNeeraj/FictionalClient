@@ -22,6 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -237,6 +238,10 @@ public class Login extends javax.swing.JFrame
         {
             exitItemActionPerformed(evt);
         });
+        trayIcon.addActionListener((ActionEvent evt) ->
+        {
+            trayIconActionPerformed(evt);
+        });
         try
         {
             SystemTray.add(trayIcon);
@@ -248,6 +253,12 @@ public class Login extends javax.swing.JFrame
     }
 
     private void showItemActionPerformed(ActionEvent evt)
+    {
+        this.setVisible(true);
+        this.revalidate();
+    }
+
+    private void trayIconActionPerformed(ActionEvent evt)
     {
         this.setVisible(true);
         this.revalidate();
@@ -441,7 +452,28 @@ public class Login extends javax.swing.JFrame
         }
         if(SystemTray.isSupported())
         {
-            this.setVisible(false);
+            String options[] = new String[]
+            {
+                "Hide", "Exit"
+            };
+            int response = JOptionPane.showOptionDialog(
+                    this,
+                    "Do you really wish to Exit or Just Hide ?",
+                    "Exit",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+
+            if(response == 0)
+            {
+                this.setVisible(false);
+            }
+            if(response == 1)
+            {
+                System.exit(0);
+            }
         }
     }//GEN-LAST:event_formWindowClosing
 
