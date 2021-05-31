@@ -83,7 +83,6 @@
   
             <zipfileset src="lib/swing-layout-1.0.4.jar" excludes="META-INF/*" />
             <zipfileset src="lib/Message.jar"            excludes="META-INF/*" /> 
-            <zipfileset src="lib/flatlaf-1.2.jar"        excludes="META-INF/*" /> 
 
             <!-- Also add everything from this dependency in the libs folder except its manifest file into the new jar file. (Do this for every dependency) -->
   

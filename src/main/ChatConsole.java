@@ -824,15 +824,18 @@ public class ChatConsole extends javax.swing.JFrame
     private void cmdSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSendActionPerformed
         if(txt.getName().equals("have") && !txt.getText().equals(""))
         {
-            try
+            if(!txt.getText().equals(" Type a message here ..."))
             {
-                Method.sendMessage(txt.getText().trim());
-                txt.setText("");
-                txt.grabFocus();
-            }
-            catch(Exception e)
-            {
-                Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
+                try
+                {
+                    Method.sendMessage(txt.getText().trim());
+                    txt.setText("");
+                    txt.grabFocus();
+                }
+                catch(Exception e)
+                {
+                    Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, e);
+                }
             }
         }
     }//GEN-LAST:event_cmdSendActionPerformed

@@ -1,6 +1,5 @@
 package main;
 
-import com.formdev.flatlaf.FlatLightLaf;
 import function.Method;
 import java.io.IOException;
 import java.net.Socket;
@@ -25,7 +24,6 @@ public class StartFrame extends javax.swing.JFrame
         try
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            UIManager.setLookAndFeel(new FlatLightLaf());
             //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             //will set the default installed l&F as windows Native
         }
