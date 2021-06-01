@@ -103,7 +103,7 @@ public class ChatConsole extends javax.swing.JFrame
         Method.setFrame(this);
         new Scrolling(panelChat);
         new Scrolling(panelFriend);
-        Method.setTextFieldStyle(txt, " Type a message here ...");
+        Method.setTextFieldStyle(txt, " Type your message here ...");
         for(int i = 0; i < 10; i++)
         {
             cmdSendActionPerformed(null);
@@ -834,7 +834,7 @@ public class ChatConsole extends javax.swing.JFrame
     private void cmdSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSendActionPerformed
         if(txt.getName().equals("have") && !txt.getText().equals(""))
         {
-            if(!txt.getText().equals(" Type a message here ..."))
+            if(!txt.getText().contains(" Type your message here ..."))
             {
                 try
                 {
