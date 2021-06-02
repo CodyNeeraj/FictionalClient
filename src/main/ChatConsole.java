@@ -424,7 +424,7 @@ public class ChatConsole extends javax.swing.JFrame
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("CodyNeeraj's Socketty Client");
+        setTitle("ClientEX by CodyNeeraj");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
@@ -669,8 +669,7 @@ public class ChatConsole extends javax.swing.JFrame
                             .add(panel_bgLayout.createSequentialGroup()
                                 .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 322, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(0, 0, 0))))
+                                .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 322, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
                     .add(panel_bgLayout.createSequentialGroup()
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel3)
@@ -763,13 +762,13 @@ public class ChatConsole extends javax.swing.JFrame
     {
         SystemTray = SystemTray.getSystemTray();
         PopupMenu = new PopupMenu();
-        showItem = new MenuItem("Socketty's Client");
+        showItem = new MenuItem("ClientEX");
         showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
         exitItem = new MenuItem("Exit");
         exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
         URL url = getClass().getResource("/Icons/tray_icon.png");
         ico = Toolkit.getDefaultToolkit().getImage(url);
-        trayIcon = new TrayIcon(ico, "Socketty Connector", PopupMenu);
+        trayIcon = new TrayIcon(ico, "ClientEX", PopupMenu);
         //adjust to default size as per system recommendation
         trayIcon.setImageAutoSize(true);
         PopupMenu.add(showItem);

@@ -75,7 +75,7 @@ public class Login extends javax.swing.JFrame
         profile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Socketty Connect");
+        setTitle("ClientEX");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter()
         {
@@ -216,13 +216,13 @@ public class Login extends javax.swing.JFrame
     {
         SystemTray = SystemTray.getSystemTray();
         PopupMenu = new PopupMenu();
-        showItem = new MenuItem("Socketty's Client");
+        showItem = new MenuItem("ClientEX");
         showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
         exitItem = new MenuItem("Exit");
         exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
         URL url = getClass().getResource("/Icons/tray_icon.png");
         ico = Toolkit.getDefaultToolkit().getImage(url);
-        trayIcon = new TrayIcon(ico, "Socketty Connector", PopupMenu);
+        trayIcon = new TrayIcon(ico, "ClientEX", PopupMenu);
         //adjust to default size as per system recommendation
         trayIcon.setImageAutoSize(true);
         PopupMenu.add(showItem);
