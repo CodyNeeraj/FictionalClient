@@ -526,7 +526,7 @@ public class ChatConsole extends javax.swing.JFrame
         cmdLogOut.setColorOver(new java.awt.Color(243, 243, 243));
         cmdLogOut.setFocusable(false);
         cmdLogOut.setFont(FontLoader.getKhmer_UI_BoldFont().deriveFont(1, 12f));
-        cmdLogOut.setText("Logout");
+        cmdLogOut.setLabel("Logout");
         cmdLogOut.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -659,7 +659,7 @@ public class ChatConsole extends javax.swing.JFrame
                         .add(FriendScrollPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(ChatScrollPane)
+                            .add(ChatScrollPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 630, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(panel_bgLayout.createSequentialGroup()
                                 .add(txt)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -667,9 +667,9 @@ public class ChatConsole extends javax.swing.JFrame
                                 .add(49, 49, 49))
                             .add(panel_bgLayout.createSequentialGroup()
                                 .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 180, Short.MAX_VALUE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 322, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(0, 69, Short.MAX_VALUE))))
+                                .add(0, 0, Short.MAX_VALUE))))
                     .add(panel_bgLayout.createSequentialGroup()
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel3)
@@ -733,14 +733,14 @@ public class ChatConsole extends javax.swing.JFrame
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(FriendScrollPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 412, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(ChatScrollPane))
+                    .add(ChatScrollPane, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 412, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(txt)
                     .add(cmdMore, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(cmdSend, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(cmdLogOut, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(10, 10, 10))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
