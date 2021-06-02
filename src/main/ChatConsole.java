@@ -47,6 +47,7 @@ import java.awt.event.AdjustmentListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -669,7 +670,7 @@ public class ChatConsole extends javax.swing.JFrame
                                 .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 53, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .add(lbStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 322, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(0, 0, Short.MAX_VALUE))))
+                                .add(0, 0, 0))))
                     .add(panel_bgLayout.createSequentialGroup()
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jLabel3)
@@ -692,8 +693,8 @@ public class ChatConsole extends javax.swing.JFrame
                         .add(panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(uptimeLbl, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 102, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .add(myname))
-                        .add(44, 44, 44)))
-                .addContainerGap())
+                        .add(10, 10, 10)))
+                .add(10, 10, 10))
         );
         panel_bgLayout.setVerticalGroup(
             panel_bgLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -834,7 +835,7 @@ public class ChatConsole extends javax.swing.JFrame
     private void cmdSendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSendActionPerformed
         if(txt.getName().equals("have") && !txt.getText().equals(""))
         {
-            if(!txt.getText().contains(" Type your message here ..."))
+            if(!txt.getText().equals(" Type your message here ..."))
             {
                 try
                 {
@@ -905,6 +906,16 @@ public class ChatConsole extends javax.swing.JFrame
                             break;
                     }
                 }
+            }
+            catch(InvalidClassException ex)
+            {
+                Logger.getLogger(ChatConsole.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(
+                        this,
+                        ex.getMessage(),
+                        "Serialization Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
             }
             catch(Exception e)
             {
@@ -1079,12 +1090,12 @@ public class ChatConsole extends javax.swing.JFrame
         {
             String options[] = new String[]
             {
-                "Hide", "Exit"
+                "Hide", "Logout"
             };
             int response = JOptionPane.showOptionDialog(
                     this,
-                    "Do you really wish to Exit or Just Hide ?",
-                    "Exit",
+                    "Do you really wish to Logout or Just Hide ?",
+                    "Logout",
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.QUESTION_MESSAGE,
                     null,
