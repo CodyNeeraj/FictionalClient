@@ -873,7 +873,6 @@ public class ChatConsole extends javax.swing.JFrame
             {
                 while(true)
                 {
-                    System.out.println("waiting message ...");
                     Message ms = (Message) Method.getIn().readObject();
                     String status = ms.getStatus();
                     switch(status)
@@ -990,7 +989,7 @@ public class ChatConsole extends javax.swing.JFrame
 
     private void cmdLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLogOutActionPerformed
         int c = JOptionPane.showConfirmDialog(this,
-                "Are you sure to Sign out ?",
+                "Are you sure to Logout ?",
                 "Session",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
