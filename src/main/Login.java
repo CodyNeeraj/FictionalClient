@@ -317,13 +317,13 @@ public class Login extends javax.swing.JFrame
                 IpField.grabFocus();
             }
 
-            if(UserNameField.getText().trim().length() > 15)
+            if(UserNameField.getText().trim().length() > 10)
             {
                 isValidName = false;
                 UserNameField.grabFocus();
-                showStatus("Username must less than 15 characters");
+                showStatus("Username must less than 11 characters");
             }
-            if(UserNameField.getText().trim().length() < 15)
+            if(UserNameField.getText().trim().length() <= 10)
             {
                 isValidName = true;
             }
@@ -389,7 +389,7 @@ public class Login extends javax.swing.JFrame
         {
             IpField.grabFocus();
         }
-        if(UserNameField.getText().trim().length() >= 15)
+        if(UserNameField.getText().trim().length() >= 10)
         {
             evt.consume();
         }
