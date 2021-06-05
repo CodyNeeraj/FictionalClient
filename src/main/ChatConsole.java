@@ -914,6 +914,7 @@ public class ChatConsole extends javax.swing.JFrame
                         "Serialization Error",
                         JOptionPane.ERROR_MESSAGE
                 );
+                System.exit(0);
             }
             catch(Exception e)
             {
