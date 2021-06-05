@@ -763,9 +763,9 @@ public class ChatConsole extends javax.swing.JFrame
         SystemTray = SystemTray.getSystemTray();
         PopupMenu = new PopupMenu();
         showItem = new MenuItem("ClientEX");
-        showItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
+        showItem.setFont(FontLoader.getSegoe_UI_SBFont().deriveFont(0, 11f));
         exitItem = new MenuItem("Exit");
-        exitItem.setFont(FontLoader.getSans_Serif_Font().deriveFont(0, 11f));
+        exitItem.setFont(FontLoader.getSegoe_UI_SBFont().deriveFont(0, 11f));
         URL url = getClass().getResource("/Icons/tray_icon.png");
         ico = Toolkit.getDefaultToolkit().getImage(url);
         trayIcon = new TrayIcon(ico, "ClientEX", PopupMenu);
