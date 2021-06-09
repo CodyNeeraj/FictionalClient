@@ -52,6 +52,7 @@ public class Send_Box_New extends javax.swing.JPanel
         setMaximumSize(new java.awt.Dimension(600, 72));
 
         txt.setEditable(false);
+        txt.setBackground(new java.awt.Color(255, 255, 255));
         txt.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
         txt.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         txt.setText("Your message here ..");

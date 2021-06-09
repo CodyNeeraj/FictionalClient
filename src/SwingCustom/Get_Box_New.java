@@ -54,6 +54,7 @@ public class Get_Box_New extends javax.swing.JPanel
         setPreferredSize(new java.awt.Dimension(600, 72));
 
         txt.setEditable(false);
+        txt.setBackground(new java.awt.Color(255, 255, 255));
         txt.setFont(FontLoader.getKhmer_Font().deriveFont(0, 13f));
         txt.setText("your message here");
         txt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 10));
