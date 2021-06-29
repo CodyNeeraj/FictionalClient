@@ -1,5 +1,3 @@
-﻿
-
 <p align=center>
 <img src ="https://user-images.githubusercontent.com/60183278/121347432-d09f6c00-c944-11eb-8d51-6b46f1cd1b82.png" align="center" width="500">
 <br><br>
@@ -66,9 +64,9 @@ This software is licensed under MIT License any Commercial use can't be done wit
   https://github.com/CodyNeeraj/Socketty-ClientEX.git
   ```
 
-2.  If above ANT not installed, you then required to have atleast Java 16 installed in your system and then do the following
+  2. Then atleast Java 16 installed in your system and then do the following
 
-  -- **(For checking JDK is in path of Env. ?)**
+   -- **(For checking JDK is in path of Env. ?)**
   ```bash
   java -version
   ```
@@ -95,6 +93,10 @@ javac -cp libs/* -d output @details.txt
 cd .. && 
 java -cp "codyneeraj_Client.jar;libs\*" main.ServerMain
 ```
+* You can also copy all the dependancies inside library folder (by removing the META-INF directory) from each and every zipped Jar file and then copy all the pure dependancy core directories to the root of output folder where we've placed other resource directories too, this will result a FAT jar file which is portable to a much higher extent and don't require any other dependancy to rely on !!
+
+> Not getting the required output result..?, you've probably did something wrong unintentionally :confused: !
+
 Native Packing Tutorial COMING SOON !!
 ## License
 Original Developer- [Neeraj](https://github.com/CodyNeeraj)
