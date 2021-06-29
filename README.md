@@ -65,11 +65,8 @@ This software is licensed under MIT License any Commercial use can't be done wit
   ```bash
   https://github.com/CodyNeeraj/Socketty-ClientEX.git
   ```
-  2. If [ANT](https://ant.apache.org/) Installed somewhere in your system, then got the root of repo and do
-  ```bash
-  ant -buildfile build.xml
-  ```
-3.  If above ANT not installed, you then required to have atleast Java 16 installed in your system and then do the following
+
+2.  If above ANT not installed, you then required to have atleast Java 16 installed in your system and then do the following
 
   -- **(For checking JDK is in path of Env. ?)**
   ```bash
@@ -84,6 +81,7 @@ dir /s /b *.java > details.txt
 mkdir output && 
 javac -cp libs/* -d output @details.txt
 ```
+* Don't forget to copy the Library folder with the compiled jar to, forgetting this will cause *ClassNotFoundError*.
 * Making A jar file out of it now, take all the packages of *.classes and take the fonts and icons folder then zip all the files now with a name of *codyneeraj_Client.jar* and then run
 ```bash
  cd output && 
